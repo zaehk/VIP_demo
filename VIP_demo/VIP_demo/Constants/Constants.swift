@@ -9,9 +9,18 @@ import Foundation
 
 struct Constants{
     
-    struct ApiConfig {
-        static let baseUrl = ""
-    }
     
+    struct ApiEndpoints{
+        
+        struct BaseURL{
+            static let moviesBaseUrl = "https://api.themoviedb.org/3/"
+        }
+        
+        struct Endpoints{
+            
+        }
+        
+    }
+
     
 }

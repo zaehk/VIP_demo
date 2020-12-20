@@ -128,6 +128,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DA9DE3F2258FE4C5008CA980 /* TabbarViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabbarViewController;
+			sourceTree = "<group>";
+		};
+		DA9DE3F3258FE5AD008CA980 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
 		DAAEC7B5258F662F009FFE78 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +240,7 @@
 		DAE70CB2258F5F0800DF31FA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DA9DE3F3258FE5AD008CA980 /* ResponseModels */,
 				DAAEC7B5258F662F009FFE78 /* Protocols */,
 				DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */,
 				DA9DE3CD258FD84C008CA980 /* ApiClient.swift */,
@@ -240,6 +255,7 @@
 		DAE70CB3258F5FA000DF31FA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA9DE3F2258FE4C5008CA980 /* TabbarViewController */,
 				DAE70C80258F5E9900DF31FA /* LaunchScreen.storyboard */,
 			);
 			path = Scenes;
