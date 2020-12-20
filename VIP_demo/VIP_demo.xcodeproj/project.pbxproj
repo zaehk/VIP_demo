@@ -3,13 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4BD0E77AB8D01716E2E7C2D6 /* Pods_VIP_demo_VIP_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */; };
 		C8AE9AE5A1DFAE169D42C41A /* Pods_VIP_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */; };
 		CE80CBF1980F17E80ACBFC0F /* Pods_VIP_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7EDF11F4F363E8F7F67724 /* Pods_VIP_demo.framework */; };
+		DA9DE3CE258FD84D008CA980 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3CD258FD84C008CA980 /* ApiClient.swift */; };
+		DA9DE3D3258FD8B2008CA980 /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */; };
+		DA9DE3D8258FD8DD008CA980 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */; };
+		DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */; };
+		DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */; };
+		DA9DE3EB258FDA00008CA980 /* ApiRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */; };
+		DAAEC7B1258F65ED009FFE78 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */; };
 		DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C75258F5E9700DF31FA /* AppDelegate.swift */; };
 		DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */; };
 		DAE70C7F258F5E9900DF31FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE70C7E258F5E9900DF31FA /* Assets.xcassets */; };
@@ -46,6 +53,13 @@
 		76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demo_VIP_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9313C341DF4EF1CE640AC00 /* Pods-VIP_demo-VIP_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-VIP_demo-VIP_demoUITests/Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9DE3CD258FD84C008CA980 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
+		DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
+		DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRetrier.swift; sourceTree = "<group>"; };
+		DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiParameters.swift; sourceTree = "<group>"; };
+		DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestAdapter.swift; sourceTree = "<group>"; };
+		DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		DAE70C72258F5E9700DF31FA /* VIP_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIP_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE70C75258F5E9700DF31FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,8 +125,15 @@
 				64E2727289A3EFD87326DCD3 /* Pods-VIP_demoTests.debug.xcconfig */,
 				4A0DB0C0A7F7F53A3A14AA64 /* Pods-VIP_demoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DAAEC7B5258F662F009FFE78 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DAE70C69258F5E9700DF31FA = {
@@ -205,6 +226,13 @@
 		DAE70CB2258F5F0800DF31FA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DAAEC7B5258F662F009FFE78 /* Protocols */,
+				DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */,
+				DA9DE3CD258FD84C008CA980 /* ApiClient.swift */,
+				DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */,
+				DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */,
+				DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */,
+				DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -462,8 +490,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9DE3CE258FD84D008CA980 /* ApiClient.swift in Sources */,
 				DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */,
+				DA9DE3EB258FDA00008CA980 /* ApiRequestAdapter.swift in Sources */,
+				DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */,
+				DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */,
 				DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */,
+				DA9DE3D8258FD8DD008CA980 /* ApiErrorType.swift in Sources */,
+				DAAEC7B1258F65ED009FFE78 /* ApiRouter.swift in Sources */,
+				DA9DE3D3258FD8B2008CA980 /* ApiClientProtocol.swift in Sources */,
 				DAE70CB6258F5FDC00DF31FA /* BaseViewController.swift in Sources */,
 				DAE70CBB258F607800DF31FA /* Constants.swift in Sources */,
 			);
