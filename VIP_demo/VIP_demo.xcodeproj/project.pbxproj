@@ -13,6 +13,8 @@
 		DAE70C82258F5E9900DF31FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE70C80258F5E9900DF31FA /* LaunchScreen.storyboard */; };
 		DAE70C8D258F5E9A00DF31FA /* VIP_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C8C258F5E9A00DF31FA /* VIP_demoTests.swift */; };
 		DAE70C98258F5E9A00DF31FA /* VIP_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C97258F5E9A00DF31FA /* VIP_demoUITests.swift */; };
+		DAE70CB6258F5FDC00DF31FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70CB5258F5FDC00DF31FA /* BaseViewController.swift */; };
+		DAE70CBB258F607800DF31FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70CBA258F607800DF31FA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		DAE70C93258F5E9A00DF31FA /* VIP_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIP_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE70C97258F5E9A00DF31FA /* VIP_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_demoUITests.swift; sourceTree = "<group>"; };
 		DAE70C99258F5E9A00DF31FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE70CB5258F5FDC00DF31FA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DAE70CBA258F607800DF31FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		DAE70C74258F5E9700DF31FA /* VIP_demo */ = {
 			isa = PBXGroup;
 			children = (
+				DAE70CB4258F5FCC00DF31FA /* Components */,
 				DAE70CB3258F5FA000DF31FA /* Scenes */,
 				DAE70CB2258F5F0800DF31FA /* API */,
 				DAE70CB1258F5EFE00DF31FA /* Extensions */,
@@ -144,6 +149,7 @@
 		DAE70CB0258F5EF800DF31FA /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				DAE70CBA258F607800DF31FA /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -168,6 +174,14 @@
 				DAE70C80258F5E9900DF31FA /* LaunchScreen.storyboard */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DAE70CB4258F5FCC00DF31FA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DAE70CB5258F5FDC00DF31FA /* BaseViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,8 @@
 			files = (
 				DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */,
 				DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */,
+				DAE70CB6258F5FDC00DF31FA /* BaseViewController.swift in Sources */,
+				DAE70CBB258F607800DF31FA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
