@@ -99,12 +99,13 @@
 		DAE70C74258F5E9700DF31FA /* VIP_demo */ = {
 			isa = PBXGroup;
 			children = (
-				DAE70CB4258F5FCC00DF31FA /* Components */,
+				DAE70C83258F5E9900DF31FA /* Info.plist */,
+				DAE70CAF258F5ED200DF31FA /* App */,
 				DAE70CB3258F5FA000DF31FA /* Scenes */,
+				DAE70CB4258F5FCC00DF31FA /* Components */,
 				DAE70CB2258F5F0800DF31FA /* API */,
 				DAE70CB1258F5EFE00DF31FA /* Extensions */,
 				DAE70CB0258F5EF800DF31FA /* Constants */,
-				DAE70CAF258F5ED200DF31FA /* App */,
 				DAE70CAE258F5EBC00DF31FA /* Resources */,
 			);
 			path = VIP_demo;
@@ -141,7 +142,6 @@
 			children = (
 				DAE70C75258F5E9700DF31FA /* AppDelegate.swift */,
 				DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */,
-				DAE70C83258F5E9900DF31FA /* Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.borjasaez.VIP-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -513,7 +513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.borjasaez.VIP-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
