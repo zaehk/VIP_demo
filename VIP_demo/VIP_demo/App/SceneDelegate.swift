@@ -20,9 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setupRootViewController(scene: UIScene) {
         if let windowScene:UIWindowScene = scene as? UIWindowScene{
             self.window = UIWindow(windowScene: windowScene)
-            let testVC = UIViewController()
-            testVC.view.backgroundColor = .red
-            self.window?.rootViewController = testVC
+            let tabbarVC = MainTabbarController()
+            self.window?.rootViewController = tabbarVC
             self.window?.makeKeyAndVisible()
         }
     }

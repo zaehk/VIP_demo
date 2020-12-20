@@ -16,6 +16,7 @@
 		DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */; };
 		DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */; };
 		DA9DE3EB258FDA00008CA980 /* ApiRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */; };
+		DA9DE3FF258FE6D2008CA980 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */; };
 		DAAEC7B1258F65ED009FFE78 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */; };
 		DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C75258F5E9700DF31FA /* AppDelegate.swift */; };
 		DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRetrier.swift; sourceTree = "<group>"; };
 		DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiParameters.swift; sourceTree = "<group>"; };
 		DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestAdapter.swift; sourceTree = "<group>"; };
+		DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		DAE70C72258F5E9700DF31FA /* VIP_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIP_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE70C75258F5E9700DF31FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		DA9DE3F2258FE4C5008CA980 /* TabbarViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */,
 			);
 			path = TabbarViewController;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 			files = (
 				DA9DE3CE258FD84D008CA980 /* ApiClient.swift in Sources */,
 				DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */,
+				DA9DE3FF258FE6D2008CA980 /* MainTabbarController.swift in Sources */,
 				DA9DE3EB258FDA00008CA980 /* ApiRequestAdapter.swift in Sources */,
 				DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */,
 				DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */,
