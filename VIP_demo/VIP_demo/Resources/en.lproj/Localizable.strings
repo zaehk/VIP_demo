@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  VIP_demo
+
+  Created by Borja Saez de Guinoa Vilaplana on 02/01/2021.
+  
+*/
+
+//MARK: Tabbar titles
+
+"tabbar_item_home" = "Home";
+"tabbar_item_soon" = "Soon";
+"tabbar_item_about" = "About";

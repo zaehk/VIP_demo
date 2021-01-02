@@ -20,6 +20,8 @@
 		DA9DE3FF258FE6D2008CA980 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */; };
 		DAAEC7B1258F65ED009FFE78 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */; };
 		DAC2C64225A08F0600EF2689 /* PopularMoviesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2C64125A08F0600EF2689 /* PopularMoviesResponseModel.swift */; };
+		DAC2C65825A0A00600EF2689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAC2C65A25A0A00600EF2689 /* Localizable.strings */; };
+		DAC2C66025A0A24300EF2689 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC2C65F25A0A24300EF2689 /* String+Localizable.swift */; };
 		DAE70C76258F5E9700DF31FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C75258F5E9700DF31FA /* AppDelegate.swift */; };
 		DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */; };
 		DAE70C7F258F5E9900DF31FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE70C7E258F5E9900DF31FA /* Assets.xcassets */; };
@@ -66,6 +68,10 @@
 		DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		DAC2C64125A08F0600EF2689 /* PopularMoviesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesResponseModel.swift; sourceTree = "<group>"; };
+		DAC2C65425A09FD400EF2689 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DAC2C65925A0A00600EF2689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAC2C65E25A0A00D00EF2689 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAC2C65F25A0A24300EF2689 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		DAE70C72258F5E9700DF31FA /* VIP_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIP_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE70C75258F5E9700DF31FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				DAE70C7E258F5E9900DF31FA /* Assets.xcassets */,
+				DAC2C65A25A0A00600EF2689 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 		DAE70CB1258F5EFE00DF31FA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DAC2C65F25A0A24300EF2689 /* String+Localizable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = DAE70C69258F5E9700DF31FA;
 			productRefGroup = DAE70C73258F5E9700DF31FA /* Products */;
@@ -387,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE70C82258F5E9900DF31FA /* LaunchScreen.storyboard in Resources */,
+				DAC2C65825A0A00600EF2689 /* Localizable.strings in Resources */,
 				DAE70C7F258F5E9900DF31FA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +536,7 @@
 				DAAEC7B1258F65ED009FFE78 /* ApiRouter.swift in Sources */,
 				DA9DE3D3258FD8B2008CA980 /* ApiClientProtocol.swift in Sources */,
 				DA6C0EBC2598F4AB001ACFE6 /* ApiEndpoints.swift in Sources */,
+				DAC2C66025A0A24300EF2689 /* String+Localizable.swift in Sources */,
 				DAC2C64225A08F0600EF2689 /* PopularMoviesResponseModel.swift in Sources */,
 				DAE70CB6258F5FDC00DF31FA /* BaseViewController.swift in Sources */,
 				DAE70CBB258F607800DF31FA /* Constants.swift in Sources */,
@@ -564,10 +575,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DAC2C65A25A0A00600EF2689 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC2C65925A0A00600EF2689 /* en */,
+				DAC2C65E25A0A00D00EF2689 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DAE70C80258F5E9900DF31FA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DAE70C81258F5E9900DF31FA /* Base */,
+				DAC2C65425A09FD400EF2689 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -579,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -640,6 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

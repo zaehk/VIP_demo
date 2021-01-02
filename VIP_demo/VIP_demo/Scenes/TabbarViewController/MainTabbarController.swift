@@ -15,13 +15,13 @@ class MainTabbarController: UITabBarController {
         //placeholders viewcontrollers
         
         let newFilmReleases = UIViewController()
-        newFilmReleases.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
+        newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage(), tag: 0)
 
         let seriesAiringNow = UIViewController()
-        seriesAiringNow.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)
+        seriesAiringNow.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.soon , image: UIImage(), tag: 1)
 
         let trending = UIViewController()
-        trending.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 2)
+        trending.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.about , image: UIImage(), tag: 2)
         
         let tabBarList = [newFilmReleases, seriesAiringNow, trending]
 
