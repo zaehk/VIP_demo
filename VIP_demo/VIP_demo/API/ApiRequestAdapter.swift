@@ -16,6 +16,7 @@ internal final class ApiARequestAdapter: RequestAdapter {
                completion: @escaping (Result<URLRequest, Error>) -> Void) {
         
         //Token logic... Customize headers....
+        completion(.success(urlRequest))
         
     }
 }
