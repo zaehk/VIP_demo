@@ -28,34 +28,49 @@ class HomeInteractor
 //MARK: -Business logic implementation
 extension HomeInteractor: HomeBusinessLogic {
     
+    //MARK: -Fetch all the movies shown on the home screen concurrently. 
+    
     func fetchMovies() {
-        movieService.fetchPopularMovies { (responseModel) in
-            print("")
+        
+        var popularMovies: [MovieResultResponseModel] = []
+        var topRatedMovies: [MovieResultResponseModel] = []
+        var nowPlayingMovies: [MovieResultResponseModel] = []
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        movieService.fetchPopularMovies { (popularMoviesResponseModel) in
+            popularMovies = popularMoviesResponseModel.results ?? []
+            dispatchGroup.leave()
         } failure: { (error, apiError) in
-            print("")
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        movieService.fetchTopRatedMovies { (topRatedMoviesResponseModel) in
+            topRatedMovies = topRatedMoviesResponseModel.results ?? []
+            dispatchGroup.leave()
+        } failure: { (error, apiError) in
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        movieService.fetchNowPlayingMovies { (nowPlaying) in
+            nowPlayingMovies = nowPlaying.results ?? []
+            dispatchGroup.leave()
+        } failure: { (error, apiError) in
+            dispatchGroup.leave()
         }
         
-        movieService.fetchDetailOfMovie(id: 464052) { (movieDetail) in
-            print("")
-        } failure: { (error, apiError) in
-            print("")
+        dispatchGroup.notify(queue: .main){
+            
+            if popularMovies.isEmpty && topRatedMovies.isEmpty && nowPlayingMovies.isEmpty {
+                self.presenter?.onGetMoviesForHomeAllFailed()
+            } else {
+                self.presenter?.onGetMoviesForHomeSucceed(popular: popularMovies, topRated: topRatedMovies, nowPlaying: nowPlayingMovies)
+            }
         }
-
-        movieService.fetchTopRatedMovies { (topRated) in
-            print("")
-        } failure: { (error, apiError) in
-            print("")
-        }
-
-        movieService.fetchNowPlayingMovies { (nowPlaying) in
-            print("")
-        } failure: { (error, apiError) in
-            print("")
-        }
-
-
     }
-    
     
     
 }

@@ -11,7 +11,8 @@ import UIKit
 
 protocol HomePresentationLogic
 {
-
+    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel])
+    func onGetMoviesForHomeAllFailed()
 }
 
 class HomePresenter
@@ -24,6 +25,21 @@ class HomePresenter
 //MARK: -Presentation logic implementation
 
 extension HomePresenter: HomePresentationLogic {
+    
+    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel]) {
+        
+        
+        
+        
+    }
+    
+    func onGetMoviesForHomeAllFailed() {
+        
+        
+        
+        
+    }
+    
     
     
 

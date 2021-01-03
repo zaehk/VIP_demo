@@ -11,66 +11,68 @@ import UIKit
 
 protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
-
+    func showMoviesList(movieCategoriesCells: [DrawerItemProtocol])
 }
 
 class HomeViewController: BaseViewController
 {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic)?
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic)?
     
-  // MARK: Variables
+    // MARK: Variables
     
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = HomeInteractor()
-    let presenter = HomePresenter()
-    let router = HomeRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    getMoviesList()
-  }
+    var movieCategoriesCells: [DrawerItemProtocol] = []
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        getMoviesList()
+    }
     
     private func getMoviesList(){
         //showSpinner
         interactor?.fetchMovies()
     }
-  
+    
 }
 
 //MARK: -Display logic implementation
 
 extension HomeViewController: HomeDisplayLogic {
     
-    
-    
+    func showMoviesList(movieCategoriesCells: [DrawerItemProtocol]) {
+        self.movieCategoriesCells = movieCategoriesCells
+    }
     
 }
