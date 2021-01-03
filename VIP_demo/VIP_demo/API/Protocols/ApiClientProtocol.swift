@@ -10,3 +10,7 @@ import Foundation
 protocol ApiClientProtocol {
     func makeRequest<T>(route: ApiRouter, responseModel: T.Type, success: @escaping (T) -> Void, failed: @escaping (Error, APIErrorType) -> Void) where T: Decodable
 }
+
+protocol ApiServiceProtocol {
+    var apiClient: ApiClientProtocol {get}
+}

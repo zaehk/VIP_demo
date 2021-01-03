@@ -12,7 +12,7 @@ import Alamofire
 
 internal enum ApiRouter {
     case getPopularMovies
-    case getMovieDetail(movieId: String)
+    case getMovieDetail(movieId: Int)
 }
 
 extension ApiRouter: URLRequestConvertible {
@@ -29,8 +29,8 @@ extension ApiRouter: URLRequestConvertible {
         switch self{
         case .getPopularMovies:
             return ApiEndpoints.MoviePath.popularMovies
-        case .getMovieDetail:
-            return ApiEndpoints.MoviePath.movieDetail
+        case .getMovieDetail(let movieId):
+            return String(format: ApiEndpoints.MoviePath.movieDetail, String(movieId))
         }
     }
     

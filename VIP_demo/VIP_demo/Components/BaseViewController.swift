@@ -8,7 +8,8 @@
 import UIKit
 
 protocol BaseViewDisplayLogic{
-    
+    func showError(error: APIErrorType)
+    func showInfo()
 }
 
 class BaseViewController: UIViewController, BaseViewDisplayLogic {
@@ -20,5 +21,16 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    
+    func showError(error: APIErrorType) {
+
+    }
+    
+    func showInfo() {
+        
+    }
+    
+    
     
 }

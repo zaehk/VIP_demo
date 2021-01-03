@@ -3,24 +3,28 @@
 //  VIP_demo
 //
 //  Created by Borja Saez de Guinoa Vilaplana on 03/01/2021.
+//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
+//
 
 
 import UIKit
 
 protocol HomePresentationLogic
 {
-  func presentSomething(response: Home.Something.Response)
+
 }
 
-class HomePresenter: HomePresentationLogic
+class HomePresenter
 {
   weak var viewController: HomeDisplayLogic?
   
-  // MARK: Do something
   
-  func presentSomething(response: Home.Something.Response)
-  {
-    let viewModel = Home.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+}
+
+//MARK: -Presentation logic implementation
+
+extension HomePresenter: HomePresentationLogic {
+    
+    
+
 }

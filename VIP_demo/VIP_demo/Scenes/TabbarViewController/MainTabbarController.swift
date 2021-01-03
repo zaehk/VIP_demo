@@ -14,7 +14,7 @@ class MainTabbarController: UITabBarController {
         
         //placeholders viewcontrollers
         
-        let newFilmReleases = UIViewController()
+        let newFilmReleases = HomeViewController()
         newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage(), tag: 0)
 
         let seriesAiringNow = UIViewController()

@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+typealias FailureCompletion = (Error,APIErrorType) -> ()
+
 internal final class ApiClient: ApiClientProtocol {
     
     static let shared = ApiClient()

@@ -3,19 +3,24 @@
 //  VIP_demo
 //
 //  Created by Borja Saez de Guinoa Vilaplana on 03/01/2021.
+//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
+//
 
 
 import UIKit
 
-protocol HomeDisplayLogic: class
+protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
-  func displaySomething(viewModel: Home.Something.ViewModel)
+
 }
 
-class HomeViewController: UITableViewController, HomeDisplayLogic
+class HomeViewController: BaseViewController
 {
   var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+  var router: (NSObjectProtocol & HomeRoutingLogic)?
+    
+  // MARK: Variables
+    
 
   // MARK: Object lifecycle
   
@@ -44,7 +49,6 @@ class HomeViewController: UITableViewController, HomeDisplayLogic
     interactor.presenter = presenter
     presenter.viewController = viewController
     router.viewController = viewController
-    router.dataStore = interactor
   }
   
   // MARK: View lifecycle
@@ -52,21 +56,21 @@ class HomeViewController: UITableViewController, HomeDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    getMoviesList()
   }
+    
+    private func getMoviesList(){
+        //showSpinner
+        interactor?.fetchMovies()
+    }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Home.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Home.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+}
+
+//MARK: -Display logic implementation
+
+extension HomeViewController: HomeDisplayLogic {
+    
+    
+    
+    
 }
