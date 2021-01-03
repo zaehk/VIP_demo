@@ -8,20 +8,33 @@
 
 
 import UIKit
+import SnapKit
 
 protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
-    func showMoviesList(movieCategoriesCells: [DrawerItemProtocol])
+    
 }
 
 class HomeViewController: BaseViewController
 {
+    // MARK: VIP
+    
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic)?
     
     // MARK: Variables
-    
+
     var movieCategoriesCells: [DrawerItemProtocol] = []
+    
+    // MARK: Views
+    
+    var tableView: UITableView = {
+        let table = UITableView()
+        table.separatorStyle = .none
+        table.estimatedRowHeight = 200
+        table.rowHeight = UITableView.automaticDimension
+        return table
+    }()
     
     // MARK: Object lifecycle
     
@@ -57,7 +70,21 @@ class HomeViewController: BaseViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setupViews()
+        setupTableView()
         getMoviesList()
+    }
+    
+    private func setupViews(){
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
+    
+    private func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func getMoviesList(){
@@ -74,5 +101,22 @@ extension HomeViewController: HomeDisplayLogic {
     func showMoviesList(movieCategoriesCells: [DrawerItemProtocol]) {
         self.movieCategoriesCells = movieCategoriesCells
     }
+    
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        movieCategoriesCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = movieCategoriesCells[indexPath.row]
+        let drawer = cellModel.cellDrawer
+        let cell = drawer.dequeueCell(tableView, cellForRowAt: indexPath)
+        drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
+        return cell
+    }
+    
     
 }
