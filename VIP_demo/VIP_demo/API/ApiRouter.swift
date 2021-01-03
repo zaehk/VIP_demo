@@ -11,8 +11,11 @@ import Alamofire
 //enum to organize all the info needed to perform every call of the app
 
 internal enum ApiRouter {
-    case getPopularMovies
-    case getMovieDetail(movieId: Int)
+    case popularMovies
+    case movieDetail(movieId: Int)
+    case nowPlayingMovies
+    case topRatedMovies
+    case upcomingMovies
 }
 
 extension ApiRouter: URLRequestConvertible {
@@ -20,17 +23,23 @@ extension ApiRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self{
         
-        case .getPopularMovies, .getMovieDetail:
+        case .popularMovies, .movieDetail, .nowPlayingMovies, .topRatedMovies, .upcomingMovies:
             return .get
         }
     }
     
     var path: String {
         switch self{
-        case .getPopularMovies:
+        case .popularMovies:
             return ApiEndpoints.MoviePath.popularMovies
-        case .getMovieDetail(let movieId):
+        case .movieDetail(let movieId):
             return String(format: ApiEndpoints.MoviePath.movieDetail, String(movieId))
+        case .nowPlayingMovies:
+            return ApiEndpoints.MoviePath.nowPlayingMovies
+        case .topRatedMovies:
+            return ApiEndpoints.MoviePath.topRatedMovies
+        case .upcomingMovies:
+            return ApiEndpoints.MoviePath.upcomingMovies
         }
     }
     

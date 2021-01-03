@@ -41,6 +41,18 @@ extension HomeInteractor: HomeBusinessLogic {
             print("")
         }
 
+        movieService.fetchTopRatedMovies { (topRated) in
+            print("")
+        } failure: { (error, apiError) in
+            print("")
+        }
+
+        movieService.fetchNowPlayingMovies { (nowPlaying) in
+            print("")
+        } failure: { (error, apiError) in
+            print("")
+        }
+
 
     }
     

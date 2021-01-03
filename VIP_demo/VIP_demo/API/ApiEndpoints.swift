@@ -15,6 +15,10 @@ struct ApiEndpoints{
     
     struct MoviePath{
         static let popularMovies = "movie/popular"
+        static let nowPlayingMovies = "movie/now_playing"
+        static let topRatedMovies = "movie/top_rated"
+        static let upcomingMovies = "movie/upcoming"
+        
         static let movieDetail = "movie/%@"
         static let movieCasting = "movie/%@/credits"
     }
