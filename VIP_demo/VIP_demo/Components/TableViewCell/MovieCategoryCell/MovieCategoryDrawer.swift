@@ -9,7 +9,6 @@ import UIKit
 
 internal final class MovieCategoryDrawer: CellDrawerProtocol {
     func dequeueCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //tableView.register(UINib(nibName: MovieCategoryCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: MovieCategoryCell.cellIdentifier())
         tableView.register(MovieCategoryCell.self, forCellReuseIdentifier: MovieCategoryCell.cellIdentifier())
         
         return tableView.dequeueReusableCell(withIdentifier: MovieCategoryCell.cellIdentifier(), for: indexPath)

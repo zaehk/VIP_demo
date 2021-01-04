@@ -1,12 +1,12 @@
 //
-//   MovieCollectionViewCellViewModel.swift
+//   MovieCollectionViewViewModel.swift
 //   VIP_demo
 //
 //   Creado por Borja Saez de Guinoa Vilaplana el 04/01/2021.
 //   Copyright (c) 2021 ___ORGANIZATIONNAME___. Todos los derechos reservados.
 
 import Foundation
-internal final class MovieCollectionViewCellViewModel {
+internal final class MovieCollectionViewCellModel {
     // example
     //    var title: String
     //    var subtitle: String
@@ -19,8 +19,8 @@ internal final class MovieCollectionViewCellViewModel {
 
 // MARK: - DrawerItemProtocol -
 
-extension MovieCollectionViewCellViewModel: CollectionDrawerItemProtocol {
+extension MovieCollectionViewCellModel: CollectionDrawerItemProtocol {
     var collectionDrawer: CollectionDrawerProtocol {
-        return MovieCollectionViewCellDrawer()
+        return MovieCollectionViewDrawer()
     }
 }
