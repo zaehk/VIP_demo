@@ -9,5 +9,7 @@
 //MARK: Tabbar titles
 
 "tabbar_item_home" = "Home";
-"tabbar_item_soon" = "Soon";
+"tabbar_item_soon" = "Upcoming";
 "tabbar_item_about" = "About";
+"tabbar_item_search" = "Search";
+

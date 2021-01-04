@@ -12,18 +12,27 @@ class MainTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //placeholders viewcontrollers
+        self.tabBar.barStyle = .black
+        self.tabBar.tintColor = .red
+        self.tabBar.unselectedItemTintColor = .white
+        self.tabBar.isTranslucent = false
         
         let newFilmReleases = HomeViewController()
-        newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage(), tag: 0)
+        newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage.init(named: "home_item"), tag: 0)
+        
+        let upcomingMovies = UIViewController()
+        upcomingMovies.view.backgroundColor = .black
+        upcomingMovies.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.soon , image: UIImage.init(named: "upcoming_item"), tag: 1)
 
-        let seriesAiringNow = UIViewController()
-        seriesAiringNow.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.soon , image: UIImage(), tag: 1)
+        let search = UIViewController()
+        search.view.backgroundColor = .black
+        search.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.search , image: UIImage.init(named: "search_item"), tag: 2)
 
         let trending = UIViewController()
-        trending.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.about , image: UIImage(), tag: 2)
+        trending.view.backgroundColor = .black
+        trending.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.about , image: UIImage.init(named: "about_item"), tag: 3)
         
-        let tabBarList = [newFilmReleases, seriesAiringNow, trending]
+        let tabBarList = [newFilmReleases, search, upcomingMovies, trending]
 
         viewControllers = tabBarList
     }
