@@ -15,6 +15,13 @@ struct Constants{
         static let search = "tabbar_item_search".localized()
         static let about = "tabbar_item_about".localized()
     }
+    
+    struct MovieCategories {
+        static let popular = "category_popular".localized()
+        static let topRated = "category_topRated".localized()
+        static let newReleases = "category_newReleases".localized()
+        static let upcoming = "category_upcoming".localized()
+    }
 
 }
 

@@ -12,7 +12,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     
     private var categoryTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
@@ -53,7 +53,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         moviesCollectionView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(categoryTitleLabel.snp.bottom)
-            make.height.equalTo(300)
+            make.height.equalTo(200)
         }
     }
 

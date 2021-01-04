@@ -24,10 +24,10 @@ class HomeViewController: BaseViewController
     
     // MARK: Variables
 
-    var movieCategoriesCells: [DrawerItemProtocol] = [MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: [])]
+    var movieCategoriesCells: [DrawerItemProtocol] = [MovieCategoryCellModel.init(title: MovieCategories.newReleases.title, elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: MovieCategories.popular.title, elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: MovieCategories.topRated.title, elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: MovieCategories.upcoming.title, elementsToDisplay: [])]
     
     // MARK: Views
     
