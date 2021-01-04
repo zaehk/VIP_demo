@@ -24,7 +24,10 @@ class HomeViewController: BaseViewController
     
     // MARK: Variables
 
-    var movieCategoriesCells: [DrawerItemProtocol] = []
+    var movieCategoriesCells: [DrawerItemProtocol] = [MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: []),
+                                                      MovieCategoryCellModel.init(title: "Prueba celda snapkit", elementsToDisplay: [])]
     
     // MARK: Views
     
@@ -33,6 +36,7 @@ class HomeViewController: BaseViewController
         table.separatorStyle = .none
         table.estimatedRowHeight = 200
         table.rowHeight = UITableView.automaticDimension
+        table.backgroundColor = .black
         return table
     }()
     

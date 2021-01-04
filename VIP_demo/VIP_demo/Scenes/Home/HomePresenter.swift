@@ -28,6 +28,8 @@ extension HomePresenter: HomePresentationLogic {
     
     func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel]) {
         
+        var moviesCategoriesCells: [DrawerItemProtocol] = []
+        
         
         
         
