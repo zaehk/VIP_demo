@@ -23,12 +23,14 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     private var moviesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
-        collectionView.backgroundColor = .darkGray
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         return collectionView
     }()
     
-    var collectionElements : [CollectionDrawerItemProtocol] = []
+    var collectionElements : [CollectionDrawerItemProtocol] = [MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init()]
     
     // MARK: - IBOutlets -
     
@@ -61,7 +63,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         moviesCollectionView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(categoryTitleLabel.snp.bottom)
-            make.height.equalTo(200)
+            make.height.equalTo(150)
         }
     }
 
@@ -72,7 +74,8 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     }
     
     func setCollectionElementsToShow(cells: [CollectionDrawerItemProtocol]) {
-        
+        self.collectionElements = cells
+        moviesCollectionView.reloadData()
     }
     
 }
@@ -90,9 +93,5 @@ extension MovieCategoryCell: UICollectionViewDataSource, UICollectionViewDelegat
         drawer.drawCollectionCell(cell, withItem: cellModel)
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        <#code#>
-//    }
-    
+
 }

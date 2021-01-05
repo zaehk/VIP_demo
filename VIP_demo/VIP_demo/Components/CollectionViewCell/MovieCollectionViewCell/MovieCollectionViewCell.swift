@@ -18,6 +18,13 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         return imageView
     }()
     
+    let movieTitleLabel : UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        titleLabel.textColor = .white
+        return titleLabel
+    }()
+    
         // MARK: - Internal Methods -
 
     
@@ -26,7 +33,9 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         self.contentView.backgroundColor = .clear
         self.backgroundColor = .clear
         addSubview(posterImageView)
+        addSubview(movieTitleLabel)
         setupViewsConstraints()
+        movieTitleLabel.text = "Prueba texto"
     }
     
     required init?(coder: NSCoder) {
@@ -39,8 +48,15 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
     
     private func setupViewsConstraints(){
         posterImageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().offset(15)
+            make.edges.equalToSuperview()
+            make.height.equalTo(130)
+            make.width.equalTo(90)
         }
+        
+        movieTitleLabel.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(posterImageView)
+        }
+        
     }
 
 }

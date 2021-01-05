@@ -36,6 +36,7 @@ class HomeViewController: BaseViewController
         table.separatorStyle = .none
         table.estimatedRowHeight = 200
         table.rowHeight = UITableView.automaticDimension
+        table.allowsSelection = false
         table.backgroundColor = .black
         return table
     }()
