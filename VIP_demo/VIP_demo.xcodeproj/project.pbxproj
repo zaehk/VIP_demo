@@ -10,6 +10,10 @@
 		4BD0E77AB8D01716E2E7C2D6 /* Pods_VIP_demo_VIP_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */; };
 		C8AE9AE5A1DFAE169D42C41A /* Pods_VIP_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */; };
 		CE80CBF1980F17E80ACBFC0F /* Pods_VIP_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7EDF11F4F363E8F7F67724 /* Pods_VIP_demo.framework */; };
+		DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */; };
+		DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */; };
+		DA27627425A4716B006D9AA7 /* HomeWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27627025A4716B006D9AA7 /* HomeWorkerTests.swift */; };
+		DA27627525A4716B006D9AA7 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27627125A4716B006D9AA7 /* HomePresenterTests.swift */; };
 		DA31D76425A381B0008C80B5 /* MovieCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA31D76025A381B0008C80B5 /* MovieCategoryCell.swift */; };
 		DA31D76525A381B0008C80B5 /* MovieCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA31D76125A381B0008C80B5 /* MovieCategoryCellModel.swift */; };
 		DA31D76725A381B0008C80B5 /* MovieCategoryDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA31D76325A381B0008C80B5 /* MovieCategoryDrawer.swift */; };
@@ -35,8 +39,6 @@
 		DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C77258F5E9700DF31FA /* SceneDelegate.swift */; };
 		DAE70C7F258F5E9900DF31FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE70C7E258F5E9900DF31FA /* Assets.xcassets */; };
 		DAE70C82258F5E9900DF31FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE70C80258F5E9900DF31FA /* LaunchScreen.storyboard */; };
-		DAE70C8D258F5E9A00DF31FA /* VIP_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C8C258F5E9A00DF31FA /* VIP_demoTests.swift */; };
-		DAE70C98258F5E9A00DF31FA /* VIP_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70C97258F5E9A00DF31FA /* VIP_demoUITests.swift */; };
 		DAE70CB6258F5FDC00DF31FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70CB5258F5FDC00DF31FA /* BaseViewController.swift */; };
 		DAE70CBB258F607800DF31FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70CBA258F607800DF31FA /* Constants.swift */; };
 		DAF0455925A1E63700C52691 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0455325A1E63700C52691 /* HomePresenter.swift */; };
@@ -76,6 +78,10 @@
 		76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demo_VIP_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9313C341DF4EF1CE640AC00 /* Pods-VIP_demo-VIP_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-VIP_demo-VIP_demoUITests/Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		DA27627025A4716B006D9AA7 /* HomeWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerTests.swift; sourceTree = "<group>"; };
+		DA27627125A4716B006D9AA7 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		DA31D76025A381B0008C80B5 /* MovieCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryCell.swift; sourceTree = "<group>"; };
 		DA31D76125A381B0008C80B5 /* MovieCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryCellModel.swift; sourceTree = "<group>"; };
 		DA31D76325A381B0008C80B5 /* MovieCategoryDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryDrawer.swift; sourceTree = "<group>"; };
@@ -106,10 +112,8 @@
 		DAE70C81258F5E9900DF31FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE70C83258F5E9900DF31FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE70C88258F5E9A00DF31FA /* VIP_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIP_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAE70C8C258F5E9A00DF31FA /* VIP_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_demoTests.swift; sourceTree = "<group>"; };
 		DAE70C8E258F5E9A00DF31FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE70C93258F5E9A00DF31FA /* VIP_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIP_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAE70C97258F5E9A00DF31FA /* VIP_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_demoUITests.swift; sourceTree = "<group>"; };
 		DAE70C99258F5E9A00DF31FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE70CB5258F5FDC00DF31FA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DAE70CBA258F607800DF31FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -174,6 +178,17 @@
 				4A0DB0C0A7F7F53A3A14AA64 /* Pods-VIP_demoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA27626D25A4715A006D9AA7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */,
+				DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */,
+				DA27627025A4716B006D9AA7 /* HomeWorkerTests.swift */,
+				DA27627125A4716B006D9AA7 /* HomePresenterTests.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DA31D75F25A37FAD008C80B5 /* MovieCategoryCell */ = {
@@ -297,7 +312,7 @@
 		DAE70C8B258F5E9A00DF31FA /* VIP_demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				DAE70C8C258F5E9A00DF31FA /* VIP_demoTests.swift */,
+				DA27626D25A4715A006D9AA7 /* Home */,
 				DAE70C8E258F5E9A00DF31FA /* Info.plist */,
 			);
 			path = VIP_demoTests;
@@ -306,7 +321,6 @@
 		DAE70C96258F5E9A00DF31FA /* VIP_demoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DAE70C97258F5E9A00DF31FA /* VIP_demoUITests.swift */,
 				DAE70C99258F5E9A00DF31FA /* Info.plist */,
 			);
 			path = VIP_demoUITests;
@@ -683,7 +697,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE70C8D258F5E9A00DF31FA /* VIP_demoTests.swift in Sources */,
+				DA27627425A4716B006D9AA7 /* HomeWorkerTests.swift in Sources */,
+				DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */,
+				DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */,
+				DA27627525A4716B006D9AA7 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +708,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE70C98258F5E9A00DF31FA /* VIP_demoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

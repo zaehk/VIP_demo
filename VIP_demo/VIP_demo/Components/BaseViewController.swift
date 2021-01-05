@@ -8,8 +8,8 @@
 import UIKit
 
 protocol BaseViewDisplayLogic{
-    func showError(error: APIErrorType)
-    func showInfo()
+    func showErrorAlert(error: APIErrorType)
+    func showInfoAlert()
 }
 
 class BaseViewController: UIViewController, BaseViewDisplayLogic {
@@ -23,11 +23,11 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     }
     
     
-    func showError(error: APIErrorType) {
+    func showErrorAlert(error: APIErrorType) {
 
     }
     
-    func showInfo() {
+    func showInfoAlert() {
         
     }
     
