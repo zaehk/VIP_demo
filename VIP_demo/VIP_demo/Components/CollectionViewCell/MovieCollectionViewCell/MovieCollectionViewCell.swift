@@ -12,13 +12,13 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
 
         // MARK: - Views -
 
-    let posterImageView : UIImageView = {
+    private let posterImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .red
         return imageView
     }()
     
-    let movieTitleLabel : UILabel = {
+    private let movieTitleLabel : UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 10)
         titleLabel.textColor = .white
@@ -56,6 +56,14 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         movieTitleLabel.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(posterImageView)
         }
+        
+    }
+    
+    func setMovieTitle(title: String){
+        self.movieTitleLabel.text = title
+    }
+    
+    func setMoviePosterImage(url: URL){
         
     }
 

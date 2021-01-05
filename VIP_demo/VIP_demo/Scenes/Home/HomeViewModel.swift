@@ -11,8 +11,9 @@ import UIKit
 
 class HomeViewModel
 {
- 
+    var movieCategories: [DrawerItemProtocol] = []
     
-  
-
+    init(movieCategories: [DrawerItemProtocol]){
+        self.movieCategories = movieCategories
+    }
 }

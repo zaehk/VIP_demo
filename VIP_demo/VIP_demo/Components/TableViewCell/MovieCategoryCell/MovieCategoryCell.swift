@@ -10,7 +10,7 @@ import SnapKit
 
 class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     
-    private var categoryTitleLabel: UILabel = {
+    private let categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
@@ -20,7 +20,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         return label
     }()
     
-    private var moviesCollectionView: UICollectionView = {
+    private let moviesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -30,7 +30,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         return collectionView
     }()
     
-    var collectionElements : [CollectionDrawerItemProtocol] = [MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init(),MovieCollectionViewCellModel.init()]
+    var collectionElements : [CollectionDrawerItemProtocol] = []
     
     // MARK: - IBOutlets -
     

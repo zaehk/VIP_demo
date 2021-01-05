@@ -28,10 +28,28 @@ extension HomePresenter: HomePresentationLogic {
     
     func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel]) {
         
-        var moviesCategoriesCells: [DrawerItemProtocol] = []
+        //parse response models to collection cell models displayed inside of every category tableviewcell
+        
+        var categoryCells = [DrawerItemProtocol]()
+        
+        if !popular.isEmpty{
+            let popularCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: popularCells))
+        }
+        
+        if !topRated.isEmpty{
+            let topRatedCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: topRatedCells))
+        }
+        
+        if !nowPlaying.isEmpty{
+            let nowPlayingCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: nowPlayingCells))
+        }
         
         
-        
+        let viewModel = HomeViewModel.init(movieCategories: categoryCells)
+        viewController?.loadCategoriesAndMovies(viewModel: viewModel)
         
     }
     

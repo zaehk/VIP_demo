@@ -7,14 +7,11 @@
 
 import Foundation
 internal final class MovieCollectionViewCellModel {
-    // example
-    //    var title: String
-    //    var subtitle: String
-    //    init(title: String,
-    //         subtitle: String) {
-    //        self.title = title
-    //        self.subtitle = subtitle
-    //    }
+    
+    
+    init(movieResponseModel: MovieResultResponseModel){
+        
+    }
 }
 
 // MARK: - DrawerItemProtocol -

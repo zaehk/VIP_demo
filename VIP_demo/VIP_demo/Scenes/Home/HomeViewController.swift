@@ -12,7 +12,7 @@ import SnapKit
 
 protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
-    
+    func loadCategoriesAndMovies(viewModel: HomeViewModel)
 }
 
 class HomeViewController: BaseViewController
@@ -24,10 +24,7 @@ class HomeViewController: BaseViewController
     
     // MARK: Variables
 
-    var movieCategoriesCells: [DrawerItemProtocol] = [MovieCategoryCellModel.init(title: MovieCategories.newReleases.title, elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: MovieCategories.popular.title, elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: MovieCategories.topRated.title, elementsToDisplay: []),
-                                                      MovieCategoryCellModel.init(title: MovieCategories.upcoming.title, elementsToDisplay: [])]
+    var viewModel: HomeViewModel = HomeViewModel(movieCategories: [])
     
     // MARK: Views
     
@@ -103,8 +100,9 @@ class HomeViewController: BaseViewController
 
 extension HomeViewController: HomeDisplayLogic {
     
-    func showMoviesList(movieCategoriesCells: [DrawerItemProtocol]) {
-        self.movieCategoriesCells = movieCategoriesCells
+    func loadCategoriesAndMovies(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
     
 }
@@ -112,11 +110,11 @@ extension HomeViewController: HomeDisplayLogic {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movieCategoriesCells.count
+        viewModel.movieCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = movieCategoriesCells[indexPath.row]
+        let cellModel = viewModel.movieCategories[indexPath.row]
         let drawer = cellModel.cellDrawer
         let cell = drawer.dequeueCell(tableView, cellForRowAt: indexPath)
         drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)

@@ -20,6 +20,7 @@ internal final class MovieCategoryDrawer: CellDrawerProtocol {
         }
         
         cell.setCategoryTitleLabelText(text: cellVM.categoryTitle)
+        cell.setCollectionElementsToShow(cells: cellVM.elementsToShow)
    
     }
 }

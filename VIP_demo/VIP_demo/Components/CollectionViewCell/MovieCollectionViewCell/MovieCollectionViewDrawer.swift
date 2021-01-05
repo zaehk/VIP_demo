@@ -20,7 +20,6 @@ internal final class MovieCollectionViewDrawer: CollectionDrawerProtocol {
         else {
             return
         }
-        //example
-        //cell.setTitleLabelText(text: cellVM.title)
+        
     }
 }
