@@ -38,13 +38,13 @@ extension HomePresenter: HomePresentationLogic {
         }
         
         if !topRated.isEmpty{
-            let topRatedCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: topRatedCells))
+            let topRatedCells : [CollectionDrawerItemProtocol] = topRated.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.topRated.title, elementsToDisplay: topRatedCells))
         }
         
         if !nowPlaying.isEmpty{
-            let nowPlayingCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: nowPlayingCells))
+            let nowPlayingCells : [CollectionDrawerItemProtocol] = nowPlaying.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.newReleases.title, elementsToDisplay: nowPlayingCells))
         }
         
         

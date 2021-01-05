@@ -30,9 +30,11 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         return collectionView
     }()
     
+    // MARK: - Variables
+    
     var collectionElements : [CollectionDrawerItemProtocol] = []
     
-    // MARK: - IBOutlets -
+    // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,6 +54,8 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
     }
+    
+    // MARK: - Constraints setup
     
     private func setupViewsConstraints(){
         
@@ -80,6 +84,8 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     
 }
 
+//MARK: - CollectionView management
+
 extension MovieCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,6 +98,10 @@ extension MovieCategoryCell: UICollectionViewDataSource, UICollectionViewDelegat
         let cell = drawer.dequeueCollectionCell(collectionView, indexPath: indexPath)
         drawer.drawCollectionCell(cell, withItem: cellModel)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 
 }

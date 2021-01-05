@@ -21,5 +21,7 @@ internal final class MovieCollectionViewDrawer: CollectionDrawerProtocol {
             return
         }
         
+        cell.setMovieTitle(title: cellVM.movieTitle)
+        
     }
 }

@@ -8,9 +8,10 @@
 import Foundation
 internal final class MovieCollectionViewCellModel {
     
+    var movieTitle: String
     
     init(movieResponseModel: MovieResultResponseModel){
-        
+        self.movieTitle = movieResponseModel.title ?? ""
     }
 }
 

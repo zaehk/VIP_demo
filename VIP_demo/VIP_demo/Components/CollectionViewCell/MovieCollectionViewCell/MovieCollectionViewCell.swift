@@ -20,7 +20,7 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
     
     private let movieTitleLabel : UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
         titleLabel.textColor = .white
         return titleLabel
     }()
