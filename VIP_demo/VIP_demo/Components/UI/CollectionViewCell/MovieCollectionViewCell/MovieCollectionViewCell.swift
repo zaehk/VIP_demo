@@ -12,8 +12,8 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
 
         // MARK: - Views -
 
-    private let posterImageView : UIImageView = {
-        let imageView = UIImageView()
+    private let posterImageView : CustomImageView = {
+        let imageView = CustomImageView()
         imageView.backgroundColor = .red
         return imageView
     }()
@@ -63,8 +63,8 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         self.movieTitleLabel.text = title
     }
     
-    func setMoviePosterImage(url: URL){
-        
+    func setMoviePosterImage(url: String){
+        self.posterImageView.loadImageUsingUrlString(urlString: url, placeHolderImage: UIImage())
     }
 
 }

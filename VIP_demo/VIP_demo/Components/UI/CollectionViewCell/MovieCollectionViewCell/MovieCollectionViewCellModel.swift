@@ -9,9 +9,15 @@ import Foundation
 internal final class MovieCollectionViewCellModel {
     
     var movieTitle: String
+    var moviePosterUrl: String?
     
     init(movieResponseModel: MovieResultResponseModel){
         self.movieTitle = movieResponseModel.title ?? ""
+        
+        if let posterEndpoint = movieResponseModel.posterPath {
+            self.moviePosterUrl = MovieImageHelper.getPosterUrl(size: .small, with: posterEndpoint)
+        }
+        
     }
 }
 

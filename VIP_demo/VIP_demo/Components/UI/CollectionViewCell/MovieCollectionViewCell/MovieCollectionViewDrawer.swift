@@ -22,6 +22,7 @@ internal final class MovieCollectionViewDrawer: CollectionDrawerProtocol {
         }
         
         cell.setMovieTitle(title: cellVM.movieTitle)
+        cell.setMoviePosterImage(url: cellVM.moviePosterUrl ?? "")
         
     }
 }

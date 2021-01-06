@@ -16,10 +16,15 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .black
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     

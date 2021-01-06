@@ -11,6 +11,7 @@ struct ApiEndpoints{
     
     struct BaseURL{
         static let moviesBaseUrl = "https://api.themoviedb.org/3/"
+        static let postersBaseUrl = "https://image.tmdb.org/t/p/"
     }
     
     struct MoviePath{
