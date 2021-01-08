@@ -32,7 +32,9 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     
     // MARK: - Variables
     
-    var collectionElements : [CollectionDrawerItemProtocol] = []
+    private var collectionElements: [CollectionDrawerItemProtocol] = []
+    private weak var delegate: MovieCategoryTapProtocol?
+    private var categoryIdentifier: Any?
     
     // MARK: - Life Cycle
     
@@ -71,7 +73,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         }
     }
 
-    //MARK: -Public draw methods
+    //MARK: -Public cell setup methods
     
     func setCategoryTitleLabelText(text: String) {
         categoryTitleLabel.text = text
@@ -80,6 +82,14 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     func setCollectionElementsToShow(cells: [CollectionDrawerItemProtocol]) {
         self.collectionElements = cells
         moviesCollectionView.reloadData()
+    }
+    
+    func setTapDelegate(delegate: MovieCategoryTapProtocol){
+        self.delegate = delegate
+    }
+    
+    func setCategoryIdentifier(additionalInfo: Any?){
+        self.categoryIdentifier = additionalInfo
     }
     
 }
@@ -100,8 +110,9 @@ extension MovieCategoryCell: UICollectionViewDataSource, UICollectionViewDelegat
         return cell
     }
     
+    //we return the selected index and additional info to identify the table cell in case there are more than 1 (an enum can be used as an identifier for example)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.userDidSelectedElement(indexSelected: indexPath, additionalInfo: self.categoryIdentifier)
     }
 
 }

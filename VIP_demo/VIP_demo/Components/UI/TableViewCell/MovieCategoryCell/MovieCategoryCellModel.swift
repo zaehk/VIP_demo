@@ -10,10 +10,12 @@ internal final class MovieCategoryCellModel {
     
     var categoryTitle: String
     var elementsToShow: [CollectionDrawerItemProtocol]
+    var additionalInfo: Any?
     
-    init(title: String, elementsToDisplay: [CollectionDrawerItemProtocol]){
+    init(title: String, elementsToDisplay: [CollectionDrawerItemProtocol], additionalInfo: Any? = false){
         self.categoryTitle = title
         self.elementsToShow = elementsToDisplay
+        self.additionalInfo = additionalInfo
     }
     
 }

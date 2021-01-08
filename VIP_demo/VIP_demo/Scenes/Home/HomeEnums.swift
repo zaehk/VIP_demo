@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MovieCategory {
+enum HomeCategory {
     case topRated
     case upcoming
     case popular

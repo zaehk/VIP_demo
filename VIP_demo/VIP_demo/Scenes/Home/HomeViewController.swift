@@ -26,6 +26,9 @@ class HomeViewController: BaseViewController
 
     var viewModel: HomeViewModel = HomeViewModel(movieCategories: [])
     
+    var categoryOfItemTapped: HomeCategory?
+    var indexOfItemTapped: IndexPath?
+    
     // MARK: Views
     
     var tableView: UITableView = {
@@ -77,6 +80,11 @@ class HomeViewController: BaseViewController
         getMoviesList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func setupViews(){
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -107,6 +115,8 @@ extension HomeViewController: HomeDisplayLogic {
     
 }
 
+//MARK: -TableView management
+
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,6 +130,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
         return cell
     }
+}
+
+//MARK: -MovieCategoryTap protocol implementation
+
+extension HomeViewController: MovieCategoryTapProtocol{
     
+    func userDidSelectedElement(indexSelected: IndexPath, additionalInfo: Any?) {
+        if let homeCategorySelected = additionalInfo as? HomeCategory{
+            self.categoryOfItemTapped = homeCategorySelected
+            self.indexOfItemTapped = indexSelected
+            router?.routeToMovieDetail()
+        }
+    }
     
 }

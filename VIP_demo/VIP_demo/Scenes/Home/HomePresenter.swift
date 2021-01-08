@@ -11,7 +11,7 @@ import UIKit
 
 protocol HomePresentationLogic
 {
-    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel])
+    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel], upcoming: [MovieResultResponseModel])
     func onGetMoviesForHomeAllFailed()
 }
 
@@ -26,7 +26,7 @@ class HomePresenter
 
 extension HomePresenter: HomePresentationLogic {
     
-    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel]) {
+    func onGetMoviesForHomeSucceed(popular: [MovieResultResponseModel], topRated: [MovieResultResponseModel], nowPlaying: [MovieResultResponseModel],upcoming: [MovieResultResponseModel]) {
         
         //parse response models to collection cell models displayed inside of every category tableviewcell
         
@@ -34,17 +34,22 @@ extension HomePresenter: HomePresentationLogic {
         
         if !popular.isEmpty{
             let popularCells : [CollectionDrawerItemProtocol] = popular.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.popular.title, elementsToDisplay: popularCells))
+            categoryCells.append(MovieCategoryCellModel.init(title: HomeCategory.popular.title, elementsToDisplay: popularCells, additionalInfo: HomeCategory.popular))
         }
         
         if !topRated.isEmpty{
             let topRatedCells : [CollectionDrawerItemProtocol] = topRated.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.topRated.title, elementsToDisplay: topRatedCells))
+            categoryCells.append(MovieCategoryCellModel.init(title: HomeCategory.topRated.title, elementsToDisplay: topRatedCells, additionalInfo: HomeCategory.topRated))
         }
         
         if !nowPlaying.isEmpty{
             let nowPlayingCells : [CollectionDrawerItemProtocol] = nowPlaying.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-            categoryCells.append(MovieCategoryCellModel.init(title: MovieCategory.newReleases.title, elementsToDisplay: nowPlayingCells))
+            categoryCells.append(MovieCategoryCellModel.init(title: HomeCategory.newReleases.title, elementsToDisplay: nowPlayingCells, additionalInfo: HomeCategory.newReleases))
+        }
+        
+        if !upcoming.isEmpty{
+            let upcomingCells : [CollectionDrawerItemProtocol] = upcoming.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            categoryCells.append(MovieCategoryCellModel.init(title: HomeCategory.upcoming.title, elementsToDisplay: upcomingCells, additionalInfo: HomeCategory.upcoming))
         }
         
         

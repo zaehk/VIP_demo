@@ -19,6 +19,7 @@ class MainTabbarController: UITabBarController {
         
         let newFilmReleases = HomeViewController()
         newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage.init(named: "home_item"), tag: 0)
+        let homeNavigationController = CustomNavigationController.init(rootViewController: newFilmReleases)
         
         let upcomingMovies = UIViewController()
         upcomingMovies.view.backgroundColor = .black
@@ -32,7 +33,7 @@ class MainTabbarController: UITabBarController {
         trending.view.backgroundColor = .black
         trending.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.about , image: UIImage.init(named: "about_item"), tag: 3)
         
-        let tabBarList = [newFilmReleases, search, upcomingMovies, trending]
+        let tabBarList = [homeNavigationController, search, upcomingMovies, trending]
 
         viewControllers = tabBarList
     }

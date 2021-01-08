@@ -12,7 +12,8 @@ protocol MovieServiceProtocol: ApiServiceProtocol{
     func fetchPopularMovies(success:@escaping(MovieListResponseModel)->(), failure: @escaping(FailureCompletion))
     func fetchDetailOfMovie(id: Int,success: @escaping (MovieDetailResponseModel) -> (), failure: @escaping (FailureCompletion))
     func fetchTopRatedMovies(success:@escaping(MovieListResponseModel)->(), failure: @escaping(FailureCompletion))
-    func fetchNowPlayingMovies(success:@escaping(NowPlayingMoviesResponseModel)->(), failure: @escaping(FailureCompletion))
+    func fetchNowPlayingMovies(success:@escaping(MoviesWithinDateRangeResponseModel)->(), failure: @escaping(FailureCompletion))
+    func fetchUpcomingMovies(success: @escaping (MoviesWithinDateRangeResponseModel) -> (), failure: @escaping(FailureCompletion))
     
 }
 
@@ -37,8 +38,12 @@ class MovieService: MovieServiceProtocol {
         apiClient.makeRequest(route: .topRatedMovies, responseModel: MovieListResponseModel.self, success: success, failed: failure)
     }
     
-    func fetchNowPlayingMovies(success: @escaping (NowPlayingMoviesResponseModel) -> (), failure: @escaping (FailureCompletion)) {
-        apiClient.makeRequest(route: .nowPlayingMovies, responseModel: NowPlayingMoviesResponseModel.self, success: success, failed: failure)
+    func fetchNowPlayingMovies(success: @escaping (MoviesWithinDateRangeResponseModel) -> (), failure: @escaping (FailureCompletion)) {
+        apiClient.makeRequest(route: .nowPlayingMovies, responseModel: MoviesWithinDateRangeResponseModel.self, success: success, failed: failure)
+    }
+    
+    func fetchUpcomingMovies(success: @escaping (MoviesWithinDateRangeResponseModel) -> (), failure: @escaping(FailureCompletion)) {
+        apiClient.makeRequest(route: .upcomingMovies, responseModel: MoviesWithinDateRangeResponseModel.self, success: success, failed: failure)
     }
     
     

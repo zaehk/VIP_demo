@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NowPlayingMoviesResponseModel: Decodable {
+struct MoviesWithinDateRangeResponseModel: Decodable {
     let dates: DatesResponseModel?
     let page: Int?
     let results: [MovieResultResponseModel]?

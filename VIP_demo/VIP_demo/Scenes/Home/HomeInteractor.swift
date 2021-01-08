@@ -14,61 +14,78 @@ protocol HomeBusinessLogic
     func fetchMovies()
 }
 
-class HomeInteractor
+protocol HomeDataStore
 {
-  var presenter: HomePresentationLogic?
-  var movieService: MovieServiceProtocol
+    var popularMovies: [MovieResultResponseModel] { get }
+    var topRatedMovies: [MovieResultResponseModel] { get }
+    var nowPlayingMovies: [MovieResultResponseModel] { get }
+    var upcomingMovies: [MovieResultResponseModel] { get }
+}
+
+class HomeInteractor: HomeDataStore
+{
+    var presenter: HomePresentationLogic?
+    var movieService: MovieServiceProtocol
+    
+    var popularMovies: [MovieResultResponseModel] = []
+    var topRatedMovies: [MovieResultResponseModel] = []
+    var nowPlayingMovies: [MovieResultResponseModel] = []
+    var upcomingMovies: [MovieResultResponseModel] = []
     
     init(movieService: MovieServiceProtocol = MovieService()){
         self.movieService = movieService
     }
-  
+    
 }
 
 //MARK: -Business logic implementation
 extension HomeInteractor: HomeBusinessLogic {
     
-    //MARK: -Fetch all the movies shown on the home screen concurrently. 
+    //Fetch all the movies shown on the home screen concurrently.
+    
+    private func allMovieListsAreEmpty()->Bool{
+        self.popularMovies.isEmpty && self.topRatedMovies.isEmpty && self.nowPlayingMovies.isEmpty && self.upcomingMovies.isEmpty
+    }
     
     func fetchMovies() {
-        
-        var popularMovies: [MovieResultResponseModel] = []
-        var topRatedMovies: [MovieResultResponseModel] = []
-        var nowPlayingMovies: [MovieResultResponseModel] = []
         
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
         movieService.fetchPopularMovies { (popularMoviesResponseModel) in
-            popularMovies = popularMoviesResponseModel.results ?? []
-            dispatchGroup.leave()
-        } failure: { (error, apiError) in
-            dispatchGroup.leave()
-        }
-
-        dispatchGroup.enter()
-        movieService.fetchTopRatedMovies { (topRatedMoviesResponseModel) in
-            topRatedMovies = topRatedMoviesResponseModel.results ?? []
-            dispatchGroup.leave()
-        } failure: { (error, apiError) in
-            dispatchGroup.leave()
-        }
-
-        dispatchGroup.enter()
-        movieService.fetchNowPlayingMovies { (nowPlaying) in
-            nowPlayingMovies = nowPlaying.results ?? []
+            self.popularMovies = popularMoviesResponseModel.results ?? []
             dispatchGroup.leave()
         } failure: { (error, apiError) in
             dispatchGroup.leave()
         }
         
+        dispatchGroup.enter()
+        movieService.fetchTopRatedMovies { (topRatedMoviesResponseModel) in
+            self.topRatedMovies = topRatedMoviesResponseModel.results ?? []
+            dispatchGroup.leave()
+        } failure: { (error, apiError) in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        movieService.fetchNowPlayingMovies { (nowPlaying) in
+            self.nowPlayingMovies = nowPlaying.results ?? []
+            dispatchGroup.leave()
+        } failure: { (error, apiError) in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        movieService.fetchUpcomingMovies { (upcoming) in
+            self.upcomingMovies = upcoming.results ?? []
+            dispatchGroup.leave()
+        } failure: { (error, apiError) in
+            dispatchGroup.leave()
+        }
+
+        
         dispatchGroup.notify(queue: .main){
-            
-            if popularMovies.isEmpty && topRatedMovies.isEmpty && nowPlayingMovies.isEmpty {
-                self.presenter?.onGetMoviesForHomeAllFailed()
-            } else {
-                self.presenter?.onGetMoviesForHomeSucceed(popular: popularMovies, topRated: topRatedMovies, nowPlaying: nowPlayingMovies)
-            }
+            self.allMovieListsAreEmpty() ? self.presenter?.onGetMoviesForHomeAllFailed() : self.presenter?.onGetMoviesForHomeSucceed(popular: self.popularMovies, topRated: self.topRatedMovies, nowPlaying: self.nowPlayingMovies, upcoming: self.upcomingMovies)
         }
     }
     
