@@ -15,6 +15,8 @@ protocol MovieDetailBusinessLogic
 protocol MovieDetailDataStore
 {
     var movieIdentifier: Int! {get set}
+    
+    var castingMembers: [MovieCastMemberResponseModel] {get}
     //different response objects (movie detail, credits, trailers... etc)
     
     //data fetched from api (ACTORES, PRODUCTION COMPANIES,
@@ -22,6 +24,8 @@ protocol MovieDetailDataStore
 
 class MovieDetailInteractor: MovieDetailDataStore
 {
+  var castingMembers: [MovieCastMemberResponseModel] = []
+    
   var movieIdentifier: Int!
     
   var presenter: MovieDetailPresentationLogic?
@@ -37,6 +41,12 @@ class MovieDetailInteractor: MovieDetailDataStore
 
 extension MovieDetailInteractor: MovieDetailBusinessLogic{
     
+    //ORGANIZAR LLAMADAS
+    //hacer celda de casting
+    //hacer enum con categorias de esta parte
+    //meter reviews
+    //meter imagenes?
+    
     func fetchMovieDetail() {
         movieService.fetchDetailOfMovie(id: self.movieIdentifier) { (movieDetailResponseModel) in
             print("")
@@ -45,7 +55,10 @@ extension MovieDetailInteractor: MovieDetailBusinessLogic{
         }
         
         castingService.fetchMovieCredits(movieId: self.movieIdentifier) { (creditsResponseModel) in
-            print("")
+            if let casting = creditsResponseModel.cast {
+                self.castingMembers = casting
+            }
+            
         } failure: { (error, apiError) in
             print("")
         }

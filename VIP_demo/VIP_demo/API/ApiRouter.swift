@@ -16,8 +16,8 @@ internal enum ApiRouter {
     case nowPlayingMovies
     case topRatedMovies
     case upcomingMovies
-    
     case movieCredits(movieId: Int)
+    case movieReviews(movieId: Int)
 }
 
 extension ApiRouter: URLRequestConvertible {
@@ -25,7 +25,7 @@ extension ApiRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self{
         
-        case .popularMovies, .movieDetail, .nowPlayingMovies, .topRatedMovies, .upcomingMovies, .movieCredits:
+        case .popularMovies, .movieDetail, .nowPlayingMovies, .topRatedMovies, .upcomingMovies, .movieCredits, .movieReviews:
             return .get
         }
     }
@@ -44,6 +44,8 @@ extension ApiRouter: URLRequestConvertible {
             return ApiEndpoints.MoviePath.upcomingMovies
         case .movieCredits(let movieId):
             return String(format: ApiEndpoints.MoviePath.movieCredits, String(movieId))
+        case .movieReviews(let movieId):
+        return String(format: ApiEndpoints.MoviePath.movieReviews, String(movieId))
         }
     }
     
