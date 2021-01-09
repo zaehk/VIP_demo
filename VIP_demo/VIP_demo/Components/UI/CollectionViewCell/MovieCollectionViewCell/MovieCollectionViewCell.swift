@@ -37,7 +37,6 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         addSubview(posterImageView)
         addSubview(movieTitleLabel)
         setupViewsConstraints()
-        movieTitleLabel.text = "Prueba texto"
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +59,8 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         }
         
     }
+    
+    // MARK: - Public draw methods
     
     func setMovieTitle(title: String){
         self.movieTitleLabel.text = title

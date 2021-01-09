@@ -17,19 +17,19 @@ protocol MovieDetailDataStore
     var movieIdentifier: Int! {get set}
     
     var castingMembers: [MovieCastMemberResponseModel] {get}
-    //different response objects (movie detail, credits, trailers... etc)
-    
-    //data fetched from api (ACTORES, PRODUCTION COMPANIES,
+    var movieReviews: [ReviewResultResponseModel] {get}
+
 }
 
 class MovieDetailInteractor: MovieDetailDataStore
 {
-  var castingMembers: [MovieCastMemberResponseModel] = []
+    var castingMembers: [MovieCastMemberResponseModel] = []
+    var movieReviews: [ReviewResultResponseModel] = []
     
-  var movieIdentifier: Int!
+    var movieIdentifier: Int!
     
-  var presenter: MovieDetailPresentationLogic?
-  var movieService: MovieServiceProtocol
+    var presenter: MovieDetailPresentationLogic?
+    var movieService: MovieServiceProtocol
     var castingService: CastingServiceProtocol
     
     init(movieService: MovieServiceProtocol = MovieService(), castingService: CastingServiceProtocol = CastingService()){
@@ -41,11 +41,7 @@ class MovieDetailInteractor: MovieDetailDataStore
 
 extension MovieDetailInteractor: MovieDetailBusinessLogic{
     
-    //ORGANIZAR LLAMADAS
-    //hacer celda de casting
-    //hacer enum con categorias de esta parte
-    //meter reviews
-    //meter imagenes?
+
     
     func fetchMovieDetail() {
         movieService.fetchDetailOfMovie(id: self.movieIdentifier) { (movieDetailResponseModel) in
@@ -62,8 +58,17 @@ extension MovieDetailInteractor: MovieDetailBusinessLogic{
         } failure: { (error, apiError) in
             print("")
         }
-
-
+        
+        movieService.fetchMovieReviews(id: movieIdentifier) { (reviewsResponseModel) in
+            if let reviews = reviewsResponseModel.results{
+                self.movieReviews = reviews
+            }
+        } failure: { (error, apiError) in
+            print("")
+        }
+        
+        
+        
     }
     
 }
