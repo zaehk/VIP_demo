@@ -8,5 +8,11 @@ import UIKit
 
 class MovieDetailViewModel {
     
+    var detailCells: [DrawerItemProtocol] = []
+    
+    init(){
+        
+    }
+    
     
 }

@@ -21,7 +21,7 @@ struct ApiEndpoints{
         static let upcomingMovies = "movie/upcoming"
         
         static let movieDetail = "movie/%@"
-        static let movieCasting = "movie/%@/credits"
+        static let movieCredits = "movie/%@/credits"
     }
     
     struct CastingPath{

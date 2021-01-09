@@ -68,6 +68,7 @@ class HomeViewController: BaseViewController
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
+        router.dataStore = interactor
     }
     
     // MARK: View lifecycle

@@ -16,6 +16,8 @@ internal enum ApiRouter {
     case nowPlayingMovies
     case topRatedMovies
     case upcomingMovies
+    
+    case movieCredits(movieId: Int)
 }
 
 extension ApiRouter: URLRequestConvertible {
@@ -23,7 +25,7 @@ extension ApiRouter: URLRequestConvertible {
     var method: HTTPMethod {
         switch self{
         
-        case .popularMovies, .movieDetail, .nowPlayingMovies, .topRatedMovies, .upcomingMovies:
+        case .popularMovies, .movieDetail, .nowPlayingMovies, .topRatedMovies, .upcomingMovies, .movieCredits:
             return .get
         }
     }
@@ -40,11 +42,13 @@ extension ApiRouter: URLRequestConvertible {
             return ApiEndpoints.MoviePath.topRatedMovies
         case .upcomingMovies:
             return ApiEndpoints.MoviePath.upcomingMovies
+        case .movieCredits(let movieId):
+            return String(format: ApiEndpoints.MoviePath.movieCredits, String(movieId))
         }
     }
     
     var parameters: Parameters? {
-        //all the services we are going to use only need this parameter. If POST would be needed we could do a switch and get the parameters or request model from the enum case.
+        //all the services we are going to use only need this parameter. If POST parameters would be needed we could do a switch and get the parameters or request model from the enum case and inject the apiKey using alamofire adapter.
         return [ApiParameters.MovieDBApiKey.apiKey : ApiParameters.MovieDBApiKey.keyValue]
     }
     

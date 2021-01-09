@@ -15,6 +15,8 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
     private let posterImageView : CustomImageView = {
         let imageView = CustomImageView()
         imageView.backgroundColor = .red
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
         return imageView
     }()
     

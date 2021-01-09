@@ -9,78 +9,100 @@ import UIKit
 
 protocol MovieDetailDisplayLogic: class, BaseViewDisplayLogic
 {
-  func displayMovieInfo(viewModel: MovieDetailViewModel)
+    func displayMovieInfo(viewModel: MovieDetailViewModel)
 }
 
 class MovieDetailViewController: BaseViewController
 {
-  var interactor: MovieDetailBusinessLogic?
-  var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = MovieDetailInteractor()
-    let presenter = MovieDetailPresenter()
-    let router = MovieDetailRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    setupViews()
-  }
     
-  private func setupViews(){
-//        self.view.addSubview(tableView)
-//        tableView.snp.makeConstraints { (make) in
-//            make.edges.equalTo(self.view.safeAreaLayoutGuide)
-//        }
+    var interactor: MovieDetailBusinessLogic?
+    var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
+    
+    var detailCells: [DrawerItemProtocol] = []
+    
+    var tableView: UITableView = {
+        let table = UITableView()
+        table.separatorStyle = .none
+        table.estimatedRowHeight = 200
+        table.rowHeight = UITableView.automaticDimension
+        table.allowsSelection = false
+        table.backgroundColor = .black
+        return table
+    }()
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = MovieDetailInteractor()
+        let presenter = MovieDetailPresenter()
+        let router = MovieDetailRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        setupViews()
+        getMovieDetailInfo()
+    }
+    
+    private func setupViews(){
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-  
+    
+    private func getMovieDetailInfo(){
+        interactor?.fetchMovieDetail()
+    }
+    
+}
+
+extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        detailCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = detailCells[indexPath.row]
+        let drawer = cellModel.cellDrawer
+        let cell = drawer.dequeueCell(tableView, cellForRowAt: indexPath)
+        drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
+        return cell
+    }
 }
 
 extension MovieDetailViewController: MovieDetailDisplayLogic {
     
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
-        
+        self.detailCells = viewModel.detailCells
+        self.tableView.reloadSections(.init(integer: 0), with: .automatic)
     }
     
 }
+

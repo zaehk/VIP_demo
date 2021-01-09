@@ -51,8 +51,6 @@ extension HomeRouter: HomeDataPassing {
     func passDataToMovieDetail(source: HomeDataStore, destination: inout MovieDetailDataStore) {
         if let categoryTapped = viewController?.categoryOfItemTapped, let index = viewController?.indexOfItemTapped {
             
-            
-            
             switch categoryTapped {
             
             case .topRated:

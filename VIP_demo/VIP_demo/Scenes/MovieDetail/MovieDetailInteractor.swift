@@ -9,32 +9,48 @@ import UIKit
 
 protocol MovieDetailBusinessLogic
 {
-
+    func fetchMovieDetail()
 }
 
 protocol MovieDetailDataStore
 {
     var movieIdentifier: Int! {get set}
     //different response objects (movie detail, credits, trailers... etc)
+    
+    //data fetched from api (ACTORES, PRODUCTION COMPANIES,
 }
 
-class MovieDetailInteractor: MovieDetailBusinessLogic, MovieDetailDataStore
+class MovieDetailInteractor: MovieDetailDataStore
 {
-    
   var movieIdentifier: Int!
     
   var presenter: MovieDetailPresentationLogic?
-  var movieService: MovieServiceProtocol?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-//  func doSomething(request: MovieDetail.Something.Request)
-//  {
-//    worker = MovieDetailWorker()
-//    worker?.doSomeWork()
-//    
-//    let response = MovieDetail.Something.Response()
-//    presenter?.presentSomething(response: response)
-//  }
+  var movieService: MovieServiceProtocol
+    var castingService: CastingServiceProtocol
+    
+    init(movieService: MovieServiceProtocol = MovieService(), castingService: CastingServiceProtocol = CastingService()){
+        self.movieService = movieService
+        self.castingService = castingService
+    }
+    
+}
+
+extension MovieDetailInteractor: MovieDetailBusinessLogic{
+    
+    func fetchMovieDetail() {
+        movieService.fetchDetailOfMovie(id: self.movieIdentifier) { (movieDetailResponseModel) in
+            print("")
+        } failure: { (error, apiError) in
+            print("")
+        }
+        
+        castingService.fetchMovieCredits(movieId: self.movieIdentifier) { (creditsResponseModel) in
+            print("")
+        } failure: { (error, apiError) in
+            print("")
+        }
+
+
+    }
+    
 }
