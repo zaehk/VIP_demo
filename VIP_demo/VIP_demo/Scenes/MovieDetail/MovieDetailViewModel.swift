@@ -16,3 +16,19 @@ class MovieDetailViewModel {
     
     
 }
+
+
+class MovieCastMemberViewModel {
+    
+    var characterPlayed: String
+    var name: String
+    var imageUrl: String?
+    
+    init(castResponseModel: MovieCastMemberResponseModel){
+        self.characterPlayed = castResponseModel.character ?? ""
+        self.name = castResponseModel.name ?? ""
+        if let imageEndpoint = castResponseModel.profilePath {
+            self.imageUrl = ProfilePictureSizes.medium.getFullUrlForSize(endpoint: imageEndpoint)
+        }
+    }
+}

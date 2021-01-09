@@ -66,7 +66,7 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         stackView.addArrangedSubview(crewMemberRoleLabel)
 
         stackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(10)
+            make.edges.equalToSuperview().offset(10)
         }
 
         crewMemberImageView.snp.makeConstraints { (make) in
@@ -75,11 +75,11 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         }
         
         crewMemberRoleLabel.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(5)
+            make.left.right.equalToSuperview().offset(5)
         }
 
         crewMemberRoleLabel.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(5)
+            make.left.right.equalToSuperview().offset(5)
         }
         
     }

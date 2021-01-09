@@ -15,7 +15,7 @@ internal final class MovieCollectionViewCellModel {
         self.movieTitle = movieResponseModel.title ?? ""
         
         if let posterEndpoint = movieResponseModel.posterPath {
-            self.moviePosterUrl = MovieImageHelper.getPosterUrl(size: .medium, with: posterEndpoint)
+            self.moviePosterUrl = MoviePosterSizes.medium.getFullUrlForSize(endpoint: posterEndpoint)
         }
         
     }

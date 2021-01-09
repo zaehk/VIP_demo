@@ -101,7 +101,7 @@ extension MovieDetailViewController: MovieDetailDisplayLogic {
     
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
         self.detailCells = viewModel.detailCells
-        self.tableView.reloadSections(.init(integer: 0), with: .automatic)
+        self.tableView.reloadData()
     }
     
 }

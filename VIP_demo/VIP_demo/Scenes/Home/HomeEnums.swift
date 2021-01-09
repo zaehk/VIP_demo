@@ -30,14 +30,3 @@ enum HomeCategory {
     }
 }
 
-enum MoviePosterSizes: String {
-  case small = "w92"
-  case medium = "w342"
-  case big = "w500"
-}
-
-enum BackdropSizes: String {
-    case small = "w300"
-    case medium = "w780"
-    case big = "w1280"
-}
