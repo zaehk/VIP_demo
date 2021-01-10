@@ -31,4 +31,8 @@ struct ApiEndpoints{
         static let moviesOfCast = "person/%@/movie_credits"
     }
     
+    struct SearchPath{
+        static let movieSearch = "search/movie"
+    }
+    
 }

@@ -30,3 +30,6 @@
 
 "review_author" = "Review by %@";
 "review_rating" = "Rating: %@";
+
+//MARK: Search
+"searchbar_placeholder" = "Search movies";

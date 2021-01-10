@@ -15,8 +15,14 @@ internal final class ApiARequestAdapter: RequestAdapter {
                for session: Session,
                completion: @escaping (Result<URLRequest, Error>) -> Void) {
         
-        //Token logic... Customize headers....
-        completion(.success(urlRequest))
+        let apiParameters = [ApiParameters.MovieDBApiKey.apiKey : ApiParameters.MovieDBApiKey.keyValue]
+        
+        do{
+        let validatedRequest = try URLEncoding.default.encode(urlRequest, with: apiParameters)
+            completion(.success(validatedRequest))
+        }catch{
+            completion(.failure(error))
+        }
         
     }
 }

@@ -34,6 +34,10 @@ struct Constants{
         static let rating = "review_rating".localized()
     }
     
+    struct Search {
+        static let searchBarPlaceholder: String = "searchbar_placeholder".localized()
+    }
+    
     struct Styles {
         static let mainColor: UIColor = .systemRed
         static let titleColor: UIColor = .white

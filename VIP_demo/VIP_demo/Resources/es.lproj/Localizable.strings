@@ -30,3 +30,6 @@
 
 "review_author" = "Crítica de %@";
 "review_rating" = "Nota: %@";
+
+//MARK: Search
+"searchbar_placeholder" = "Busque películas";
