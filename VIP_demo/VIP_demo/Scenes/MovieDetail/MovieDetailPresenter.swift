@@ -37,8 +37,8 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
             let crewCells: [CollectionDrawerItemProtocol] = crewViewModels.map({CrewMemberCellModel.init(castVM: $0)})
             cells.append(MovieCategoryCellModel.init(title: Constants.MovieDetailCategories.crew, elementsToDisplay: crewCells, additionalInfo: MovieDetailCategories.crew, titleSize: 15))
         }
-
-        viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieTitle: movieInfoViewModel.title, movieDetailCells: cells))
+        
+        viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieInfoVM: movieInfoViewModel, movieDetailCells: cells))
     }
     
     func onGetMovieDetailFailed() {

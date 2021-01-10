@@ -106,6 +106,7 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate{
 extension MovieDetailViewController: MovieDetailDisplayLogic {
     
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
+        self.title = viewModel.movieInfoVM.title
         self.detailCells = viewModel.detailCells
         self.tableView.reloadData()
     }

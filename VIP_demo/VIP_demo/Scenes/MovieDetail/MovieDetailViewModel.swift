@@ -9,11 +9,11 @@ import UIKit
 class MovieDetailViewModel {
     
     var detailCells: [DrawerItemProtocol] = []
-    var movieTitle: String
+    var movieInfoVM: MovieInfoViewModel
     
-    init(movieTitle: String,movieDetailCells: [DrawerItemProtocol]){
+    init(movieInfoVM: MovieInfoViewModel,movieDetailCells: [DrawerItemProtocol]){
         self.detailCells = movieDetailCells
-        self.movieTitle = movieTitle
+        self.movieInfoVM = movieInfoVM
     }
     
 }
