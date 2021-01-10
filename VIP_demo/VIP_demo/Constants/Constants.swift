@@ -16,11 +16,17 @@ struct Constants{
         static let about = "tabbar_item_about".localized()
     }
     
-    struct MovieCategories {
+    struct HomeCategories {
         static let popular = "category_popular".localized()
         static let topRated = "category_topRated".localized()
         static let newReleases = "category_newReleases".localized()
         static let upcoming = "category_upcoming".localized()
+    }
+    
+    struct MovieDetailCategories {
+        static let actors = "category_actors".localized()
+        static let crew = "category_crew".localized()
+        static let reviews = "category_reviews".localized()
     }
 
 }

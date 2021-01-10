@@ -16,16 +16,13 @@ internal final class CrewMemberDrawer: CollectionDrawerProtocol {
     }
     
     func drawCollectionCell(_ collectionView: UICollectionViewCell, withItem item: Any) {
-        guard let cell = collectionView as? CrewMemberCell, let cellVM = item as? CrewMemberViewModel
+        guard let cell = collectionView as? CrewMemberCell, let cellVM = item as? CrewMemberCellModel
         else {
             return
         }
         
         cell.setMemberName(name: cellVM.memberName)
         cell.setMemberRole(role: cellVM.roleInMovie)
-        
-        if let imageURL = cellVM.imageUrl {
-            cell.setMemberImage(url: imageURL)
-        }
+        cell.setMemberImage(url: cellVM.imageUrl, placeHolderImage: UIImage.init(named: "userNotFound")?.withTintColor(.red))
     }
 }

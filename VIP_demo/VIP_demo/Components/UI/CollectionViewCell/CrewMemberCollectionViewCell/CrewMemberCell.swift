@@ -14,10 +14,9 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
     
     private let crewMemberImageView : CustomImageView = {
         let imageView = CustomImageView()
-        imageView.backgroundColor = .red
-        imageView.layer.cornerRadius = 5
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = imageView.bounds.width / 2
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -26,26 +25,29 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         stack.alignment = .center
         stack.axis = .vertical
         stack.distribution = .equalSpacing
-        stack.spacing = 10
+        stack.spacing = 5
         return stack
     }()
     
     private let crewMemberNameLabel : UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
         titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
         return titleLabel
     }()
     
     private let crewMemberRoleLabel : UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 10)
         titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
         return titleLabel
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.crewMemberImageView.image = nil
         self.contentView.backgroundColor = .clear
         self.backgroundColor = .clear
         addSubview(stackView)
@@ -66,22 +68,21 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         stackView.addArrangedSubview(crewMemberRoleLabel)
 
         stackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().offset(10)
+            make.edges.equalToSuperview()
         }
 
         crewMemberImageView.snp.makeConstraints { (make) in
             make.height.equalTo(100)
-            make.width.equalTo(100)
+            make.width.equalTo(66)
         }
         
         crewMemberRoleLabel.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().offset(5)
+            make.left.right.equalToSuperview().inset(5)
         }
 
-        crewMemberRoleLabel.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().offset(5)
+        crewMemberNameLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(5)
         }
-        
     }
     
     // MARK: - Public draw methods
@@ -94,8 +95,8 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         self.crewMemberRoleLabel.text = role
     }
     
-    func setMemberImage(url: String){
-        self.crewMemberImageView.loadImageUsingUrlString(urlString: url, placeHolderImage: UIImage())
+    func setMemberImage(url: String?, placeHolderImage: UIImage?){
+        self.crewMemberImageView.loadImageUsingUrlString(urlString: url ?? "", placeHolderImage: placeHolderImage ?? UIImage())
     }
 
 }

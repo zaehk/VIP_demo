@@ -15,13 +15,17 @@ internal final class MovieCategoryDrawer: CellDrawerProtocol {
     }
     
     func drawCell(_ cell: UITableViewCell, withItem item: Any, delegate: Any? = nil, at indexPath: IndexPath? = nil) {
-        guard let cell = cell as? MovieCategoryCell, let cellVM = item as? MovieCategoryCellModel, let delegate = delegate as? MovieCategoryTapProtocol else {
+        guard let cell = cell as? MovieCategoryCell, let cellVM = item as? MovieCategoryCellModel else {
             return
         }
         
         cell.setCategoryTitleLabelText(text: cellVM.categoryTitle)
         cell.setCollectionElementsToShow(cells: cellVM.elementsToShow)
-        cell.setTapDelegate(delegate: delegate)
+        
+        if let delegate = delegate as? MovieCategoryTapProtocol{
+            cell.setTapDelegate(delegate: delegate)
+        }
+        
         cell.setCategoryIdentifier(additionalInfo: cellVM.additionalInfo)
     }
 }

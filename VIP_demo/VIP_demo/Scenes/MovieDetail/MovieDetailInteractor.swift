@@ -18,15 +18,21 @@ protocol MovieDetailDataStore
     
     var castingMembers: [MovieCastMemberResponseModel] {get}
     var movieReviews: [ReviewResultResponseModel] {get}
-
+    var movieDetail: MovieDetailResponseModel? {get}
+    
 }
 
 class MovieDetailInteractor: MovieDetailDataStore
 {
-    var castingMembers: [MovieCastMemberResponseModel] = []
-    var movieReviews: [ReviewResultResponseModel] = []
-    
     var movieIdentifier: Int!
+    
+    //primary info
+    var movieDetail: MovieDetailResponseModel?
+    
+    //additional info
+    var castingMembers: [MovieCastMemberResponseModel] = []
+    var crewMembers: [MovieCastMemberResponseModel] = []
+    var movieReviews: [ReviewResultResponseModel] = []
     
     var presenter: MovieDetailPresentationLogic?
     var movieService: MovieServiceProtocol
@@ -41,34 +47,72 @@ class MovieDetailInteractor: MovieDetailDataStore
 
 extension MovieDetailInteractor: MovieDetailBusinessLogic{
     
-
+    
     
     func fetchMovieDetail() {
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
         movieService.fetchDetailOfMovie(id: self.movieIdentifier) { (movieDetailResponseModel) in
-            print("")
+            self.movieDetail = movieDetailResponseModel
+            dispatchGroup.leave()
         } failure: { (error, apiError) in
-            print("")
+            dispatchGroup.leave()
         }
         
+        dispatchGroup.enter()
         castingService.fetchMovieCredits(movieId: self.movieIdentifier) { (creditsResponseModel) in
-            if let casting = creditsResponseModel.cast {
-                self.castingMembers = casting
+            if let crew = creditsResponseModel.crew, let cast = creditsResponseModel.cast {
+                
+                //adding first 20 actors
+                self.castingMembers = Array(cast.filter({$0.profilePath != nil}).prefix(20))
+                
+                //adding directors
+                self.crewMembers = self.getCastOrCrewByDepartment(people: crew, department: .directing, maxNumberOfResults: 5)
+                
+                //adding writers
+                self.crewMembers.append(contentsOf: self.getCastOrCrewByDepartment(people: crew, department: .writing, maxNumberOfResults: 5))
+                
+                //adding producers
+                self.crewMembers.append(contentsOf: self.getCastOrCrewByDepartment(people: crew, department: .production, maxNumberOfResults: 5))
             }
-            
+            dispatchGroup.leave()
         } failure: { (error, apiError) in
-            print("")
+            dispatchGroup.leave()
         }
         
+        dispatchGroup.enter()
         movieService.fetchMovieReviews(id: movieIdentifier) { (reviewsResponseModel) in
             if let reviews = reviewsResponseModel.results{
                 self.movieReviews = reviews
             }
+            dispatchGroup.leave()
         } failure: { (error, apiError) in
-            print("")
+            dispatchGroup.leave()
         }
         
+        dispatchGroup.notify(queue: .main) {
+            
+            if let safeDetail = self.movieDetail {
+                self.presenter?.presentMovieInfo(movieDetail: safeDetail, casting: self.castingMembers, crew: self.crewMembers, reviews: self.movieReviews)
+            }else {
+                self.presenter?.onGetMovieDetailFailed()
+            }
+        }
         
-        
+    }
+    
+    //get only intertesting crew members like director, writers and producers
+    private func getCastOrCrewByDepartment(people: [MovieCastMemberResponseModel], department: CastMemberDepartment, maxNumberOfResults: Int)-> [MovieCastMemberResponseModel]{
+        let filteredResults = people.filter({
+            if let role = $0.department, $0.profilePath != nil {
+                return role == department
+            } else {
+                return false
+            }
+        })
+        return Array(filteredResults.prefix(maxNumberOfResults))
     }
     
 }

@@ -26,6 +26,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         return collectionView
     }()
@@ -90,6 +91,10 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     
     func setCategoryIdentifier(additionalInfo: Any?){
         self.categoryIdentifier = additionalInfo
+    }
+    
+    func setTitleTextSize(size: CGFloat){
+        self.categoryTitleLabel.font.withSize(size)
     }
     
 }

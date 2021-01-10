@@ -15,8 +15,13 @@ class CustomImageView: UIImageView {
     
     func loadImageUsingUrlString(urlString: String, placeHolderImage: UIImage) {
         
+        self.image = nil
+        
         imageUrlString = urlString
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            self.setImageWithAnimation(imageToTransition: placeHolderImage)
+            return
+        }
         image = nil
         
         if let imageFromCache = imageCache.object(forKey: urlString as NSString){
@@ -28,22 +33,40 @@ class CustomImageView: UIImageView {
             
             DispatchQueue.main.async {
                 if let safeData = data {
-                    if let imageToCache = UIImage.init(data: safeData) {
+                    if let downloadedImage = UIImage.init(data: safeData) {
                         if self.imageUrlString == urlString {
-                            self.image = imageToCache
+                            self.setImageWithAnimation(imageToTransition: downloadedImage)
                         }
-                        imageCache.setObject(imageToCache, forKey: urlString as NSString)
+                        imageCache.setObject(downloadedImage, forKey: urlString as NSString)
                     }
                     else{
-                        self.image = placeHolderImage
+                        self.setImageWithAnimation(imageToTransition: placeHolderImage)
                     }
                 }
                 else {
-                    self.image = placeHolderImage
+                    self.setImageWithAnimation(imageToTransition: placeHolderImage)
                 }
             }
         }
         dataTask.resume()
+    }
+    
+    private func setImageWithAnimation(imageToTransition: UIImage) {
+        UIView.transition(with: self,
+                          duration: 0.50,
+                          options: .transitionCrossDissolve,
+                          animations: { self.image = imageToTransition },
+                          completion: nil)
+    }
+    
+    var makeImageCircle: Bool = false
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if makeImageCircle {
+            self.layer.cornerRadius = self.frame.height / 2
+            self.clipsToBounds = true
+        }
     }
     
 }

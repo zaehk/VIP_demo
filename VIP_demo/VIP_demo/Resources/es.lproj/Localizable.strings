@@ -13,9 +13,15 @@
 "tabbar_item_about" = "Info";
 "tabbar_item_search" = "Buscar";
 
-//MARK: Movie categories
+//MARK: Home categories
 
 "category_popular" = "Películas populares";
 "category_topRated" = "Más votadas";
 "category_newReleases" = "Nuevos estrenos";
 "category_upcoming" = "Próximamente";
+
+//MARK: Movie detail categories
+
+"category_actors" = "Actores";
+"category_crew" = "Producción / Dirección";
+"category_reviews" = "Reseñas";

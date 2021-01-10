@@ -17,13 +17,13 @@ enum HomeCategory {
         switch self {
         
         case .topRated:
-            return Constants.MovieCategories.topRated
+            return Constants.HomeCategories.topRated
         case .upcoming:
-            return Constants.MovieCategories.upcoming
+            return Constants.HomeCategories.upcoming
         case .popular:
-            return Constants.MovieCategories.popular
+            return Constants.HomeCategories.popular
         case .newReleases:
-            return Constants.MovieCategories.newReleases
+            return Constants.HomeCategories.newReleases
         }
         
         

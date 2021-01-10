@@ -19,3 +19,9 @@
 "category_topRated" = "Top Rated";
 "category_newReleases" = "New Releases";
 "category_upcoming" = "Upcoming Movies";
+
+//MARK: Movie detail categories
+
+"category_actors" = "Casting";
+"category_crew" = "Production / Direction";
+"category_reviews" = "Reviews";

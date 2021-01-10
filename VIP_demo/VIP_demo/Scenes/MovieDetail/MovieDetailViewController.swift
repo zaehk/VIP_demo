@@ -66,6 +66,7 @@ class MovieDetailViewController: BaseViewController
     {
         super.viewDidLoad()
         setupViews()
+        setupTableView()
         getMovieDetailInfo()
     }
     
@@ -75,6 +76,11 @@ class MovieDetailViewController: BaseViewController
             make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    private func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func getMovieDetailInfo(){
