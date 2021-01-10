@@ -25,3 +25,8 @@
 "category_actors" = "Casting";
 "category_crew" = "Production / Direction";
 "category_reviews" = "Reviews";
+
+//MARK: Movie detail
+
+"review_author" = "Review by %@";
+"review_rating" = "Rating: %@";

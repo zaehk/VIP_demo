@@ -67,6 +67,7 @@ class MovieReviewViewModel {
     var review: String
     var author: String
     var rating: String?
+    var date: String
     
     init(movieReviewResponseModel: ReviewResultResponseModel){
         self.review = movieReviewResponseModel.content ?? ""
@@ -74,5 +75,6 @@ class MovieReviewViewModel {
         if let vote = movieReviewResponseModel.authorDetails?.rating{
             self.rating = "\(vote)/10"
         }
+        self.date = movieReviewResponseModel.createdAt ?? ""
     }
 }

@@ -29,12 +29,18 @@ struct Constants{
         static let reviews = "category_reviews".localized()
     }
     
+    struct MovieDetail {
+        static let reviewAuthor = "review_author".localized()
+        static let rating = "review_rating".localized()
+    }
+    
     struct Styles {
-        static let mainColor: UIColor = .systemBlue
+        static let mainColor: UIColor = .systemRed
         static let titleColor: UIColor = .white
         static let tabbarUnselectColor: UIColor = .white
         static let backGroundColor: UIColor = .black
         static let textInfoColor: UIColor = .white
+        static let ratingColor: UIColor = .darkText
         static let tabbarStyleColor: UIBarStyle = .black
         static let reviewAuthorColor: UIColor = .black
         static let reviewTextColor: UIColor = .black

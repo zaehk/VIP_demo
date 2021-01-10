@@ -11,11 +11,13 @@ internal final class ReviewCellModel {
     var reviewRating: String?
     var author: String
     var reviewText: String
+    var date: String
     
     init(reviewViewModel: MovieReviewViewModel){
         self.reviewRating = reviewViewModel.rating
         self.author = reviewViewModel.author
         self.reviewText = reviewViewModel.review
+        self.date = reviewViewModel.date
     }
 }
 

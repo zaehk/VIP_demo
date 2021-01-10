@@ -32,6 +32,7 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
         stack.alignment = .fill
         stack.distribution = .fillProportionally
         stack.axis = .horizontal
+        stack.spacing = 5
         stack.backgroundColor = .clear
         return stack
     }()
@@ -58,7 +59,7 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
     private let ratingLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 14)
-        label.textColor = Constants.Styles.mainColor
+        label.textColor = Constants.Styles.ratingColor
         label.textAlignment = .right
         return label
     }()
@@ -75,6 +76,13 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupViewsConstraints()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reviewTextView.text = nil
+        authorlabel.text = nil
+        ratingLabel.text = nil
     }
     
     required init?(coder: NSCoder) {
@@ -111,6 +119,7 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
         
         authorInfoHorizontalStackView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(20)
         }
 
     }
@@ -122,11 +131,12 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
     }
     
     func setAuthor(text: String) {
-        self.authorlabel.text = text
+        self.authorlabel.text = String(format: Constants.MovieDetail.reviewAuthor, text)
     }
     
     func setRating(text: String) {
-        self.ratingLabel.text = text
+        self.ratingLabel.text = String(format: Constants.MovieDetail.rating, text)
+        
     }
 
     
