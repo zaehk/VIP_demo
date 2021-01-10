@@ -27,6 +27,7 @@ internal final class MovieCategoryDrawer: CellDrawerProtocol {
         }
         
         cell.setCategoryIdentifier(additionalInfo: cellVM.additionalInfo)
+        cell.setTitleTextSize(size: cellVM.titleSize)
     }
 }
 

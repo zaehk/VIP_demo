@@ -16,7 +16,7 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = Constants.Styles.backGroundColor
     }
     
     override func viewDidAppear(_ animated: Bool) {

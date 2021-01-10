@@ -24,6 +24,7 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
         var cells: [MovieCategoryCellModel] = []
         
         //create movieDetailCell
+        let movieInfoViewModel = MovieInfoViewModel.init(movieDetailResponseModel: movieDetail)
         
         if !casting.isEmpty {
             let castingViewModels: [MovieCastMemberViewModel] = casting.map({MovieCastMemberViewModel.init(castResponseModel: $0)})
@@ -37,7 +38,7 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
             cells.append(MovieCategoryCellModel.init(title: Constants.MovieDetailCategories.crew, elementsToDisplay: crewCells, additionalInfo: MovieDetailCategories.crew, titleSize: 15))
         }
 
-        viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieTitle: "", movieDetailCells: cells))
+        viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieTitle: movieInfoViewModel.title, movieDetailCells: cells))
     }
     
     func onGetMovieDetailFailed() {

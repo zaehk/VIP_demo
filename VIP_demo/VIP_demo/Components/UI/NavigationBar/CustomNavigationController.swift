@@ -14,9 +14,9 @@ class CustomNavigationController: UINavigationController {
     }
     
     private func setupStyle(){
-        self.navigationBar.barStyle = .black
+        self.navigationBar.barStyle = Constants.Styles.tabbarStyleColor
         self.navigationBar.isTranslucent = false
-        self.navigationBar.tintColor = .red
+        self.navigationBar.tintColor = Constants.Styles.mainColor
     }
     
 }

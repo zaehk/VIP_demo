@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController
         table.estimatedRowHeight = 200
         table.rowHeight = UITableView.automaticDimension
         table.allowsSelection = false
-        table.backgroundColor = .black
+        table.backgroundColor = Constants.Styles.backGroundColor
         return table
     }()
     

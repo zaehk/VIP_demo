@@ -32,7 +32,7 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
     private let crewMemberNameLabel : UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        titleLabel.textColor = .white
+        titleLabel.textColor = Constants.Styles.textInfoColor
         titleLabel.textAlignment = .center
         return titleLabel
     }()
@@ -40,7 +40,7 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
     private let crewMemberRoleLabel : UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        titleLabel.textColor = .white
+        titleLabel.textColor = Constants.Styles.textInfoColor
         titleLabel.textAlignment = .center
         return titleLabel
     }()

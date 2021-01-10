@@ -5,7 +5,7 @@
 //  Created by Borja Saez de Guinoa Vilaplana on 20/12/2020.
 //
 
-import Foundation
+import UIKit
 
 struct Constants{
     
@@ -27,6 +27,15 @@ struct Constants{
         static let actors = "category_actors".localized()
         static let crew = "category_crew".localized()
         static let reviews = "category_reviews".localized()
+    }
+    
+    struct Styles {
+        static let mainColor: UIColor = .systemBlue
+        static let titleColor: UIColor = .white
+        static let tabbarUnselectColor: UIColor = .white
+        static let backGroundColor: UIColor = .black
+        static let textInfoColor: UIColor = .white
+        static let tabbarStyleColor: UIBarStyle = .black
     }
 
 }

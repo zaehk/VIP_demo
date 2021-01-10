@@ -14,7 +14,7 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
 
     private let posterImageView : CustomImageView = {
         let imageView = CustomImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = Constants.Styles.mainColor
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
         return imageView
@@ -23,7 +23,7 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
     private let movieTitleLabel : UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        titleLabel.textColor = .white
+        titleLabel.textColor = Constants.Styles.textInfoColor
         return titleLabel
     }()
     

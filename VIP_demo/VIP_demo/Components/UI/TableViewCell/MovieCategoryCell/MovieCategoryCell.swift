@@ -13,7 +13,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     private let categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
+        label.textColor = Constants.Styles.titleColor
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         label.textAlignment = .left
@@ -94,7 +94,7 @@ class MovieCategoryCell: UITableViewCell, GetCellIdentifierProtocol {
     }
     
     func setTitleTextSize(size: CGFloat){
-        self.categoryTitleLabel.font.withSize(size)
+        self.categoryTitleLabel.font = UIFont.boldSystemFont(ofSize: size)
     }
     
 }
