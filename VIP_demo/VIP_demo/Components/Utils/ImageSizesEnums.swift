@@ -37,7 +37,7 @@ enum MoviePosterSizes: PictureSizeProtocol {
     
 }
 
-enum BackdropSizes: PictureSizeProtocol{
+enum BackdropImageSizes: PictureSizeProtocol{
     
     case small
     case medium
