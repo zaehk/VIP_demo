@@ -61,3 +61,7 @@ class MovieInfoViewModel {
         }
     }
 }
+
+class MovieReviewViewModel {
+     
+}
