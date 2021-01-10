@@ -64,4 +64,15 @@ class MovieInfoViewModel {
 
 class MovieReviewViewModel {
      
+    var review: String
+    var author: String
+    var rating: String?
+    
+    init(movieReviewResponseModel: ReviewResultResponseModel){
+        self.review = movieReviewResponseModel.content ?? ""
+        self.author = movieReviewResponseModel.author ?? "Unknown"
+        if let vote = movieReviewResponseModel.authorDetails?.rating{
+            self.rating = "\(vote)/10"
+        }
+    }
 }

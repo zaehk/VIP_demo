@@ -43,6 +43,14 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
             let crewCells: [CollectionDrawerItemProtocol] = crewViewModels.map({CrewMemberCellModel.init(castVM: $0)})
             cells.append(MovieCategoryCellModel.init(title: Constants.MovieDetailCategories.crew, elementsToDisplay: crewCells, additionalInfo: MovieDetailCategories.crew, titleSize: 15))
         }
+        
+        if !reviews.isEmpty{
+            //casting reviews to reviews View models
+            let reviewsVM: [MovieReviewViewModel] = reviews.map({MovieReviewViewModel.init(movieReviewResponseModel: $0)})
+            //create reviews TABLE cells from the viewmodels
+            let reviewCells: [DrawerItemProtocol] = reviewsVM.map({ReviewCellModel.init(reviewViewModel: $0)})
+            cells.append(contentsOf: reviewCells)
+        }
                 
         viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieInfoVM: movieInfoViewModel, movieDetailCells: cells))
     }

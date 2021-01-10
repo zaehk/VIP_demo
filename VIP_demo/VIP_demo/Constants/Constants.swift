@@ -36,6 +36,9 @@ struct Constants{
         static let backGroundColor: UIColor = .black
         static let textInfoColor: UIColor = .white
         static let tabbarStyleColor: UIBarStyle = .black
+        static let reviewAuthorColor: UIColor = .black
+        static let reviewTextColor: UIColor = .black
+        static let reviewBackgroundColor: UIColor = .white
     }
 
 }
