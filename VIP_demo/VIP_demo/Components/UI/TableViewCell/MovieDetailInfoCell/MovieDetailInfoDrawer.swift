@@ -9,8 +9,7 @@ import UIKit
 
 internal final class MovieDetailInfoDrawer: CellDrawerProtocol {
     func dequeueCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.register(UINib(nibName: MovieDetailInfoCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: MovieDetailInfoCell.cellIdentifier())
-        
+        tableView.register(MovieDetailInfoCell.self, forCellReuseIdentifier: MovieDetailInfoCell.cellIdentifier())
         return tableView.dequeueReusableCell(withIdentifier: MovieDetailInfoCell.cellIdentifier(), for: indexPath)
     }
     
@@ -18,9 +17,9 @@ internal final class MovieDetailInfoDrawer: CellDrawerProtocol {
         guard let cell = cell as? MovieDetailInfoCell, let cellVM = item as? MovieDetailInfoCellModel else {
             return
         }
-        //example
-       // cell.setTitleLabelText(text: cellVM.title)
-   
+        
+        cell.setMovieBackdropImage(imageURL: cellVM.imageURL, placeholder: UIImage.init(named: "moviePosterNotFound"))
+        cell.setMovieOverview(text: cellVM.overView,size: 14)
     }
 }
 
