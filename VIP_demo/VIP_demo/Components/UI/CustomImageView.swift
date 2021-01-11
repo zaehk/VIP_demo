@@ -32,23 +32,24 @@ class CustomImageView: UIImageView {
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             DispatchQueue.main.async {
-                if let safeData = data {
-                    if let downloadedImage = UIImage.init(data: safeData) {
-                        if self.imageUrlString == urlString {
-                            self.setImageWithAnimation(imageToTransition: downloadedImage)
-                        }
-                        imageCache.setObject(downloadedImage, forKey: urlString as NSString)
-                    }
-                    else{
-                        self.setImageWithAnimation(imageToTransition: placeHolderImage)
-                    }
-                }
-                else {
+                guard let safeData = data,
+                      let downloadedImage = UIImage.init(data: safeData) else {
                     self.setImageWithAnimation(imageToTransition: placeHolderImage)
+                    return
                 }
+                
+                if self.imageUrlString == urlString {
+                    self.setImageWithAnimation(imageToTransition: downloadedImage)
+                }
+                
+                imageCache.setObject(downloadedImage, forKey: urlString as NSString)
             }
         }
         dataTask.resume()
+        
+        
+        
+        
     }
     
     private func setImageWithAnimation(imageToTransition: UIImage) {
