@@ -73,6 +73,7 @@ extension ApiRouter: URLRequestConvertible {
         //Set method
         urlRequest.httpMethod = method.rawValue
         
+        urlRequest.cachePolicy = .reloadIgnoringCacheData
         //Set parameters
         urlRequest = try Alamofire.URLEncoding.default.encode(urlRequest, with: parameters)
         

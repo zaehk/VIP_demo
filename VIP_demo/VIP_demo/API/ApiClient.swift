@@ -21,8 +21,9 @@ internal final class ApiClient: ApiClientProtocol {
     // MARK: - Alamofire manager configured with adapter and retrier
     
     private var AFManager: Alamofire.Session = {
-        let interceptor = Interceptor.init(adapters: [ApiARequestAdapter()],retriers: [RetryPolicy(retryLimit: 3)])
+        let interceptor = Interceptor.init(adapters: [ApiARequestAdapter()],retriers: [RetryPolicy(retryLimit: 1)])
         let session = Alamofire.Session(interceptor: interceptor)
+        session.sessionConfiguration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         return session
     }()
     
