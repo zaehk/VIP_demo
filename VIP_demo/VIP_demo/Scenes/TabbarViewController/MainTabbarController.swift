@@ -22,10 +22,10 @@ class MainTabbarController: UITabBarController {
         let homeNavigationController = CustomNavigationController.init(rootViewController: newFilmReleases)
 
         let search = MovieSearchViewController()
-        search.view.backgroundColor = Constants.Styles.backGroundColor
         search.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.search , image: UIImage.init(named: "search_item"), tag: 1)
+        let searchNavitgationController = CustomNavigationController.init(rootViewController: search)
         
-        let tabBarList = [homeNavigationController, search]
+        let tabBarList = [homeNavigationController, searchNavitgationController]
 
         viewControllers = tabBarList
     }

@@ -14,28 +14,38 @@ import UIKit
 
 protocol MovieSearchBusinessLogic
 {
-  //func doSomething(request: MovieSearch.Something.Request)
+    func fetchMovies(queryString: String)
 }
 
 protocol MovieSearchDataStore
 {
-  //var name: String { get set }
+    var matchingMovies: [MovieResultResponseModel] { get }
 }
 
 class MovieSearchInteractor: MovieSearchBusinessLogic, MovieSearchDataStore
 {
-  var presenter: MovieSearchPresentationLogic?
-  var worker: MovieSearchWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-//  func doSomething(request: MovieSearch.Something.Request)
-//  {
-//    worker = MovieSearchWorker()
-//    worker?.doSomeWork()
-//    
-//    let response = MovieSearch.Something.Response()
-//    presenter?.presentSomething(response: response)
-//  }
+    
+    var matchingMovies: [MovieResultResponseModel] = []
+    
+    var presenter: MovieSearchPresentationLogic?
+    var movieService: MovieServiceProtocol?
+    
+    init(movieService: MovieServiceProtocol = MovieService.init()){
+        self.movieService = movieService
+    }
+    
+    
+    func fetchMovies(queryString: String) {
+        movieService?.searchMovie(query: queryString, success: { (matchingMoviesResponse) in
+            if let movies = matchingMoviesResponse.results{
+                self.matchingMovies = movies
+                self.presenter?.presentMatchingMovies(movies: self.matchingMovies)
+            }
+        }, failure: { (error, apiError) in
+            self.presenter?.onGetMatchingMoviesFailed()
+        })
+    }
+    
+    
+    
 }

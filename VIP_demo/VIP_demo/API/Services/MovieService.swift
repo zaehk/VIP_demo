@@ -15,6 +15,7 @@ protocol MovieServiceProtocol: ApiServiceProtocol{
     func fetchNowPlayingMovies(success:@escaping(MoviesWithinDateRangeResponseModel)->(), failure: @escaping(FailureCompletion))
     func fetchUpcomingMovies(success: @escaping (MoviesWithinDateRangeResponseModel) -> (), failure: @escaping(FailureCompletion))
     func fetchMovieReviews(id: Int, success: @escaping (MovieReviewsResponseModel) -> (), failure: @escaping(FailureCompletion))
+    func searchMovie(query: String, success: @escaping (MovieListResponseModel) -> (), failure: @escaping(FailureCompletion)) 
     
 }
 
@@ -49,6 +50,10 @@ class MovieService: MovieServiceProtocol {
     
     func fetchMovieReviews(id: Int, success: @escaping (MovieReviewsResponseModel) -> (), failure: @escaping(FailureCompletion)) {
         apiClient.makeRequest(route: .movieReviews(movieId: id), responseModel: MovieReviewsResponseModel.self, success: success, failed: failure)
+    }
+    
+    func searchMovie(query: String, success: @escaping (MovieListResponseModel) -> (), failure: @escaping(FailureCompletion)) {
+        apiClient.makeRequest(route: .searchMovie(queryString: query), responseModel: MovieListResponseModel.self, success: success, failed: failure)
     }
     
     

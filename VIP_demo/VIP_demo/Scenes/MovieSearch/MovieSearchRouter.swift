@@ -14,47 +14,33 @@ import UIKit
 
 @objc protocol MovieSearchRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToMovieDetail()
 }
 
 protocol MovieSearchDataPassing
 {
-  var dataStore: MovieSearchDataStore? { get }
+    var dataStore: MovieSearchDataStore? { get }
+    
+    func passDataToMovieDetail(source: MovieSearchDataStore, destination: inout MovieDetailDataStore)
 }
 
 class MovieSearchRouter: NSObject, MovieSearchRoutingLogic, MovieSearchDataPassing
 {
-  weak var viewController: MovieSearchViewController?
-  var dataStore: MovieSearchDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: MovieSearchViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: MovieSearchDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    
+    weak var viewController: MovieSearchViewController?
+    var dataStore: MovieSearchDataStore?
+    
+    func routeToMovieDetail() {
+        let movieDetailVC = MovieDetailViewController()
+        if var movieDetailDS = movieDetailVC.router?.dataStore, let searchDataStore = dataStore {
+            passDataToMovieDetail(source: searchDataStore, destination: &movieDetailDS)
+        }
+        viewController?.navigationController?.pushViewController(movieDetailVC, animated: true)
+    }
+    
+    func passDataToMovieDetail(source: MovieSearchDataStore, destination: inout MovieDetailDataStore) {
+        let index = viewController?.resultsCollectionView.indexPathsForSelectedItems?.first?.row ?? 0
+        destination.movieIdentifier = source.matchingMovies[index].id
+    }
+    
 }

@@ -16,4 +16,8 @@ internal struct ApiParameters {
         static let apiKey = "api_key"
         static let keyValue = "472c07727ed5687fe20e739156cc43f4"
     }
+    
+    struct Search{
+        static let key = "query"
+    }
 }

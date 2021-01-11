@@ -14,18 +14,25 @@ import UIKit
 
 protocol MovieSearchPresentationLogic
 {
-  //func presentSomething(response: MovieSearch.Something.Response)
+    func presentMatchingMovies(movies: [MovieResultResponseModel])
+    func onGetMatchingMoviesFailed()
 }
 
 class MovieSearchPresenter: MovieSearchPresentationLogic
 {
-  weak var viewController: MovieSearchDisplayLogic?
-  
-  // MARK: Do something
-  
-//  func presentSomething(response: MovieSearch.Something.Response)
-//  {
-//    let viewModel = MovieSearch.Something.ViewModel()
-//    viewController?.displaySomething(viewModel: viewModel)
-//  }
+    
+    weak var viewController: MovieSearchDisplayLogic?
+    
+    func presentMatchingMovies(movies: [MovieResultResponseModel]) {
+        
+        
+        //parse previously to viewmodel.... before cell
+        let movieCollectionCells: [CollectionDrawerItemProtocol] = movies.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+        viewController?.showResultMovies(movies: movieCollectionCells)
+        
+    }
+    
+    func onGetMatchingMoviesFailed() {
+        
+    }
 }

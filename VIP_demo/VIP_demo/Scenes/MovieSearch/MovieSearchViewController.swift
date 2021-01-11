@@ -14,13 +14,16 @@ import UIKit
 
 protocol MovieSearchDisplayLogic: class, BaseViewDisplayLogic
 {
-    
+    func showResultMovies(movies: [CollectionDrawerItemProtocol])
 }
 
 class MovieSearchViewController: BaseViewController
 {
     var interactor: MovieSearchBusinessLogic?
     var router: (NSObjectProtocol & MovieSearchRoutingLogic & MovieSearchDataPassing)?
+    
+    private var resultMovieCells: [CollectionDrawerItemProtocol] = []
+    var selectedIndex: Int = 0
     
     // MARK: Object lifecycle
     
@@ -61,6 +64,11 @@ class MovieSearchViewController: BaseViewController
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     // MARK: Views
     
     private let searchBar: UISearchBar = {
@@ -71,13 +79,14 @@ class MovieSearchViewController: BaseViewController
         return bar
     }()
     
-    private let resultsCollectionView: UICollectionView = {
+    let resultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: layout)
-        collectionView.backgroundColor = Constants.Styles.mainColor
+        collectionView.backgroundColor = .clear
         collectionView.keyboardDismissMode = .onDrag
+        collectionView.indicatorStyle = .white
         collectionView.showsVerticalScrollIndicator = true
         collectionView.contentInset = UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         return collectionView
@@ -87,6 +96,8 @@ class MovieSearchViewController: BaseViewController
         self.view.addSubview(searchBar)
         self.view.addSubview(resultsCollectionView)
         searchBar.delegate = self
+        resultsCollectionView.delegate = self
+        resultsCollectionView.dataSource = self
     }
     
     private func setupConstraints(){
@@ -100,21 +111,49 @@ class MovieSearchViewController: BaseViewController
         }
     }
     
+    private func updateResultCells(newResults: [CollectionDrawerItemProtocol]){
+        self.resultMovieCells = newResults
+        resultsCollectionView.reloadData()
+    }
+    
 }
+
+//MARK: -CollectionView management
+
+extension MovieSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellModel = resultMovieCells[indexPath.row]
+        let drawer = cellModel.collectionDrawer
+        let cell = drawer.dequeueCollectionCell(collectionView, indexPath: indexPath)
+        drawer.drawCollectionCell(cell, withItem: cellModel)
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        resultMovieCells.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        router?.routeToMovieDetail()
+    }
+    
+}
+
 
 //MARK: -SearchBar delegate implementation
 
 extension MovieSearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        interactor?.fetchMovies(queryString: searchBar.text ?? "")
         searchBar.resignFirstResponder()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //interactor.search..
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateResultCells(newResults: [])
         searchBar.resignFirstResponder()
     }
     
@@ -124,5 +163,8 @@ extension MovieSearchViewController: UISearchBarDelegate {
 
 extension MovieSearchViewController: MovieSearchDisplayLogic {
     
+    func showResultMovies(movies: [CollectionDrawerItemProtocol]) {
+        updateResultCells(newResults: movies)
+    }
     
 }

@@ -53,8 +53,12 @@ extension ApiRouter: URLRequestConvertible {
     }
     
     var parameters: Parameters? {
-        
-        return nil
+        switch self {
+        case .searchMovie(queryString: let queryString):
+            return [ApiParameters.Search.key : queryString]
+        default:
+            return nil
+        }
     }
     
     func asURLRequest() throws -> URLRequest {
