@@ -33,3 +33,8 @@
 
 //MARK: Search
 "searchbar_placeholder" = "Search movies";
+
+//MARK: EmptyState descriptions
+"home_empty" = "We couldnt find any movies, try again later";
+"movie_empty" = "We coulnt find info for the movie, try again later";
+"search_empty" = "No movies matched your search";

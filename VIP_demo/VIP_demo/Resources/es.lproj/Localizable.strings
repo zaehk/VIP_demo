@@ -33,3 +33,8 @@
 
 //MARK: Search
 "searchbar_placeholder" = "Busque películas";
+
+//MARK: EmptyState descriptions
+"home_empty" = "No se ha podido cargar el listado de películas, inténtelo más tarde";
+"movie_empty" = "No se ha podido cargar la información de la película, inténtelo más tarde";
+"search_empty" = "No se han han encontrado películas para su búsqueda";

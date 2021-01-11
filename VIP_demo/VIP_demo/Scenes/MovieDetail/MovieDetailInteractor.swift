@@ -95,8 +95,10 @@ extension MovieDetailInteractor: MovieDetailBusinessLogic{
         dispatchGroup.notify(queue: .main) {
             
             if let safeDetail = self.movieDetail {
+                //if movie details succeed we show that, the rest of the additional info like casting or crew is expendable
                 self.presenter?.presentMovieInfo(movieDetail: safeDetail, casting: self.castingMembers, crew: self.crewMembers, reviews: self.movieReviews)
             }else {
+                //if the movie detail fails (after 3 retries of alamofire retrier) an empty state will be shown
                 self.presenter?.onGetMovieDetailFailed()
             }
         }

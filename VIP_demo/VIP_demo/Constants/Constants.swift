@@ -38,6 +38,19 @@ struct Constants{
         static let searchBarPlaceholder: String = "searchbar_placeholder".localized()
     }
     
+    struct EmptyState {
+        struct descriptions {
+            static let home: String = "home_empty".localized()
+            static let movieDetail: String = "movie_empty".localized()
+            static let search: String = "search_empty".localized()
+        }
+        struct images {
+            static let home: UIImage? = UIImage(named: "homeEmptyState")
+            static let search: UIImage? = UIImage(named: "searchEmptyState")
+            static let detail: UIImage? = UIImage(named: "movieDetailEmptyState")
+        }
+    }
+    
     struct Styles {
         static let mainColor: UIColor = .systemRed
         static let titleColor: UIColor = .white
@@ -49,6 +62,7 @@ struct Constants{
         static let reviewAuthorColor: UIColor = .white
         static let reviewTextColor: UIColor = .white
         static let reviewBackgroundColor: UIColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
+        static let emptyStateImageTint: UIColor = .red
     }
 
 }
