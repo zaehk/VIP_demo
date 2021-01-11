@@ -56,7 +56,8 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
     }
     
     func onGetMovieDetailFailed() {
-        
+        let emptyCell = EmptyStateCellModel.init(emptyState: .detail)
+        viewController?.displayErrorFetchingMovieDetail(emptyStateCell: emptyCell)
     }
     
 }

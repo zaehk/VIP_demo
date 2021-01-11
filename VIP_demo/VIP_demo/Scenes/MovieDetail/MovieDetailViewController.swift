@@ -10,6 +10,7 @@ import UIKit
 protocol MovieDetailDisplayLogic: class, BaseViewDisplayLogic
 {
     func displayMovieInfo(viewModel: MovieDetailViewModel)
+    func displayErrorFetchingMovieDetail(emptyStateCell: DrawerItemProtocol)
 }
 
 class MovieDetailViewController: BaseViewController
@@ -101,6 +102,14 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate{
         drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if detailCells[indexPath.row] is EmptyStateCellModel {
+            return tableView.frame.height
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
 }
 
 extension MovieDetailViewController: MovieDetailDisplayLogic {
@@ -108,6 +117,11 @@ extension MovieDetailViewController: MovieDetailDisplayLogic {
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
         self.title = viewModel.movieInfoVM.title
         self.detailCells = viewModel.detailCells
+        self.tableView.reloadData()
+    }
+    
+    func displayErrorFetchingMovieDetail(emptyStateCell: DrawerItemProtocol){
+        self.detailCells = [emptyStateCell]
         self.tableView.reloadData()
     }
     
