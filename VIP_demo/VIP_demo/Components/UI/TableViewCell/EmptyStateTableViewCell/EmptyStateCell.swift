@@ -24,6 +24,15 @@ class EmptyStateCell: UITableViewCell, GetCellIdentifierProtocol {
         return imageView
     }()
     
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.spacing = 15
+        stack.distribution = .equalSpacing
+        return stack
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -49,23 +58,22 @@ class EmptyStateCell: UITableViewCell, GetCellIdentifierProtocol {
     
     private func setupViewsConstraints(){
 
-        self.addSubview(emptyStateImageView)
-        self.addSubview(emptyStateDescription)
+        self.addSubview(stackView)
         
-        contentView.snp.makeConstraints { (make) in
-            make.height.equalTo(200)
+        stackView.addArrangedSubview(emptyStateImageView)
+        stackView.addArrangedSubview(emptyStateDescription)
+        
+        stackView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(20)
+            make.centerX.centerY.equalToSuperview()
         }
         
         emptyStateDescription.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview()
         }
         
         emptyStateImageView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
             make.width.height.equalTo(100)
-            make.top.equalTo(emptyStateDescription.snp.bottom).offset(15)
         }
         
     }

@@ -138,6 +138,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //if its an emptyState cell it will cover the whole table
+        if self.viewModel.movieCategories[indexPath.row] is EmptyStateCellModel {
+            return tableView.frame.height
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
 }
 
 //MARK: -MovieCategoryTap protocol implementation
