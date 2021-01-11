@@ -13,6 +13,7 @@ class EmptyStateCell: UITableViewCell, GetCellIdentifierProtocol {
     private let emptyStateDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -51,16 +52,20 @@ class EmptyStateCell: UITableViewCell, GetCellIdentifierProtocol {
         self.addSubview(emptyStateImageView)
         self.addSubview(emptyStateDescription)
         
-        emptyStateImageView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.left.right.equalToSuperview().offset(20)
+        contentView.snp.makeConstraints { (make) in
+            make.height.equalTo(200)
         }
         
         emptyStateDescription.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
+        }
+        
+        emptyStateImageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.height.equalTo(100)
-            make.top.equalTo(emptyStateImageView.snp.bottom).inset(30)
+            make.top.equalTo(emptyStateDescription.snp.bottom).offset(15)
         }
         
     }

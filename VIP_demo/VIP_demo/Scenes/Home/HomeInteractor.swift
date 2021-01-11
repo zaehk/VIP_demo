@@ -85,7 +85,11 @@ extension HomeInteractor: HomeBusinessLogic {
 
         
         dispatchGroup.notify(queue: .main){
-            self.allMovieListsAreEmpty() ? self.presenter?.onGetMoviesForHomeAllFailed() : self.presenter?.onGetMoviesForHomeSucceed(popular: self.popularMovies, topRated: self.topRatedMovies, nowPlaying: self.nowPlayingMovies, upcoming: self.upcomingMovies)
+            
+            self.presenter?.onGetMoviesForHomeAllFailed()
+//
+//            self.allMovieListsAreEmpty() ? self.presenter?.onGetMoviesForHomeAllFailed() : self.presenter?.onGetMoviesForHomeSucceed(popular: self.popularMovies, topRated: self.topRatedMovies, nowPlaying: self.nowPlayingMovies, upcoming: self.upcomingMovies)
+//
         }
     }
     

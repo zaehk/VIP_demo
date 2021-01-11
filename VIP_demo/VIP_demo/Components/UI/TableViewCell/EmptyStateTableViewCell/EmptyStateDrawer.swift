@@ -18,6 +18,8 @@ internal final class EmptyStateDrawer: CellDrawerProtocol {
             return
         }
         
+        cell.setEmptyStateImage(image: cellVM.emptyState.emptyImage)
+        cell.setEmptyStateDescription(text: cellVM.emptyState.description)
         
    
     }

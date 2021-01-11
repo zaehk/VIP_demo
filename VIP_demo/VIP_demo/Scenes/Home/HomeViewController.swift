@@ -13,6 +13,7 @@ import SnapKit
 protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
     func loadCategoriesAndMovies(viewModel: HomeViewModel)
+    func onFetchingMoviesError(emptyStateViewModel: HomeViewModel)
 }
 
 class HomeViewController: BaseViewController
@@ -108,6 +109,12 @@ class HomeViewController: BaseViewController
 //MARK: -Display logic implementation
 
 extension HomeViewController: HomeDisplayLogic {
+    
+    func onFetchingMoviesError(emptyStateViewModel: HomeViewModel) {
+        //we could show an alert... or additional logic besides overwriting the viewmodel with the empty state, better keep this method alongside the success method "loadCategoriesAndMovies"
+        self.viewModel = emptyStateViewModel
+        tableView.reloadData()
+    }
     
     func loadCategoriesAndMovies(viewModel: HomeViewModel) {
         self.viewModel = viewModel
