@@ -26,7 +26,7 @@ class HomeViewController: BaseViewController
     // MARK: Variables
 
     var viewModel: HomeViewModel = HomeViewModel(movieCategories: [])
-    
+    var refreshControl = UIRefreshControl()
     var categoryOfItemTapped: HomeCategory?
     var indexOfItemTapped: IndexPath?
     
@@ -97,11 +97,24 @@ class HomeViewController: BaseViewController
     private func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        refreshControl.attributedTitle = NSAttributedString(string: Constants.TableViewRefreshControl.description)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       getMoviesList()
     }
     
     private func getMoviesList(){
-        //showSpinner
+        //showSpinner?
         interactor?.fetchMovies()
+    }
+    
+    private func loadNewInfoInTable(viewModel: HomeViewModel){
+        refreshControl.endRefreshing()
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
     
 }
@@ -112,13 +125,11 @@ extension HomeViewController: HomeDisplayLogic {
     
     func onFetchingMoviesError(emptyStateViewModel: HomeViewModel) {
         //we could show an alert... or additional logic besides overwriting the viewmodel with the empty state, better keep this method alongside the success method "loadCategoriesAndMovies"
-        self.viewModel = emptyStateViewModel
-        tableView.reloadData()
+        loadNewInfoInTable(viewModel: emptyStateViewModel)
     }
     
     func loadCategoriesAndMovies(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
-        tableView.reloadData()
+        loadNewInfoInTable(viewModel: viewModel)
     }
     
 }

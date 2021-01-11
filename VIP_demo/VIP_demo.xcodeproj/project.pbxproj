@@ -47,7 +47,6 @@
 		DA9DE3CE258FD84D008CA980 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3CD258FD84C008CA980 /* ApiClient.swift */; };
 		DA9DE3D3258FD8B2008CA980 /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */; };
 		DA9DE3D8258FD8DD008CA980 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */; };
-		DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */; };
 		DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */; };
 		DA9DE3EB258FDA00008CA980 /* ApiRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */; };
 		DA9DE3FF258FE6D2008CA980 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */; };
@@ -146,7 +145,6 @@
 		DA9DE3CD258FD84C008CA980 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
 		DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
-		DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRetrier.swift; sourceTree = "<group>"; };
 		DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiParameters.swift; sourceTree = "<group>"; };
 		DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestAdapter.swift; sourceTree = "<group>"; };
 		DA9DE3FE258FE6D2008CA980 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
@@ -538,7 +536,6 @@
 				DAAEC7B0258F65ED009FFE78 /* ApiRouter.swift */,
 				DA9DE3CD258FD84C008CA980 /* ApiClient.swift */,
 				DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */,
-				DA9DE3DC258FD9A0008CA980 /* ApiRetrier.swift */,
 				DA9DE3E5258FD9CA008CA980 /* ApiParameters.swift */,
 				DA9DE3EA258FDA00008CA980 /* ApiRequestAdapter.swift */,
 				DA6C0EBB2598F4AB001ACFE6 /* ApiEndpoints.swift */,
@@ -863,7 +860,6 @@
 				DADE853F25A5C7F100CB56E2 /* MovieDetailViewModel.swift in Sources */,
 				DA9DE3E6258FD9CA008CA980 /* ApiParameters.swift in Sources */,
 				DAF0455B25A1E63700C52691 /* HomeViewController.swift in Sources */,
-				DA9DE3DD258FD9A0008CA980 /* ApiRetrier.swift in Sources */,
 				DAE70C78258F5E9700DF31FA /* SceneDelegate.swift in Sources */,
 				DA9DE3D8258FD8DD008CA980 /* ApiErrorType.swift in Sources */,
 				DAFFF53E25ACC02300CCF571 /* EmptyStateEnum.swift in Sources */,

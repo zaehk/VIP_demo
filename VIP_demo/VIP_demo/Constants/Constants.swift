@@ -29,6 +29,10 @@ struct Constants{
         static let reviews = "category_reviews".localized()
     }
     
+    struct TableViewRefreshControl {
+        static let description = "refresh_description".localized()
+    }
+    
     struct MovieDetail {
         static let reviewAuthor = "review_author".localized()
         static let rating = "review_rating".localized()
