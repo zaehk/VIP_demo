@@ -50,7 +50,7 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     private let authorlabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 12)
+        label.font = .boldSystemFont(ofSize: 14)
         label.textColor = Constants.Styles.reviewAuthorColor
         label.textAlignment = .left
         return label

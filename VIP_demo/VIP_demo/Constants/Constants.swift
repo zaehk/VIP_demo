@@ -44,11 +44,11 @@ struct Constants{
         static let tabbarUnselectColor: UIColor = .white
         static let backGroundColor: UIColor = .black
         static let textInfoColor: UIColor = .white
-        static let ratingColor: UIColor = .darkText
+        static let ratingColor: UIColor = .white
         static let tabbarStyleColor: UIBarStyle = .black
-        static let reviewAuthorColor: UIColor = .black
-        static let reviewTextColor: UIColor = .black
-        static let reviewBackgroundColor: UIColor = .white
+        static let reviewAuthorColor: UIColor = .white
+        static let reviewTextColor: UIColor = .white
+        static let reviewBackgroundColor: UIColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
     }
 
 }
