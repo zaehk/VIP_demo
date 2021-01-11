@@ -1,6 +1,6 @@
 # VIP_demo
 
-Demo project for testing VIP (Clean swift) design pattern and Snapkit to setup views programatically.
+Demo project to test VIP (Clean swift) design pattern and Snapkit pod.
 
 The app uses the API "themoviedb":
 https://developers.themoviedb.org/
