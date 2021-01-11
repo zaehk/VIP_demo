@@ -56,6 +56,7 @@ extension HomeInteractor: HomeBusinessLogic {
             self.popularMovies = popularMoviesResponseModel.results ?? []
             dispatchGroup.leave()
         } failure: { (error, apiError) in
+            self.popularMovies.removeAll()
             dispatchGroup.leave()
         }
         
@@ -64,6 +65,7 @@ extension HomeInteractor: HomeBusinessLogic {
             self.topRatedMovies = topRatedMoviesResponseModel.results ?? []
             dispatchGroup.leave()
         } failure: { (error, apiError) in
+            self.topRatedMovies.removeAll()
             dispatchGroup.leave()
         }
         
@@ -72,6 +74,7 @@ extension HomeInteractor: HomeBusinessLogic {
             self.nowPlayingMovies = nowPlaying.results ?? []
             dispatchGroup.leave()
         } failure: { (error, apiError) in
+            self.nowPlayingMovies.removeAll()
             dispatchGroup.leave()
         }
         
@@ -80,6 +83,7 @@ extension HomeInteractor: HomeBusinessLogic {
             self.upcomingMovies = upcoming.results ?? []
             dispatchGroup.leave()
         } failure: { (error, apiError) in
+            self.upcomingMovies.removeAll()
             dispatchGroup.leave()
         }
 
