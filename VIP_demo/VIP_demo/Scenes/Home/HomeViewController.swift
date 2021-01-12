@@ -25,14 +25,14 @@ class HomeViewController: BaseViewController
     
     // MARK: Variables
 
-    var viewModel: HomeViewModel = HomeViewModel(movieCategories: [])
-    var refreshControl = UIRefreshControl()
+    private var movieCategories: [DrawerItemProtocol] = []
+    private var refreshControl = UIRefreshControl()
     var categoryOfItemTapped: HomeCategory?
     var indexOfItemTapped: IndexPath?
     
     // MARK: Views
     
-    var tableView: UITableView = {
+    private var tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.estimatedRowHeight = 200
@@ -83,7 +83,7 @@ class HomeViewController: BaseViewController
     
     private func loadNewInfoInTable(viewModel: HomeViewModel){
         refreshControl.endRefreshing()
-        self.viewModel = viewModel
+        self.movieCategories = viewModel.movieCategories
         tableView.reloadData()
     }
     
@@ -111,11 +111,11 @@ extension HomeViewController: HomeDisplayLogic {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.movieCategories.count
+        self.movieCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = viewModel.movieCategories[indexPath.row]
+        let cellModel = self.movieCategories[indexPath.row]
         let drawer = cellModel.cellDrawer
         let cell = drawer.dequeueCell(tableView, cellForRowAt: indexPath)
         drawer.drawCell(cell, withItem: cellModel, delegate: self, at: indexPath)
@@ -124,7 +124,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //if its an emptyState cell it will cover the whole table
-        if self.viewModel.movieCategories[indexPath.row] is EmptyStateCellModel {
+        if self.movieCategories[indexPath.row] is EmptyStateCellModel {
             return tableView.frame.height
         } else {
             return UITableView.automaticDimension
