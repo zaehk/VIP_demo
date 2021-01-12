@@ -8,7 +8,7 @@
 import Foundation
 
 internal struct ApiParameters {
-    static let requestTimeOut = 5.0
+    static let requestTimeOut = 4.0
     static let timeOutBetweenRetries = 1.0
     static let validationRange = 200..<300
     

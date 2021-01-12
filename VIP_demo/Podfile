@@ -9,6 +9,8 @@ target 'VIP_demo' do
  
   pod 'Alamofire'
   pod 'SnapKit'
+  pod 'ProgressHUD'
+
 
   target 'VIP_demoTests' do
     inherit! :search_paths

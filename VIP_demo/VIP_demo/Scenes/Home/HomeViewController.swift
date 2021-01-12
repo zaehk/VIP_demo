@@ -107,7 +107,7 @@ class HomeViewController: BaseViewController
     }
     
     private func getMoviesList(){
-        //showSpinner?
+        showSpinner()
         interactor?.fetchMovies()
     }
     
@@ -124,11 +124,13 @@ class HomeViewController: BaseViewController
 extension HomeViewController: HomeDisplayLogic {
     
     func onFetchingMoviesError(emptyStateViewModel: HomeViewModel) {
+        hideSpinner()
         //we could show an alert... or additional logic besides overwriting the viewmodel with the empty state, better keep this method alongside the success method "loadCategoriesAndMovies"
         loadNewInfoInTable(viewModel: emptyStateViewModel)
     }
     
     func loadCategoriesAndMovies(viewModel: HomeViewModel) {
+        hideSpinner()
         loadNewInfoInTable(viewModel: viewModel)
     }
     

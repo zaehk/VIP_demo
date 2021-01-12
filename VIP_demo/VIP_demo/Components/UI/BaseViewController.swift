@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 protocol BaseViewDisplayLogic{
     func showErrorAlert(error: APIErrorType)
@@ -34,6 +35,14 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     
     func showInfoAlert() {
         
+    }
+    
+    func showSpinner() {
+        ProgressHUD.show("Loading")
+    }
+    
+    func hideSpinner() {
+        ProgressHUD.dismiss()
     }
     
     

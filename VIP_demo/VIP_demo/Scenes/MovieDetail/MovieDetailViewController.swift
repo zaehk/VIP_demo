@@ -85,6 +85,7 @@ class MovieDetailViewController: BaseViewController
     }
     
     private func getMovieDetailInfo(){
+        showSpinner()
         interactor?.fetchMovieDetail()
     }
     
@@ -115,12 +116,14 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate{
 extension MovieDetailViewController: MovieDetailDisplayLogic {
     
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
+        hideSpinner()
         self.title = viewModel.movieInfoVM.title
         self.detailCells = viewModel.detailCells
         self.tableView.reloadData()
     }
     
     func displayErrorFetchingMovieDetail(emptyStateCell: DrawerItemProtocol){
+        hideSpinner()
         self.detailCells = [emptyStateCell]
         self.tableView.reloadData()
     }
