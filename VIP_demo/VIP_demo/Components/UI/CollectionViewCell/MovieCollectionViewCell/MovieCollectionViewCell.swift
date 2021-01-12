@@ -47,6 +47,12 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         super.awakeFromNib()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+        movieTitleLabel.text = nil
+    }
+    
     private func setupViewsConstraints(){
         posterImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

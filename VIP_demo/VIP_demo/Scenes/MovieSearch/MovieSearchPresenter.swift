@@ -23,16 +23,25 @@ class MovieSearchPresenter: MovieSearchPresentationLogic
     
     weak var viewController: MovieSearchDisplayLogic?
     
+    //service success
     func presentMatchingMovies(movies: [MovieResultResponseModel]) {
-        
-        
-        //parse previously to viewmodel.... before cell
-        let movieCollectionCells: [CollectionDrawerItemProtocol] = movies.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
-        viewController?.showResultMovies(movies: movieCollectionCells)
-        
+        if movies.isEmpty {
+            presentEmptyStateOrError()
+        } else {
+            let movieCollectionCells: [CollectionDrawerItemProtocol] = movies.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
+            let successViewModel = MovieSearchViewModel.init(movies: movieCollectionCells)
+            viewController?.showResultMovies(viewModel: successViewModel)
+        }
     }
     
+    //service error
     func onGetMatchingMoviesFailed() {
-        
+        presentEmptyStateOrError()
+    }
+    
+    private func presentEmptyStateOrError(){
+        let emptyStateCell = [EmptyStateCollectionCellModel.init(emptyState: .search)]
+        let viewModel = MovieSearchViewModel.init(movies: emptyStateCell)
+        viewController?.showNoMoviesFoundOrError(viewModel: viewModel)
     }
 }

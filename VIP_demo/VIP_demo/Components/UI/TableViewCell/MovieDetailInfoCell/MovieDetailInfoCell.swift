@@ -50,6 +50,12 @@ class MovieDetailInfoCell: UITableViewCell, GetCellIdentifierProtocol {
         setupViewsConstraints()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        movieBackdropImageView.image = nil
+        overViewTextView.text = nil
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

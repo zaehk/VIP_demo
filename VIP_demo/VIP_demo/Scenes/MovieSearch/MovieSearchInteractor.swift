@@ -40,6 +40,8 @@ class MovieSearchInteractor: MovieSearchBusinessLogic, MovieSearchDataStore
             if let movies = matchingMoviesResponse.results{
                 self.matchingMovies = movies
                 self.presenter?.presentMatchingMovies(movies: self.matchingMovies)
+            }else{
+                self.presenter?.onGetMatchingMoviesFailed()
             }
         }, failure: { (error, apiError) in
             self.presenter?.onGetMatchingMoviesFailed()

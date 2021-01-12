@@ -12,3 +12,12 @@
 
 import UIKit
 
+class MovieSearchViewModel {
+    
+    var movies: [CollectionDrawerItemProtocol]
+    
+    init(movies: [CollectionDrawerItemProtocol]) {
+        self.movies = movies
+    }
+    
+}

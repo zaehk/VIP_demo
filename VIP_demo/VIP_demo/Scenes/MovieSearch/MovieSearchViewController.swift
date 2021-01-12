@@ -14,7 +14,8 @@ import UIKit
 
 protocol MovieSearchDisplayLogic: class, BaseViewDisplayLogic
 {
-    func showResultMovies(movies: [CollectionDrawerItemProtocol])
+    func showResultMovies(viewModel: MovieSearchViewModel)
+    func showNoMoviesFoundOrError(viewModel: MovieSearchViewModel)
 }
 
 class MovieSearchViewController: BaseViewController
@@ -24,6 +25,10 @@ class MovieSearchViewController: BaseViewController
     
     private var resultMovieCells: [CollectionDrawerItemProtocol] = []
     var selectedIndex: Int = 0
+    private let verticalInset: CGFloat = 20
+    private let horizontalInset: CGFloat = 40
+    
+
     
     // MARK: View lifecycle
     
@@ -86,6 +91,10 @@ class MovieSearchViewController: BaseViewController
         resultsCollectionView.reloadData()
     }
     
+    private func isEmptyStateCell(indexPath: IndexPath) -> Bool {
+        resultMovieCells[indexPath.row] is EmptyStateCollectionCellModel
+    }
+    
 }
 
 //MARK: -CollectionView management
@@ -106,8 +115,18 @@ extension MovieSearchViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        router?.routeToMovieDetail()
+        if !isEmptyStateCell(indexPath: indexPath){
+            selectedIndex = indexPath.row
+            router?.routeToMovieDetail()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if !isEmptyStateCell(indexPath: indexPath){
+            return CGSize.init(width: 80, height: 100)
+        }else{
+            return CGSize.init(width: collectionView.frame.width-horizontalInset, height: collectionView.frame.height-verticalInset)
+        }
     }
     
 }
@@ -133,8 +152,12 @@ extension MovieSearchViewController: UISearchBarDelegate {
 
 extension MovieSearchViewController: MovieSearchDisplayLogic {
     
-    func showResultMovies(movies: [CollectionDrawerItemProtocol]) {
-        updateResultCells(newResults: movies)
+    func showResultMovies(viewModel: MovieSearchViewModel) {
+        updateResultCells(newResults: viewModel.movies)
+    }
+    
+    func showNoMoviesFoundOrError(viewModel: MovieSearchViewModel){
+        updateResultCells(newResults: viewModel.movies)
     }
     
 }

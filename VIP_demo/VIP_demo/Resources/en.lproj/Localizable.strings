@@ -37,7 +37,7 @@
 //MARK: EmptyState descriptions
 "home_empty" = "We couldnt find any movies, pull down to refresh and try again";
 "movie_empty" = "We coulnt find info for the movie, try again later";
-"search_empty" = "No movies matched your search";
+"search_empty" = "No results, try again";
 
 //MARK: Refresh control
 "refresh_description" = "Pull to refresh";

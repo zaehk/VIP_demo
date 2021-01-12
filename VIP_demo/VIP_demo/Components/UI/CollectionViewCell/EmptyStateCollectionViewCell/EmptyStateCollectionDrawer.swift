@@ -20,7 +20,7 @@ internal final class EmptyStateCollectionDrawer: CollectionDrawerProtocol {
         else {
             return
         }
-        //example
-        //cell.setTitleLabelText(text: cellVM.title)
+        cell.setEmptyStateImage(image: cellVM.emptyState.emptyImage)
+        cell.setEmptyStateDescription(description: cellVM.emptyState.description)
     }
 }
