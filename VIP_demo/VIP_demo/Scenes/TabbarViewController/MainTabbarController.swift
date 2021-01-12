@@ -17,11 +17,11 @@ class MainTabbarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = Constants.Styles.tabbarUnselectColor
         self.tabBar.isTranslucent = false
         
-        let newFilmReleases = HomeViewController()
+        let newFilmReleases = HomeBuilder.viewController()
         newFilmReleases.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.home , image: UIImage.init(named: "home_item"), tag: 0)
         let homeNavigationController = CustomNavigationController.init(rootViewController: newFilmReleases)
 
-        let search = MovieSearchViewController()
+        let search = MovieSearchBuilder.viewController()
         search.tabBarItem = UITabBarItem.init(title: Constants.TabbarTitles.search , image: UIImage.init(named: "search_item"), tag: 1)
         let searchNavitgationController = CustomNavigationController.init(rootViewController: search)
         

@@ -25,36 +25,6 @@ class MovieSearchViewController: BaseViewController
     private var resultMovieCells: [CollectionDrawerItemProtocol] = []
     var selectedIndex: Int = 0
     
-    // MARK: Object lifecycle
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    // MARK: Setup
-    
-    private func setup()
-    {
-        let viewController = self
-        let interactor = MovieSearchInteractor()
-        let presenter = MovieSearchPresenter()
-        let router = MovieSearchRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
-    
     // MARK: View lifecycle
     
     override func viewDidLoad()

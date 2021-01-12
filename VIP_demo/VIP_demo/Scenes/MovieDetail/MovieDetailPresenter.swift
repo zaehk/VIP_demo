@@ -14,7 +14,8 @@ protocol MovieDetailPresentationLogic
 
 class MovieDetailPresenter
 {
-  weak var viewController: MovieDetailDisplayLogic?
+    weak var viewController: MovieDetailDisplayLogic?
+    
 }
 
 extension MovieDetailPresenter: MovieDetailPresentationLogic {

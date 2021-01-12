@@ -35,7 +35,7 @@ class HomeRouter: NSObject
 extension HomeRouter: HomeRoutingLogic {
     
     func routeToMovieDetail() {
-        let movieDetailVC = MovieDetailViewController()
+        let movieDetailVC = MovieDetailBuilder.viewController()
         if var movieDetailDS = movieDetailVC.router?.dataStore, let homeDataStore = dataStore {
             passDataToMovieDetail(source: homeDataStore, destination: &movieDetailDS)
         }

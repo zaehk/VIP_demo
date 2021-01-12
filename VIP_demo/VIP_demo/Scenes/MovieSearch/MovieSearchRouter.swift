@@ -31,7 +31,7 @@ class MovieSearchRouter: NSObject, MovieSearchRoutingLogic, MovieSearchDataPassi
     var dataStore: MovieSearchDataStore?
     
     func routeToMovieDetail() {
-        let movieDetailVC = MovieDetailViewController()
+        let movieDetailVC = MovieDetailBuilder.viewController()
         if var movieDetailDS = movieDetailVC.router?.dataStore, let searchDataStore = dataStore {
             passDataToMovieDetail(source: searchDataStore, destination: &movieDetailDS)
         }
