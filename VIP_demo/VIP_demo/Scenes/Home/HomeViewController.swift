@@ -26,13 +26,13 @@ class HomeViewController: BaseViewController
     // MARK: Variables
 
     private var movieCategories: [DrawerItemProtocol] = []
-    private var refreshControl = UIRefreshControl()
+    private let refreshControl = UIRefreshControl()
     var categoryOfItemTapped: HomeCategory?
     var indexOfItemTapped: IndexPath?
     
     // MARK: Views
     
-    private var tableView: UITableView = {
+    private let tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.estimatedRowHeight = 200

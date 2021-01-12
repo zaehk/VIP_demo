@@ -19,9 +19,9 @@ class MovieDetailViewController: BaseViewController
     var interactor: MovieDetailBusinessLogic?
     var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
     
-    var detailCells: [DrawerItemProtocol] = []
+    private var detailCells: [DrawerItemProtocol] = []
     
-    var tableView: UITableView = {
+    private let tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.estimatedRowHeight = 200
@@ -59,6 +59,11 @@ class MovieDetailViewController: BaseViewController
         interactor?.fetchMovieDetail()
     }
     
+    private func loadCellsInTableView(newCells: [DrawerItemProtocol]){
+        self.detailCells = newCells
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate{
@@ -88,14 +93,12 @@ extension MovieDetailViewController: MovieDetailDisplayLogic {
     func displayMovieInfo(viewModel: MovieDetailViewModel) {
         hideSpinner()
         self.title = viewModel.movieInfoVM.title
-        self.detailCells = viewModel.detailCells
-        self.tableView.reloadData()
+        loadCellsInTableView(newCells: viewModel.detailCells)
     }
     
     func displayErrorFetchingMovieDetail(emptyStateCell: DrawerItemProtocol){
         hideSpinner()
-        self.detailCells = [emptyStateCell]
-        self.tableView.reloadData()
+        loadCellsInTableView(newCells: [emptyStateCell])
     }
     
 }
