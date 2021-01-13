@@ -21,7 +21,7 @@ class MovieDetailViewController: BaseViewController
     
     private var detailCells: [DrawerItemProtocol] = []
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.estimatedRowHeight = 200

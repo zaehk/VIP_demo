@@ -32,7 +32,7 @@ class HomeViewController: BaseViewController
     
     // MARK: Views
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.estimatedRowHeight = 200

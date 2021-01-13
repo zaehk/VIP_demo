@@ -32,6 +32,7 @@ class MovieCastMemberViewModel {
             self.imageUrl = ProfilePictureSizes.medium.getFullUrlForSize(endpoint: imageEndpoint)
         }
     }
+    
 }
 
 class MovieInfoViewModel {
@@ -44,6 +45,15 @@ class MovieInfoViewModel {
     var tagLine: String
     var voteAverage: String?
     
+    init(title: String, detailImgUrl: String?, overview: String, productionCompanies: [String], releaseDate: String, tagLine: String, voteAverage: String?){
+        self.title = title
+        self.detailImageUrl = detailImgUrl
+        self.overview = overview
+        self.productionCompanies = productionCompanies
+        self.releaseDate = releaseDate
+        self.tagLine = tagLine
+        self.voteAverage = voteAverage
+    }
     
     init(movieDetailResponseModel: MovieDetailResponseModel){
         self.title = movieDetailResponseModel.title ?? ""

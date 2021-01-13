@@ -11,6 +11,10 @@
 		C8AE9AE5A1DFAE169D42C41A /* Pods_VIP_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */; };
 		CE80CBF1980F17E80ACBFC0F /* Pods_VIP_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7EDF11F4F363E8F7F67724 /* Pods_VIP_demo.framework */; };
 		DA183D5825AEDC5E00DE6F96 /* VIP_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D5725AEDC5E00DE6F96 /* VIP_demoUITests.swift */; };
+		DA183D8525AF520A00DE6F96 /* MovieDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D8125AF520A00DE6F96 /* MovieDetailViewControllerTests.swift */; };
+		DA183D8625AF520A00DE6F96 /* MovieDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D8225AF520A00DE6F96 /* MovieDetailInteractorTests.swift */; };
+		DA183D8725AF520A00DE6F96 /* MovieDetailWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D8325AF520A00DE6F96 /* MovieDetailWorkerTests.swift */; };
+		DA183D8825AF520A00DE6F96 /* MovieDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D8425AF520A00DE6F96 /* MovieDetailPresenterTests.swift */; };
 		DA196FAF25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */; };
 		DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */; };
 		DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */; };
@@ -116,6 +120,10 @@
 		B9313C341DF4EF1CE640AC00 /* Pods-VIP_demo-VIP_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-VIP_demo-VIP_demoUITests/Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA183D5725AEDC5E00DE6F96 /* VIP_demoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIP_demoUITests.swift; sourceTree = "<group>"; };
+		DA183D8125AF520A00DE6F96 /* MovieDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		DA183D8225AF520A00DE6F96 /* MovieDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractorTests.swift; sourceTree = "<group>"; };
+		DA183D8325AF520A00DE6F96 /* MovieDetailWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailWorkerTests.swift; sourceTree = "<group>"; };
+		DA183D8425AF520A00DE6F96 /* MovieDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenterTests.swift; sourceTree = "<group>"; };
 		DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryTapProtocol.swift; sourceTree = "<group>"; };
 		DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
@@ -252,6 +260,17 @@
 				4A0DB0C0A7F7F53A3A14AA64 /* Pods-VIP_demoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA183D8025AF51DE00DE6F96 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DA183D8125AF520A00DE6F96 /* MovieDetailViewControllerTests.swift */,
+				DA183D8225AF520A00DE6F96 /* MovieDetailInteractorTests.swift */,
+				DA183D8325AF520A00DE6F96 /* MovieDetailWorkerTests.swift */,
+				DA183D8425AF520A00DE6F96 /* MovieDetailPresenterTests.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		DA27626D25A4715A006D9AA7 /* Home */ = {
@@ -530,6 +549,7 @@
 		DAE70C8B258F5E9A00DF31FA /* VIP_demoTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA183D8025AF51DE00DE6F96 /* MovieDetail */,
 				DA27626D25A4715A006D9AA7 /* Home */,
 				DAE70C8E258F5E9A00DF31FA /* Info.plist */,
 			);
@@ -973,10 +993,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA183D8825AF520A00DE6F96 /* MovieDetailPresenterTests.swift in Sources */,
+				DA183D8525AF520A00DE6F96 /* MovieDetailViewControllerTests.swift in Sources */,
 				DA27627425A4716B006D9AA7 /* HomeWorkerTests.swift in Sources */,
 				DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */,
 				DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */,
+				DA183D8625AF520A00DE6F96 /* MovieDetailInteractorTests.swift in Sources */,
 				DA27627525A4716B006D9AA7 /* HomePresenterTests.swift in Sources */,
+				DA183D8725AF520A00DE6F96 /* MovieDetailWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
