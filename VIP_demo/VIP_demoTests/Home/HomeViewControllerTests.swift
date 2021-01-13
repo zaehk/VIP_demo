@@ -75,16 +75,16 @@ class HomeViewControllerTests: XCTestCase
     XCTAssertTrue(spy.fetchMoviesOnLoadCalled, "viewDidLoad() should ask the interactor to fetch movies categories")
   }
   
-  func testDisplaySomething()
-  {
-    // Given
-    let viewModel = HomeViewModel.init(movieCategories: [MovieCategoryCellModel.init(title: "Testing", elementsToDisplay: [])])
-    
-    // When
-    loadView()
-    sut.loadCategoriesAndMovies(viewModel: viewModel)
-    
-    // Then
-    XCTAssertEqual(viewModel.movieCategories.count, sut.tableView.numberOfRows(inSection: 0), "loadCategoriesAndMovies should reload the tableView with the same number of category downloaded that are not empty")
-  }
+//  func testDisplaySomething()
+//  {
+//    // Given
+//    let viewModel = HomeViewModel.init(movieCategories: [MovieCategoryCellModel.init(title: "Testing", elementsToDisplay: [])])
+//    
+//    // When
+//    loadView()
+//    sut.loadCategoriesAndMovies(viewModel: viewModel)
+//    
+//    // Then
+//    XCTAssertEqual(viewModel.movieCategories.count, sut.tableView.numberOfRows(inSection: 0), "loadCategoriesAndMovies should reload the tableView with the same number of category downloaded that are not empty")
+//  }
 }

@@ -10,6 +10,7 @@
 		4BD0E77AB8D01716E2E7C2D6 /* Pods_VIP_demo_VIP_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */; };
 		C8AE9AE5A1DFAE169D42C41A /* Pods_VIP_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */; };
 		CE80CBF1980F17E80ACBFC0F /* Pods_VIP_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7EDF11F4F363E8F7F67724 /* Pods_VIP_demo.framework */; };
+		DA183D5825AEDC5E00DE6F96 /* VIP_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183D5725AEDC5E00DE6F96 /* VIP_demoUITests.swift */; };
 		DA196FAF25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */; };
 		DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */; };
 		DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */; };
@@ -114,6 +115,7 @@
 		76841FF60245FB8F724BC70F /* Pods_VIP_demo_VIP_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demo_VIP_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9313C341DF4EF1CE640AC00 /* Pods-VIP_demo-VIP_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-VIP_demo-VIP_demoUITests/Pods-VIP_demo-VIP_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D378F57175A11147C719CC8D /* Pods_VIP_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIP_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA183D5725AEDC5E00DE6F96 /* VIP_demoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIP_demoUITests.swift; sourceTree = "<group>"; };
 		DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryTapProtocol.swift; sourceTree = "<group>"; };
 		DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 		DAE70C96258F5E9A00DF31FA /* VIP_demoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				DA183D5725AEDC5E00DE6F96 /* VIP_demoUITests.swift */,
 				DAE70C99258F5E9A00DF31FA /* Info.plist */,
 			);
 			path = VIP_demoUITests;
@@ -733,6 +736,7 @@
 					};
 					DAE70C92258F5E9A00DF31FA = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 						TestTargetID = DAE70C71258F5E9700DF31FA;
 					};
 				};
@@ -980,6 +984,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA183D5825AEDC5E00DE6F96 /* VIP_demoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,6 +1234,7 @@
 			baseConfigurationReference = DFC8590058D44CFED78C08A3 /* Pods-VIP_demo-VIP_demoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6588L2THCH;
 				INFOPLIST_FILE = VIP_demoUITests/Info.plist;
@@ -1239,6 +1245,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.borjasaez.VIP-demoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = VIP_demo;
@@ -1250,6 +1257,7 @@
 			baseConfigurationReference = B9313C341DF4EF1CE640AC00 /* Pods-VIP_demo-VIP_demoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6588L2THCH;
 				INFOPLIST_FILE = VIP_demoUITests/Info.plist;
