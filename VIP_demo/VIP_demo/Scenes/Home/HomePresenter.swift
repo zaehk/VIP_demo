@@ -62,7 +62,7 @@ extension HomePresenter: HomePresentationLogic {
         //insert an emptystate cell in the viewmodel so the viewcontroller will show it
         //we could use the same method as "loadCategoriesAndMovies" but i made another one so we could implement additional logic like showing an alert...
         let emptyStateViewModel = HomeViewModel.init(movieCategories: [EmptyStateCellModel.init(emptyState: EmptyState.home)])
-        viewController?.onFetchingMoviesError(emptyStateViewModel: emptyStateViewModel)
+        viewController?.showEmptyStateView(emptyStateViewModel: emptyStateViewModel)
     }
 
 }

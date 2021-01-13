@@ -88,10 +88,7 @@ class MovieDetailViewControllerTests: XCTestCase
     sut.displayMovieInfo(viewModel: viewModel)
     
     // Then
-    XCTAssertEqual(sut.title, viewModel.movieInfoVM.title, "displayMovieInfo(viewModel:) should update the title of the ViewController")
+    XCTAssertEqual(sut.title, viewModel.movieInfoVM.title, "displayMovieInfo(viewModel:) should update the viewcontroller's title with the movie title")
   }
-    
-    func testMovieInfoCellsDisplayed(){
-        
-    }
+
 }

@@ -9,8 +9,7 @@ import UIKit
 import ProgressHUD
 
 protocol BaseViewDisplayLogic{
-    func showErrorAlert(error: APIErrorType)
-    func showInfoAlert()
+
 }
 
 class BaseViewController: UIViewController, BaseViewDisplayLogic {
@@ -26,15 +25,6 @@ class BaseViewController: UIViewController, BaseViewDisplayLogic {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    
-    func showErrorAlert(error: APIErrorType) {
-
-    }
-    
-    func showInfoAlert() {
-        
     }
     
     func showSpinner() {

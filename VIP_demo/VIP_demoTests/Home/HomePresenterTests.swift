@@ -10,72 +10,95 @@
 //  see http://clean-swift.com
 //
 
-//@testable import VIP_demo
-//import XCTest
-//
-//class HomePresenterTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: HomePresenter!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupHomePresenter()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupHomePresenter()
-//  {
-//    sut = HomePresenter()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class HomeDisplayLogicSpy: HomeDisplayLogic
-//  {
-//    func loadCategoriesAndMovies(viewModel: HomeViewModel) {
-//        <#code#>
-//    }
-//    
-//    func showError(error: APIErrorType) {
-//        <#code#>
-//    }
-//    
-//    func showInfoAlert() {
-//        <#code#>
-//    }
-//    
-//    var displaySomethingCalled = false
-//    
-//    func displaySomething(viewModel: Home.Something.ViewModel)
-//    {
-//      displaySomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testPresentSomething()
-//  {
-//    // Given
-//    let spy = HomeDisplayLogicSpy()
-//    sut.viewController = spy
-//    let response = Home.Something.Response()
-//    
-//    // When
-//    sut.presentSomething(response: response)
-//    
-//    // Then
-//    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
-//  }
-//}
+@testable import VIP_demo
+import XCTest
+
+class HomePresenterTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: HomePresenter!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        setupHomePresenter()
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupHomePresenter()
+    {
+        sut = HomePresenter()
+    }
+    
+    // MARK: Test doubles
+    
+    class HomeDisplayLogicSpy: HomeDisplayLogic
+    {
+        
+        var numberOfCategoriesInViewModel = 0
+        var loadCategoriesAndMoviesCalled = false
+        var showEmptyStateViewOnErrorCalled = false
+        
+        func loadCategoriesAndMovies(viewModel: HomeViewModel) {
+            self.numberOfCategoriesInViewModel = viewModel.movieCategories.count
+            loadCategoriesAndMoviesCalled = true
+        }
+        
+        func showEmptyStateView(emptyStateViewModel: HomeViewModel) {
+            showEmptyStateViewOnErrorCalled = true
+        }
+        
+    }
+    
+    // MARK: Tests
+    
+    func testOnGetMoviesForHomeSucceed()
+    {
+        // Given
+        let spy = HomeDisplayLogicSpy()
+        sut.viewController = spy
+        let movieResultResponseModel = MovieResultResponseModel.init(adult: true, backdropPath: "", genreIDS: [], id: 1, originalLanguage: "", originalTitle: "", overview: "", popularity: 0, posterPath: "", releaseDate: "", title: "", video: false, voteAverage: 2, voteCount: 2)
+        // When
+        sut.onGetMoviesForHomeSucceed(popular: [movieResultResponseModel], topRated: [movieResultResponseModel], nowPlaying: [],upcoming: [])
+        
+        // Then
+        XCTAssertTrue(spy.loadCategoriesAndMoviesCalled, "onGetMoviesForHomeSucceed() should ask the view controller to display the categories")
+        XCTAssertEqual(spy.numberOfCategoriesInViewModel, 2, "onGetMovieForHomeSucced() should create a viewmodel with the same number of cell models as the movies arrays that are not empty (2 in this case)")
+    }
+    
+    func testOnlyPopulatedMovieArraysAreLoadedInTheViewModel(){
+        // Given
+        let spy = HomeDisplayLogicSpy()
+        sut.viewController = spy
+        let movieResultResponseModel = MovieResultResponseModel.init(adult: true, backdropPath: "", genreIDS: [], id: 1, originalLanguage: "", originalTitle: "", overview: "", popularity: 0, posterPath: "", releaseDate: "", title: "", video: false, voteAverage: 2, voteCount: 2)
+        // When
+        sut.onGetMoviesForHomeSucceed(popular: [movieResultResponseModel], topRated: [movieResultResponseModel], nowPlaying: [],upcoming: [])
+        
+        // Then
+        XCTAssertTrue(spy.loadCategoriesAndMoviesCalled, "onGetMoviesForHomeSucceed() should ask the view controller to display the categories")
+        XCTAssertEqual(spy.numberOfCategoriesInViewModel, 2, "onGetMovieForHomeSucced() should create a viewmodel with the same number of cell models as the movies arrays that are not empty (2 in this case)")
+    }
+    
+    func testOnGetMoviesForHomeAllFailed()
+    {
+        // Given
+        let spy = HomeDisplayLogicSpy()
+        sut.viewController = spy
+        
+        // When
+        sut.onGetMoviesForHomeAllFailed()
+        
+        // Then
+        XCTAssertTrue(spy.showEmptyStateViewOnErrorCalled, "onGetMoviesForHomeAllFailed() should ask the viewcontroller to show the emptyState when no results are fetched")
+    }
+    
+}

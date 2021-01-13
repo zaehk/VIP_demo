@@ -13,7 +13,7 @@ import SnapKit
 protocol HomeDisplayLogic: class, BaseViewDisplayLogic
 {
     func loadCategoriesAndMovies(viewModel: HomeViewModel)
-    func onFetchingMoviesError(emptyStateViewModel: HomeViewModel)
+    func showEmptyStateView(emptyStateViewModel: HomeViewModel)
 }
 
 class HomeViewController: BaseViewController
@@ -93,7 +93,7 @@ class HomeViewController: BaseViewController
 
 extension HomeViewController: HomeDisplayLogic {
     
-    func onFetchingMoviesError(emptyStateViewModel: HomeViewModel) {
+    func showEmptyStateView(emptyStateViewModel: HomeViewModel) {
         hideSpinner()
         //we could show an alert... or additional logic besides overwriting the viewmodel with the empty state, better keep this method alongside the success method "loadCategoriesAndMovies"
         loadNewInfoInTable(viewModel: emptyStateViewModel)
