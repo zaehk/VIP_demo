@@ -95,7 +95,7 @@ class MovieSearchViewControllerTests: XCTestCase
         XCTAssertEqual(queryToPerform, spy.searchQuery, "movieSearchViewController should pass the same searchbar query to the interactor")
     }
     
-    func testDisplaySomething()
+    func testShouldLoadResultsInCollectionView()
     {
         let moviesToShow: [CollectionDrawerItemProtocol] = [MovieCollectionViewCellModel.init(movieResponseModel: JSONMockDecoder.decode(mock: "movieResultResponseModel"))]
         
