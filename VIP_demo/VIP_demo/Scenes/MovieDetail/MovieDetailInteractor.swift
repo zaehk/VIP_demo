@@ -99,7 +99,7 @@ extension MovieDetailInteractor: MovieDetailBusinessLogic{
                 self.presenter?.presentMovieInfo(movieDetail: safeDetail, casting: self.castingMembers, crew: self.crewMembers, reviews: self.movieReviews)
             }else {
                 //if the movie detail fails (after 3 retries of alamofire retrier) an empty state will be shown
-                self.presenter?.onGetMovieDetailFailed()
+                self.presenter?.presentMovieDetailError()
             }
         }
         

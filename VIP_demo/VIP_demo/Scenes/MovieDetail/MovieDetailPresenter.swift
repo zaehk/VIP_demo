@@ -9,7 +9,7 @@ import UIKit
 protocol MovieDetailPresentationLogic
 {
     func presentMovieInfo(movieDetail: MovieDetailResponseModel, casting: [MovieCastMemberResponseModel], crew: [MovieCastMemberResponseModel], reviews: [ReviewResultResponseModel])
-    func onGetMovieDetailFailed()
+    func presentMovieDetailError()
 }
 
 class MovieDetailPresenter
@@ -56,7 +56,7 @@ extension MovieDetailPresenter: MovieDetailPresentationLogic {
         viewController?.displayMovieInfo(viewModel: MovieDetailViewModel.init(movieInfoVM: movieInfoViewModel, movieDetailCells: cells))
     }
     
-    func onGetMovieDetailFailed() {
+    func presentMovieDetailError() {
         let emptyCell = EmptyStateCellModel.init(emptyState: .detail)
         viewController?.displayErrorFetchingMovieDetail(emptyStateCell: emptyCell)
     }

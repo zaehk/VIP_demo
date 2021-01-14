@@ -60,6 +60,9 @@
 		DA62586125B02B0F00445F02 /* ServiceResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62586025B02B0F00445F02 /* ServiceResponseMock.swift */; };
 		DA62586F25B02DC600445F02 /* JsonMockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62586E25B02DC600445F02 /* JsonMockDecoder.swift */; };
 		DA62589725B097B500445F02 /* movieResultResponseModel.json in Resources */ = {isa = PBXBuildFile; fileRef = DA62589625B097B500445F02 /* movieResultResponseModel.json */; };
+		DA6258A825B09E9E00445F02 /* movieCreditsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6258A725B09E9E00445F02 /* movieCreditsMock.json */; };
+		DA6258B025B09ED900445F02 /* castOrCrewResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6258AF25B09ED900445F02 /* castOrCrewResponseMock.json */; };
+		DA6258BB25B0A03E00445F02 /* reviewResultMock.json in Resources */ = {isa = PBXBuildFile; fileRef = DA6258BA25B0A03E00445F02 /* reviewResultMock.json */; };
 		DA66965425A99B6B00779FEC /* CastingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA66965325A99B6B00779FEC /* CastingService.swift */; };
 		DA6C0EBC2598F4AB001ACFE6 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6C0EBB2598F4AB001ACFE6 /* ApiEndpoints.swift */; };
 		DA8D0A2525ADA04E006F6178 /* EmptyStateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D0A2125ADA04E006F6178 /* EmptyStateCollectionViewCell.swift */; };
@@ -182,6 +185,9 @@
 		DA62586025B02B0F00445F02 /* ServiceResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponseMock.swift; sourceTree = "<group>"; };
 		DA62586E25B02DC600445F02 /* JsonMockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMockDecoder.swift; sourceTree = "<group>"; };
 		DA62589625B097B500445F02 /* movieResultResponseModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movieResultResponseModel.json; sourceTree = "<group>"; };
+		DA6258A725B09E9E00445F02 /* movieCreditsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movieCreditsMock.json; sourceTree = "<group>"; };
+		DA6258AF25B09ED900445F02 /* castOrCrewResponseMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = castOrCrewResponseMock.json; sourceTree = "<group>"; };
+		DA6258BA25B0A03E00445F02 /* reviewResultMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviewResultMock.json; sourceTree = "<group>"; };
 		DA66965325A99B6B00779FEC /* CastingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingService.swift; sourceTree = "<group>"; };
 		DA6C0EBB2598F4AB001ACFE6 /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		DA8D0A2125ADA04E006F6178 /* EmptyStateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -308,7 +314,10 @@
 				DA62584D25B028AE00445F02 /* moviesWithinDateRangeEmptyMock.json */,
 				DA62581825B01BE700445F02 /* moviesWithinDateRangeMock.json */,
 				DA62585825B0292300445F02 /* movieListEmptyMock.json */,
+				DA6258BA25B0A03E00445F02 /* reviewResultMock.json */,
 				DA183D9925AF6DE500DE6F96 /* movieListMock.json */,
+				DA6258AF25B09ED900445F02 /* castOrCrewResponseMock.json */,
+				DA6258A725B09E9E00445F02 /* movieCreditsMock.json */,
 				DA62583225B021D900445F02 /* MockFileConstants.swift */,
 				DA62586E25B02DC600445F02 /* JsonMockDecoder.swift */,
 			);
@@ -861,6 +870,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA62582725B01E7700445F02 /* movieDetailResponseMock.json in Resources */,
+				DA6258BB25B0A03E00445F02 /* reviewResultMock.json in Resources */,
 				DA62585925B0292300445F02 /* movieListEmptyMock.json in Resources */,
 				DA62581925B01BE700445F02 /* moviesWithinDateRangeMock.json in Resources */,
 				DA62584625B025B200445F02 /* reviewsEmptyMock.json in Resources */,
@@ -868,6 +878,8 @@
 				DA62584E25B028AE00445F02 /* moviesWithinDateRangeEmptyMock.json in Resources */,
 				DA183D9A25AF6DE500DE6F96 /* movieListMock.json in Resources */,
 				DA62583B25B0254F00445F02 /* reviewsMock.json in Resources */,
+				DA6258A825B09E9E00445F02 /* movieCreditsMock.json in Resources */,
+				DA6258B025B09ED900445F02 /* castOrCrewResponseMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
