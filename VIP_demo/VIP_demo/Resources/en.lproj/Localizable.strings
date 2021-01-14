@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  VIP_demo
+
+  Created by Borja Saez de Guinoa Vilaplana on 02/01/2021.
+  
+*/
+
+//MARK: Tabbar titles
+
+"tabbar_item_home" = "Home";
+"tabbar_item_soon" = "Upcoming";
+"tabbar_item_about" = "About";
+"tabbar_item_search" = "Search";
+
+//MARK: Movie categories
+
+"category_popular" = "Popular Movies";
+"category_topRated" = "Top Rated";
+"category_newReleases" = "New Releases";
+"category_upcoming" = "Upcoming Movies";
+
+//MARK: Movie detail categories
+
+"category_actors" = "Casting";
+"category_crew" = "Production / Direction";
+"category_reviews" = "Reviews";
+
+//MARK: Movie detail
+
+"review_author" = "Review by %@";
+"review_rating" = "Rating: %@";
+
+//MARK: Search
+"searchbar_placeholder" = "Search movies";
+
+//MARK: EmptyState descriptions
+"home_empty" = "We couldnt find any movies, pull down to refresh and try again";
+"movie_empty" = "We coulnt find info for the movie, try again later";
+"search_empty" = "No results, try again";
+
+//MARK: Refresh control
+"refresh_description" = "Pull to refresh";
