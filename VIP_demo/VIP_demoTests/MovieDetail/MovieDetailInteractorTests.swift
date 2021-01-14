@@ -9,61 +9,75 @@
 //  you can apply clean architecture to your iOS and Mac projects,
 //  see http://clean-swift.com
 //
-//
-//@testable import VIP_demo
-//import XCTest
-//
-//class MovieDetailInteractorTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: MovieDetailInteractor!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupMovieDetailInteractor()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupMovieDetailInteractor()
-//  {
-//    sut = MovieDetailInteractor()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class MovieDetailPresentationLogicSpy: MovieDetailPresentationLogic
-//  {
-//    var presentSomethingCalled = false
-//    
-//    func presentSomething(response: MovieDetail.Something.Response)
-//    {
-//      presentSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testDoSomething()
-//  {
-//    // Given
-//    let spy = MovieDetailPresentationLogicSpy()
-//    sut.presenter = spy
-//    let request = MovieDetail.Something.Request()
-//    
-//    // When
-//    sut.doSomething(request: request)
-//    
-//    // Then
-//    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
-//  }
-//}
+
+@testable import VIP_demo
+import XCTest
+
+class MovieDetailInteractorTests: XCTestCase
+{
+  // MARK: Subject under test
+  
+  var sut: MovieDetailInteractor!
+  
+  // MARK: Test lifecycle
+  
+  override func setUp()
+  {
+    super.setUp()
+    setupMovieDetailInteractor()
+  }
+  
+  override func tearDown()
+  {
+    super.tearDown()
+  }
+  
+  // MARK: Test setup
+  
+  func setupMovieDetailInteractor()
+  {
+    sut = MovieDetailInteractor()
+    sut.movieIdentifier = 1234
+  }
+  
+  // MARK: Test doubles
+  
+  class MovieDetailPresentationLogicSpy: MovieDetailPresentationLogic
+  {
+    
+    var presentMovieInfoCalled = false
+    var presentMovieDetailErrorCalled = false
+    var expectation: XCTestExpectation?
+    
+    func presentMovieInfo(movieDetail: MovieDetailResponseModel, casting: [MovieCastMemberResponseModel], crew: [MovieCastMemberResponseModel], reviews: [ReviewResultResponseModel]) {
+        presentMovieInfoCalled = true
+        expectation?.fulfill()
+    }
+    
+    func presentMovieDetailError() {
+        presentMovieDetailErrorCalled = true
+        expectation?.fulfill()
+    }
+    
+  }
+  
+  // MARK: Tests
+  
+    func testAllMovieDetailCategoriesSucceed()
+    {
+        // Given
+        let spy = MovieDetailPresentationLogicSpy()
+        spy.expectation = expectation(description: "Downloading movies detail info")
+        sut.presenter = spy
+        sut.movieService = MovieServiceMock.init(popular: .error, detail: .success, topRated: .error, newReleases: .error, upcoming: .error, reviews: .success, search: .error)
+        sut.castingService = CastingServiceMock.init(expectedFromCasting: .success)
+        // When
+        sut.fetchMovieDetail()
+        
+        // Wait
+        waitForExpectations(timeout: 1, handler: nil)
+        
+        // Then
+        XCTAssertTrue(spy.presentMovieInfoCalled, "doSomething(request:) interactor should ask the presenter to present the movie only if movieDetail service returned info")
+    }
+}

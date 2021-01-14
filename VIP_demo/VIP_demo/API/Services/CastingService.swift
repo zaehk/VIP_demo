@@ -10,7 +10,6 @@ import Foundation
 protocol CastingServiceProtocol: ApiServiceProtocol {
     
     func fetchMovieCredits(movieId: Int,success: @escaping (MovieCreditsResponseModel) -> (), failure: @escaping (FailureCompletion))
-    func fetchCastMemberDetail(castingId: Int,success: @escaping (MovieDetailResponseModel) -> (), failure: @escaping (FailureCompletion))
 
 }
 
@@ -24,10 +23,6 @@ class CastingService: CastingServiceProtocol {
     
     func fetchMovieCredits(movieId: Int, success: @escaping (MovieCreditsResponseModel) -> (), failure: @escaping (FailureCompletion)) {
         apiClient.makeRequest(route: ApiRouter.movieCredits(movieId: movieId), responseModel: MovieCreditsResponseModel.self, success: success, failed: failure)
-    }
-    
-    func fetchCastMemberDetail(castingId: Int, success: @escaping (MovieDetailResponseModel) -> (), failure: @escaping (FailureCompletion)) {
-        
     }
     
 }

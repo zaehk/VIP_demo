@@ -115,4 +115,26 @@ class HomeInteractorTests: XCTestCase
         XCTAssertTrue(spy.onGetMoviesForHomeSucceedCalled, "doSomething(request:) should ask the presenter to format the results even if only one category succeed (upcoming) and the rest return error or empty bodies")
         
     }
+    
+    func testInteractorCallsCorrectServices(){
+        // Given
+        let spy = HomePresentationLogicSpy()
+        spy.expectation = expectation(description: "Downloading movies categories")
+        sut.presenter = spy
+        let serviceMock = MovieServiceMock.init(popular: .success, detail: .error, topRated: .success, newReleases: .success, upcoming: .success, reviews: .error, search: .error)
+        sut.movieService = serviceMock
+        
+        // When
+        sut.fetchMovies()
+        
+        // Wait
+        waitForExpectations(timeout: 1, handler: nil)
+        
+        // Then
+        XCTAssertTrue(serviceMock.newReleasesCalled, "fetchMovies() should use the new releases movies api call")
+        XCTAssertTrue(serviceMock.popularCalled, "fetchMovies() should use the popular movies api call")
+        XCTAssertTrue(serviceMock.topRatedCalled, "fetchMovies() should use the topRated movies api call")
+        XCTAssertTrue(serviceMock.upcomingCalled, "fetchMovies() should use the upcoming movies api call")
+    }
+    
 }

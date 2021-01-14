@@ -18,6 +18,7 @@ enum MockFile: MockFileConstant {
     case moviesWithinRange
     case movieDetail
     case reviews
+    case credits
 
     
     
@@ -32,6 +33,8 @@ enum MockFile: MockFileConstant {
             return "movieDetailResponseMock"
         case .reviews:
             return "reviewsEmptyMock"
+        case .credits:
+            return "movieCreditsEmptyMock"
         }
     }
     
@@ -46,6 +49,8 @@ enum MockFile: MockFileConstant {
             return "movieDetailResponseMock"
         case .reviews:
             return "reviewsMock"
+        case .credits:
+            return "movieCreditsMock"
         }
     }
     
