@@ -12,58 +12,65 @@
 
 @testable import VIP_demo
 import XCTest
-//
-//class MovieSearchPresenterTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: MovieSearchPresenter!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupMovieSearchPresenter()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupMovieSearchPresenter()
-//  {
-//    sut = MovieSearchPresenter()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class MovieSearchDisplayLogicSpy: MovieSearchDisplayLogic
-//  {
-//    var displaySomethingCalled = false
-//    
-//    func displaySomething(viewModel: MovieSearch.Something.ViewModel)
-//    {
-//      displaySomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testPresentSomething()
-//  {
-//    // Given
-//    let spy = MovieSearchDisplayLogicSpy()
-//    sut.viewController = spy
-//    let response = MovieSearch.Something.Response()
-//    
-//    // When
-//    sut.presentSomething(response: response)
-//    
-//    // Then
-//    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
-//  }
-//}
+
+class MovieSearchPresenterTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: MovieSearchPresenter!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        setupMovieSearchPresenter()
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupMovieSearchPresenter()
+    {
+        sut = MovieSearchPresenter()
+    }
+    
+    // MARK: Test doubles
+    
+    class MovieSearchDisplayLogicSpy: MovieSearchDisplayLogic
+    {
+        var showNoMoviesFoundOrErrorCalled = false
+        var showResultMoviesCalled = false
+        
+        func showResultMovies(viewModel: MovieSearchViewModel) {
+            showResultMoviesCalled = true
+        }
+        
+        func showNoMoviesFoundOrError(viewModel: MovieSearchViewModel) {
+            showNoMoviesFoundOrErrorCalled = true
+        }
+
+    }
+    
+    // MARK: Tests
+    
+    func testPresentMatchingMovies()
+    {
+        // Given
+        let spy = MovieSearchDisplayLogicSpy()
+        sut.viewController = spy
+        let movieResultResponse: MovieResultResponseModel = JSONMockDecoder.decode(mock: "movieResultResponseModel")
+        let moviesToPresent: [MovieResultResponseModel] = [movieResultResponse]
+        
+        
+        // When
+        sut.presentMatchingMovies(movies: moviesToPresent)
+        
+        // Then
+        XCTAssertTrue(spy.showResultMoviesCalled, "presentMatchingMovies(response:) should ask the view controller to display the matching movies")
+    }
+}
