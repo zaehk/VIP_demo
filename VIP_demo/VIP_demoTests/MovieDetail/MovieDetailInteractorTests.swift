@@ -79,5 +79,26 @@ class MovieDetailInteractorTests: XCTestCase
         
         // Then
         XCTAssertTrue(spy.presentMovieInfoCalled, "doSomething(request:) interactor should ask the presenter to present the movie only if movieDetail service returned info")
+        XCTAssertFalse(spy.presentMovieDetailErrorCalled, "doSomething(request:) interactor should not call presentMovieDetailErrorCalled if movieDetail service returned success")
     }
+    
+    func testAllMovieDetailCategoriesFailed()
+    {
+        // Given
+        let spy = MovieDetailPresentationLogicSpy()
+        spy.expectation = expectation(description: "Downloading movies detail info")
+        sut.presenter = spy
+        sut.movieService = MovieServiceMock.init(popular: .error, detail: .error, topRated: .error, newReleases: .error, upcoming: .error, reviews: .success, search: .error)
+        sut.castingService = CastingServiceMock.init(expectedFromCasting: .success)
+        // When
+        sut.fetchMovieDetail()
+        
+        // Wait
+        waitForExpectations(timeout: 1, handler: nil)
+        
+        // Then
+        XCTAssertTrue(spy.presentMovieDetailErrorCalled, "doSomething(request:) interactor should call presentMovieDetailErrorCalled if movieDetail service returned fail")
+        XCTAssertFalse(spy.presentMovieInfoCalled, "doSomething(request:) interactor should not ask the presenter to present the movie if movieDetail service returned fail")
+    }
+    
 }

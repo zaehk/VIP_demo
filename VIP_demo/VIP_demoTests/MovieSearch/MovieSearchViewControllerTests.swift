@@ -13,80 +13,100 @@
 @testable import VIP_demo
 import XCTest
 
-//class MovieSearchViewControllerTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: MovieSearchViewController!
-//  var window: UIWindow!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    window = UIWindow()
-//    setupMovieSearchViewController()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    window = nil
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupMovieSearchViewController()
-//  {
-//    let bundle = Bundle.main
-//    let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-//    sut = storyboard.instantiateViewController(withIdentifier: "MovieSearchViewController") as! MovieSearchViewController
-//  }
-//  
-//  func loadView()
-//  {
-//    window.addSubview(sut.view)
-//    RunLoop.current.run(until: Date())
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class MovieSearchBusinessLogicSpy: MovieSearchBusinessLogic
-//  {
-//    var doSomethingCalled = false
-//    
-//    func doSomething(request: MovieSearch.Something.Request)
-//    {
-//      doSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testShouldDoSomethingWhenViewIsLoaded()
-//  {
-//    // Given
-//    let spy = MovieSearchBusinessLogicSpy()
-//    sut.interactor = spy
-//    
-//    // When
-//    loadView()
-//    
-//    // Then
-//    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-//  }
-//  
-//  func testDisplaySomething()
-//  {
-//    // Given
-//    let viewModel = MovieSearch.Something.ViewModel()
-//    
-//    // When
-//    loadView()
-//    sut.displaySomething(viewModel: viewModel)
-//    
-//    // Then
-//    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
-//  }
-//}
+class MovieSearchViewControllerTests: XCTestCase
+{
+    // MARK: Subject under test
+    
+    var sut: MovieSearchViewController!
+    var window: UIWindow!
+    
+    // MARK: Test lifecycle
+    
+    override func setUp()
+    {
+        super.setUp()
+        window = UIWindow()
+        setupMovieSearchViewController()
+    }
+    
+    override func tearDown()
+    {
+        window = nil
+        super.tearDown()
+    }
+    
+    // MARK: Test setup
+    
+    func setupMovieSearchViewController()
+    {
+        sut = MovieSearchViewController()
+    }
+    
+    func loadView()
+    {
+        window.addSubview(sut.view)
+        RunLoop.current.run(until: Date())
+    }
+    
+    // MARK: Test doubles
+    
+    class MovieSearchBusinessLogicSpy: MovieSearchBusinessLogic
+    {
+        var fetchMoviesCalled: Bool = false
+        var searchQuery: String = ""
+        
+        func fetchMovies(queryString: String) {
+            fetchMoviesCalled = true
+            searchQuery = queryString
+        }
+        
+    }
+    
+    // MARK: Tests
+    
+    func testShouldAskInteractorWhenSearchbarUsed()
+    {
+        // Given
+        let spy = MovieSearchBusinessLogicSpy()
+        sut.interactor = spy
+        
+        // When
+        loadView()
+        sut.searchBar.text = "superman"
+        sut.searchBarSearchButtonClicked(sut.searchBar)
+        
+        // Then
+        XCTAssertTrue(spy.fetchMoviesCalled, "movieSearchViewController should ask the interactor to fetch movies when searchbar is used")
+    }
+    
+    func testShouldPassTheQueryStringOfSearchBarToInteractor()
+    {
+        // Given
+        let spy = MovieSearchBusinessLogicSpy()
+        sut.interactor = spy
+        
+        // When
+        loadView()
+        let queryToPerform = "superman"
+        sut.searchBar.text = queryToPerform
+        sut.searchBarSearchButtonClicked(sut.searchBar)
+        
+        // Then
+        XCTAssertEqual(queryToPerform, spy.searchQuery, "movieSearchViewController should pass the same searchbar query to the interactor")
+    }
+    
+    func testDisplaySomething()
+    {
+        let moviesToShow: [CollectionDrawerItemProtocol] = [MovieCollectionViewCellModel.init(movieResponseModel: JSONMockDecoder.decode(mock: "movieResultResponseModel"))]
+        
+        // Given
+        let viewModel = MovieSearchViewModel.init(movies: moviesToShow)
+        
+        // When
+        loadView()
+        sut.showResultMovies(viewModel: viewModel)
+        
+        // Then
+        XCTAssertEqual(sut.resultsCollectionView.numberOfItems(inSection: 0), moviesToShow.count, "showResultMovies(viewModel:) should load in the collectionView the same number of cells as elements in the viewmodel")
+    }
+}

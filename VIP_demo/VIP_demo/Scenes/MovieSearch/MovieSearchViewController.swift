@@ -46,7 +46,7 @@ class MovieSearchViewController: BaseViewController
     
     // MARK: Views
     
-    private let searchBar: UISearchBar = {
+    let searchBar: UISearchBar = {
         let bar = UISearchBar.init()
         bar.barStyle = .black
         bar.searchBarStyle = .minimal

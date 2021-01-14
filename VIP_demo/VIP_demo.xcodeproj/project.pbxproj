@@ -641,8 +641,8 @@
 			isa = PBXGroup;
 			children = (
 				DA62580F25B01AD000445F02 /* ServiceMocks */,
-				DA183DAE25AF7ADA00DE6F96 /* MovieSearch */,
 				DA183D9825AF6CEA00DE6F96 /* MovieMocks */,
+				DA183DAE25AF7ADA00DE6F96 /* MovieSearch */,
 				DA183D8025AF51DE00DE6F96 /* MovieDetail */,
 				DA27626D25A4715A006D9AA7 /* Home */,
 				DAE70C8E258F5E9A00DF31FA /* Info.plist */,
