@@ -66,8 +66,9 @@ class HomePresenterTests: XCTestCase
         // Given
         let spy = HomeDisplayLogicSpy()
         sut.viewController = spy
-        let movieResultResponseModel = MovieResultResponseModel.init(adult: true, backdropPath: "", genreIDS: [], id: 1, originalLanguage: "", originalTitle: "", overview: "", popularity: 0, posterPath: "", releaseDate: "", title: "", video: false, voteAverage: 2, voteCount: 2)
+        
         // When
+        let movieResultResponseModel: MovieResultResponseModel = JSONMockDecoder.decode(mock: "movieResultResponseModel")
         sut.onGetMoviesForHomeSucceed(popular: [movieResultResponseModel], topRated: [movieResultResponseModel], nowPlaying: [],upcoming: [])
         
         // Then
@@ -79,8 +80,10 @@ class HomePresenterTests: XCTestCase
         // Given
         let spy = HomeDisplayLogicSpy()
         sut.viewController = spy
-        let movieResultResponseModel = MovieResultResponseModel.init(adult: true, backdropPath: "", genreIDS: [], id: 1, originalLanguage: "", originalTitle: "", overview: "", popularity: 0, posterPath: "", releaseDate: "", title: "", video: false, voteAverage: 2, voteCount: 2)
+
         // When
+        let movieResultResponseModel: MovieResultResponseModel = JSONMockDecoder.decode(mock: "movieResultResponseModel")
+        
         sut.onGetMoviesForHomeSucceed(popular: [movieResultResponseModel], topRated: [movieResultResponseModel], nowPlaying: [],upcoming: [])
         
         // Then
