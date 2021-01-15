@@ -13,7 +13,7 @@ The communication between the components of a scene are made through protocols. 
 
 The app has three main scenes:
 
-Home: where different categories of movies are displayed with an horizontal carousel. The categories are "Top rated movies", "Popular movies", "New releases" and "upcoming". If some of this movie lists fails to be downloaded, the rest of them will be displayed.
+HOME: where different categories of movies are displayed with an horizontal carousel. The categories are "Top rated movies", "Popular movies", "New releases" and "upcoming". If some of this movie lists fails to be downloaded, the rest of them will be displayed.
 
 ![alt text](https://i.imgur.com/5x5PAak.png)
 
@@ -23,3 +23,6 @@ Also, if every category of movies fails to be downloaded, an empty state with an
 
 The screen can be reloaded pulling down so if an error is shown, the user can reload the screen easily.
 
+MOVIE DETAIL: when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the vilm, cast members and crew members. Also, if available, a list of reviews will be shown.
+
+![alt text](https://i.imgur.com/9kT14S7.png)
