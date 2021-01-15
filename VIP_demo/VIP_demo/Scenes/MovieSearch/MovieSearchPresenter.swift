@@ -15,7 +15,7 @@ import UIKit
 protocol MovieSearchPresentationLogic
 {
     func presentMatchingMovies(movies: [MovieResultResponseModel])
-    func onGetMatchingMoviesFailed()
+    func presentNoMoviesFoundOrError()
 }
 
 class MovieSearchPresenter: MovieSearchPresentationLogic
@@ -35,7 +35,7 @@ class MovieSearchPresenter: MovieSearchPresentationLogic
     }
     
     //service error
-    func onGetMatchingMoviesFailed() {
+    func presentNoMoviesFoundOrError() {
         presentEmptyStateOrError()
     }
     

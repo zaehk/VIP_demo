@@ -41,10 +41,10 @@ class MovieSearchInteractor: MovieSearchBusinessLogic, MovieSearchDataStore
                 self.matchingMovies = movies
                 self.presenter?.presentMatchingMovies(movies: self.matchingMovies)
             }else{
-                self.presenter?.onGetMatchingMoviesFailed()
+                self.presenter?.presentNoMoviesFoundOrError()
             }
         }, failure: { (error, apiError) in
-            self.presenter?.onGetMatchingMoviesFailed()
+            self.presenter?.presentNoMoviesFoundOrError()
         })
     }
     

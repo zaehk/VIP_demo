@@ -308,21 +308,16 @@
 			path = MovieDetail;
 			sourceTree = "<group>";
 		};
-		DA183D9825AF6CEA00DE6F96 /* MovieMocks */ = {
+		DA183D9825AF6CEA00DE6F96 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
+				DA9D9C5B25B16A77000B9B51 /* Movies */,
 				DA6258D325B0AAD100445F02 /* Reviews */,
 				DA6258D225B0AAB900445F02 /* Credits */,
-				DA62582625B01E7700445F02 /* movieDetailResponseMock.json */,
-				DA62589625B097B500445F02 /* movieResultResponseModel.json */,
-				DA62584D25B028AE00445F02 /* moviesWithinDateRangeEmptyMock.json */,
-				DA62581825B01BE700445F02 /* moviesWithinDateRangeMock.json */,
-				DA62585825B0292300445F02 /* movieListEmptyMock.json */,
-				DA183D9925AF6DE500DE6F96 /* movieListMock.json */,
 				DA62583225B021D900445F02 /* MockFileConstant.swift */,
 				DA62586E25B02DC600445F02 /* JsonMockDecoder.swift */,
 			);
-			path = MovieMocks;
+			path = mocks;
 			sourceTree = "<group>";
 		};
 		DA183DAE25AF7ADA00DE6F96 /* MovieSearch */ = {
@@ -539,6 +534,19 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		DA9D9C5B25B16A77000B9B51 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				DA62582625B01E7700445F02 /* movieDetailResponseMock.json */,
+				DA62589625B097B500445F02 /* movieResultResponseModel.json */,
+				DA62584D25B028AE00445F02 /* moviesWithinDateRangeEmptyMock.json */,
+				DA62581825B01BE700445F02 /* moviesWithinDateRangeMock.json */,
+				DA62585825B0292300445F02 /* movieListEmptyMock.json */,
+				DA183D9925AF6DE500DE6F96 /* movieListMock.json */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
 		DA9DE3F2258FE4C5008CA980 /* TabbarViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,7 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				DA62580F25B01AD000445F02 /* ServiceMocks */,
-				DA183D9825AF6CEA00DE6F96 /* MovieMocks */,
+				DA183D9825AF6CEA00DE6F96 /* mocks */,
 				DA183DAE25AF7ADA00DE6F96 /* MovieSearch */,
 				DA183D8025AF51DE00DE6F96 /* MovieDetail */,
 				DA27626D25A4715A006D9AA7 /* Home */,

@@ -28,6 +28,7 @@ class MovieDetailInfoCell: UITableViewCell, GetCellIdentifierProtocol {
     private let overViewTextView : UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = false
+        textView.isUserInteractionEnabled = false
         textView.backgroundColor = .clear
         textView.textColor = Constants.Styles.textInfoColor
         return textView
