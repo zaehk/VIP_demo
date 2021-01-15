@@ -13,57 +13,69 @@
 @testable import VIP_demo
 import XCTest
 
-//class MovieSearchInteractorTests: XCTestCase
-//{
-//  // MARK: Subject under test
-//  
-//  var sut: MovieSearchInteractor!
-//  
-//  // MARK: Test lifecycle
-//  
-//  override func setUp()
-//  {
-//    super.setUp()
-//    setupMovieSearchInteractor()
-//  }
-//  
-//  override func tearDown()
-//  {
-//    super.tearDown()
-//  }
-//  
-//  // MARK: Test setup
-//  
-//  func setupMovieSearchInteractor()
-//  {
-//    sut = MovieSearchInteractor()
-//  }
-//  
-//  // MARK: Test doubles
-//  
-//  class MovieSearchPresentationLogicSpy: MovieSearchPresentationLogic
-//  {
-//    var presentSomethingCalled = false
-//    
-//    func presentSomething(response: MovieSearch.Something.Response)
-//    {
-//      presentSomethingCalled = true
-//    }
-//  }
-//  
-//  // MARK: Tests
-//  
-//  func testDoSomething()
-//  {
-//    // Given
-//    let spy = MovieSearchPresentationLogicSpy()
-//    sut.presenter = spy
-//    let request = MovieSearch.Something.Request()
-//    
-//    // When
-//    sut.doSomething(request: request)
-//    
-//    // Then
-//    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
-//  }
-//}
+class MovieSearchInteractorTests: XCTestCase
+{
+  // MARK: Subject under test
+  
+  var sut: MovieSearchInteractor!
+  
+  // MARK: Test lifecycle
+  
+  override func setUp()
+  {
+    super.setUp()
+    setupMovieSearchInteractor()
+  }
+  
+  override func tearDown()
+  {
+    super.tearDown()
+  }
+  
+  // MARK: Test setup
+  
+  func setupMovieSearchInteractor()
+  {
+    sut = MovieSearchInteractor()
+  }
+  
+  // MARK: Test doubles
+  
+  class MovieSearchPresentationLogicSpy: MovieSearchPresentationLogic
+  {
+    var presentMatchingMoviesCalled = false
+    var presentNoMoviesFoundCalled = false
+    var expectation: XCTestExpectation?
+
+    
+    func presentMatchingMovies(movies: [MovieResultResponseModel]) {
+        presentMatchingMoviesCalled = true
+        expectation?.fulfill()
+    }
+    
+    func presentNoMoviesFoundOrError() {
+        presentNoMoviesFoundCalled = true
+        expectation?.fulfill()
+    }
+    
+
+  }
+  
+  // MARK: Tests
+  
+  func testFetchMovies()
+  {
+    // Given
+    let spy = MovieSearchPresentationLogicSpy()
+    sut.presenter = spy
+    spy.expectation = expectation(description: "Fetching search results")
+    sut.movieService = MovieServiceMock.init(popular: .error, detail: .error, topRated: .error, newReleases: .error, upcoming: .error, reviews: .error, search: .success)
+    
+    // When
+    sut.fetchMovies(queryString: "patata")
+    waitForExpectations(timeout: 1, handler: nil)
+    
+    // Then
+    XCTAssertTrue(spy.presentMatchingMoviesCalled, "fethMovies(queryString:) should ask the presenter to format the matching movies on success")
+  }
+}
