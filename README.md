@@ -27,6 +27,10 @@ MOVIE DETAIL: when the user clicks on any movie, a new screen with the movie det
 
 ![alt text](https://i.imgur.com/9kT14S7.png)
 
+If the movie detail call results in error, an empty state screen will be displayed:
+
+![alt text](https://i.imgur.com/L6dLf0f.png)
+
 MOVIE SEARCH: The user can type here any query and the app will show movies that match the title. If no movie is found an empty state will be displayed to the user.
 Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
 
