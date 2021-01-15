@@ -19,7 +19,7 @@ Home: where different categories of movies are displayed with an horizontal caro
 
 Also, if every category of movies fails to be downloaded, an empty state with an error will be shown:
 
-![alt text]([img]https://i.imgur.com/QoPtbaB.png[/img])
+![alt text]([https://i.imgur.com/QoPtbaB.png)
 
 The screen can be reloaded pulling down so if an error is shown, the user can reload the screen easily.
 
