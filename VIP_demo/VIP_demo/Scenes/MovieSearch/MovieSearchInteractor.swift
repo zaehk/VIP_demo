@@ -37,14 +37,15 @@ class MovieSearchInteractor: MovieSearchBusinessLogic, MovieSearchDataStore
     
     func fetchMovies(queryString: String) {
         movieService?.searchMovie(query: queryString, success: { (matchingMoviesResponse) in
-            if let movies = matchingMoviesResponse.results{
-                self.matchingMovies = movies
-                self.presenter?.presentMatchingMovies(movies: self.matchingMovies)
-            }else{
-                self.presenter?.onGetMatchingMoviesFailed()
+            
+            guard let movies = matchingMoviesResponse.results else {
+                self.presenter?.presentNoMoviesFoundOrError()
+                return
             }
+            self.matchingMovies = movies
+            movies.isEmpty ? self.presenter?.presentNoMoviesFoundOrError() : self.presenter?.presentMatchingMovies(movies: self.matchingMovies)
         }, failure: { (error, apiError) in
-            self.presenter?.onGetMatchingMoviesFailed()
+            self.presenter?.presentNoMoviesFoundOrError()
         })
     }
     

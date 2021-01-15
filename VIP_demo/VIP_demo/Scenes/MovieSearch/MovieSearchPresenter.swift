@@ -15,7 +15,7 @@ import UIKit
 protocol MovieSearchPresentationLogic
 {
     func presentMatchingMovies(movies: [MovieResultResponseModel])
-    func onGetMatchingMoviesFailed()
+    func presentNoMoviesFoundOrError()
 }
 
 class MovieSearchPresenter: MovieSearchPresentationLogic
@@ -25,17 +25,13 @@ class MovieSearchPresenter: MovieSearchPresentationLogic
     
     //service success
     func presentMatchingMovies(movies: [MovieResultResponseModel]) {
-        if movies.isEmpty {
-            presentEmptyStateOrError()
-        } else {
             let movieCollectionCells: [CollectionDrawerItemProtocol] = movies.map({MovieCollectionViewCellModel.init(movieResponseModel: $0)})
             let successViewModel = MovieSearchViewModel.init(movies: movieCollectionCells)
             viewController?.showResultMovies(viewModel: successViewModel)
-        }
     }
     
     //service error
-    func onGetMatchingMoviesFailed() {
+    func presentNoMoviesFoundOrError() {
         presentEmptyStateOrError()
     }
     
