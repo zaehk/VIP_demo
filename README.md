@@ -26,3 +26,8 @@ The screen can be reloaded pulling down so if an error is shown, the user can re
 MOVIE DETAIL: when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the vilm, cast members and crew members. Also, if available, a list of reviews will be shown.
 
 ![alt text](https://i.imgur.com/9kT14S7.png)
+
+MOVIE SEARCH: The user can type here any query and the app will show movies that match the title. If no movie is found an empty state will be displayed to the user.
+Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
+
+![alt text](https://i.imgur.com/8NVCMrX.png)
