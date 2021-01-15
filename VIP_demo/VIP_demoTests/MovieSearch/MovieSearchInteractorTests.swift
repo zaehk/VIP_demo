@@ -69,7 +69,8 @@ class MovieSearchInteractorTests: XCTestCase
     let spy = MovieSearchPresentationLogicSpy()
     sut.presenter = spy
     spy.expectation = expectation(description: "Fetching search results")
-    sut.movieService = MovieServiceMock.init(popular: .error, detail: .error, topRated: .error, newReleases: .error, upcoming: .error, reviews: .error, search: .success)
+    let movieServiceMock = MovieServiceMock.init(popular: .error, detail: .error, topRated: .error, newReleases: .error, upcoming: .error, reviews: .error, search: .success)
+    sut.movieService = movieServiceMock
     
     // When
     sut.fetchMovies(queryString: "patata")
@@ -77,5 +78,7 @@ class MovieSearchInteractorTests: XCTestCase
     
     // Then
     XCTAssertTrue(spy.presentMatchingMoviesCalled, "fethMovies(queryString:) should ask the presenter to format the matching movies on success")
+    XCTAssertTrue(movieServiceMock.searchCalled, "fetchMovies(queryString:) should ask the movie service to search for movies using the query string")
   }
+    
 }
