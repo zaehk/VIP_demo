@@ -13,3 +13,6 @@ The communication between the components of a scene are made through protocols. 
 
 The app has three main scenes:
 
+Home: where different categories of movies are displayed with an horizontal carousel. The categories are "Top rated movies", "Popular movies", "New releases" and "upcoming". If some of this movie lists fails to be downloaded, the rest of them will be displayed.
+
+[img]https://i.imgur.com/5x5PAak.png[/img]
