@@ -63,7 +63,7 @@ class MovieSearchInteractorTests: XCTestCase
   
   // MARK: Tests
   
-  func testFetchMovies()
+  func testFetchMoviesSucceeding()
   {
     // Given
     let spy = MovieSearchPresentationLogicSpy()
@@ -80,5 +80,22 @@ class MovieSearchInteractorTests: XCTestCase
     XCTAssertTrue(spy.presentMatchingMoviesCalled, "fethMovies(queryString:) should ask the presenter to format the matching movies on success")
     XCTAssertTrue(movieServiceMock.searchCalled, "fetchMovies(queryString:) should ask the movie service to search for movies using the query string")
   }
+    
+    func testFetchMoviesFailing(){
+        // Given
+        let spy = MovieSearchPresentationLogicSpy()
+        sut.presenter = spy
+        spy.expectation = expectation(description: "Fetching search results")
+        let movieServiceMock = MovieServiceMock.init(popular: .error, detail: .error, topRated: .error, newReleases: .error, upcoming: .error, reviews: .error, search: .emptyBodyArray)
+        sut.movieService = movieServiceMock
+        
+        // When
+        sut.fetchMovies(queryString: "patata")
+        waitForExpectations(timeout: 1, handler: nil)
+        
+        // Then
+        XCTAssertTrue(spy.presentNoMoviesFoundCalled, "fethMovies(queryString:) should ask the presenter to present an empty state when service failed or returned an empty body")
+        XCTAssertTrue(movieServiceMock.searchCalled, "fetchMovies(queryString:) should ask the movie service to search for movies using the query string")
+    }
     
 }
