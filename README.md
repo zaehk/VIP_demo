@@ -30,4 +30,4 @@ MOVIE DETAIL: when the user clicks on any movie, a new screen with the movie det
 MOVIE SEARCH: The user can type here any query and the app will show movies that match the title. If no movie is found an empty state will be displayed to the user.
 Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
 
-![alt text](https://i.imgur.com/8NVCMrX.png)
+![alt text](https://i.imgur.com/yr9fSAL.png)
