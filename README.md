@@ -35,3 +35,5 @@ MOVIE SEARCH: The user can type here any query and the app will show movies that
 Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
 
 ![alt text](https://i.imgur.com/yr9fSAL.png)
+
+
