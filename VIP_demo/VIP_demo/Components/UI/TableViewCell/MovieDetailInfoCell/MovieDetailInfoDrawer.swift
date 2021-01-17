@@ -18,8 +18,14 @@ internal final class MovieDetailInfoDrawer: CellDrawerProtocol {
             return
         }
         
-        cell.setMovieBackdropImage(imageURL: cellVM.imageURL, placeholder: UIImage.init(named: "moviePosterNotFound"))
+        if let safeBackdrop = cellVM.imageURL{
+            cell.setMovieBackdropImage(imageURL: safeBackdrop, placeholder: UIImage.init(named: "movieBackdropNotFound"))
+        }else {
+            cell.setMoviePlaceholder(image: UIImage.init(named: "movieBackdropNotFound"))
+        }
+        
         cell.setMovieOverview(text: cellVM.overView,size: 14)
+        
     }
 }
 

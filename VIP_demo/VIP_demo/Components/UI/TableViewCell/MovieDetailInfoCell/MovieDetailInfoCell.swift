@@ -85,8 +85,12 @@ class MovieDetailInfoCell: UITableViewCell, GetCellIdentifierProtocol {
         overViewTextView.font = UIFont.systemFont(ofSize: size)
     }
     
-    func setMovieBackdropImage(imageURL: String?, placeholder: UIImage?){
-        self.movieBackdropImageView.loadImageUsingUrlString(urlString: imageURL ?? "", placeHolderImage: placeholder ?? UIImage())
+    func setMovieBackdropImage(imageURL: String, placeholder: UIImage?){
+        self.movieBackdropImageView.loadImageUsingUrlString(urlString: imageURL, placeHolderImage: placeholder ?? UIImage())
+    }
+    
+    func setMoviePlaceholder(image: UIImage?){
+        self.movieBackdropImageView.image = image
     }
 
     

@@ -13,7 +13,7 @@ class CustomImageView: UIImageView {
     
     var imageUrlString: String?
     
-    func loadImageUsingUrlString(urlString: String, placeHolderImage: UIImage) {
+    func loadImageUsingUrlString(urlString: String, placeHolderImage: UIImage?) {
         
         self.image = nil
         
@@ -52,7 +52,7 @@ class CustomImageView: UIImageView {
         
     }
     
-    private func setImageWithAnimation(imageToTransition: UIImage) {
+    private func setImageWithAnimation(imageToTransition: UIImage?) {
         UIView.transition(with: self,
                           duration: 0.50,
                           options: .transitionCrossDissolve,

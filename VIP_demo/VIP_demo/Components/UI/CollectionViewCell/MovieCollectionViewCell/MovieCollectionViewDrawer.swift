@@ -24,7 +24,9 @@ internal final class MovieCollectionViewDrawer: CollectionDrawerProtocol {
         cell.setMovieTitle(title: cellVM.movieTitle)
         
         if let posterURL = cellVM.moviePosterUrl {
-            cell.setMoviePosterImage(url: posterURL)
+            cell.setMoviePosterImage(url: posterURL,placeHolder: UIImage.init(named: "moviePosterNotFound"))
+        } else {
+            cell.setDefaultPosterImage(placeholder: UIImage.init(named: "moviePosterNotFound"))
         }
         
     }
