@@ -13,7 +13,8 @@ The communication between the components of a scene are made through protocols. 
 
 The app has three main scenes:
 
-HOME: where different categories of movies are displayed with an horizontal carousel. The categories are "Top rated movies", "Popular movies", "New releases" and "upcoming". If some of this movie lists fails to be downloaded, the rest of them will be displayed.
+## HOME 
+Different categories of movies are displayed with an horizontal carousel. The categories are "Top rated movies", "Popular movies", "New releases" and "upcoming". If some of this movie lists fails to be downloaded, the rest of them will be displayed.
 
 ![alt text](https://i.imgur.com/5x5PAak.png)
 
@@ -23,7 +24,8 @@ Also, if every category of movies fails to be downloaded, an empty state with an
 
 The screen can be reloaded pulling down so if an error is shown, the user can reload the screen easily.
 
-MOVIE DETAIL: when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the vilm, cast members and crew members. Also, if available, a list of reviews will be shown.
+## MOVIE DETAIL
+when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the vilm, cast members and crew members. Also, if available, a list of reviews will be shown.
 
 ![alt text](https://i.imgur.com/9kT14S7.png)
 
@@ -31,7 +33,8 @@ If the movie detail call results in error, an empty state screen will be display
 
 ![alt text](https://i.imgur.com/L6dLf0f.png)
 
-MOVIE SEARCH: The user can type here any query and the app will show movies that match the title. If no movie is found an empty state will be displayed to the user.
+## MOVIE SEARCH 
+The user can type here any query and the app will show movies that match the title. If no movie is found an empty state will be displayed to the user.
 Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
 
 ![alt text](https://i.imgur.com/yr9fSAL.png)
