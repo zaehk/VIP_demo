@@ -35,7 +35,7 @@ Also, if every category of movies fails to be downloaded, an empty state with an
 The screen can be reloaded pulling down so if an error is shown, the user can reload the screen easily.
 
 ## MOVIE DETAIL
-when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the vilm, cast members and crew members. Also, if available, a list of reviews will be shown.
+when the user clicks on any movie, a new screen with the movie details will be shown. This screen contains an overview of the film, cast members and crew members. Also, if available, a list of reviews will be shown.
 
 ![alt text](https://i.imgur.com/9kT14S7.png)
 
