@@ -11,6 +11,15 @@ The communication between the components of a scene are made through protocols. 
 
 ![VIP flow](https://miro.medium.com/max/700/0*Q2qPUtCiefnnjdVI)
 
+## Pods
+
+The following pods were added to the project:
+
+- Alamofire (networking layer)
+- ProgressHHUD (loaders)
+- Snapkit  (setup views constraints programatically)
+- SnapshotTesting (UI tests)
+
 The app has three main scenes:
 
 ## HOME 
@@ -38,5 +47,9 @@ The user can type here any query and the app will show movies that match the tit
 Clicking on any of the movies displayed here will redirect the user to the movie detail screen.
 
 ![alt text](https://i.imgur.com/yr9fSAL.png)
+
+## Unit Testing & Snapshot Testing
+
+Unit testing and snapshot testing was implemented to test the three main scenes on the app (movie search, movie detail and home).
 
 
