@@ -72,8 +72,14 @@ class MovieCollectionViewCell: UICollectionViewCell, GetCollectionIdentifierProt
         self.movieTitleLabel.text = title
     }
     
-    func setMoviePosterImage(url: String){
-        self.posterImageView.loadImageUsingUrlString(urlString: url, placeHolderImage: UIImage())
+    func setMoviePosterImage(url: String, placeHolder: UIImage?){
+        self.posterImageView.contentMode = .scaleAspectFill
+        self.posterImageView.loadImageUsingUrlString(urlString: url, placeHolderImage: placeHolder)
+    }
+    
+    func setDefaultPosterImage(placeholder: UIImage?){
+        self.posterImageView.contentMode = .scaleAspectFit
+        self.posterImageView.image = placeholder
     }
 
 }

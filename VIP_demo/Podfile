@@ -14,6 +14,7 @@ target 'VIP_demo' do
 
   target 'VIP_demoTests' do
     inherit! :search_paths
+    pod 'SnapshotTesting'
     # Pods for testing
   end
 

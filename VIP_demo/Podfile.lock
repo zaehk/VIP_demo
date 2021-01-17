@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.4.0)
   - ProgressHUD (13.4)
   - SnapKit (5.0.1)
+  - SnapshotTesting (1.8.2)
 
 DEPENDENCIES:
   - Alamofire
   - ProgressHUD
   - SnapKit
+  - SnapshotTesting
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - ProgressHUD
     - SnapKit
+    - SnapshotTesting
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   ProgressHUD: 137a7fc677487c5581668f4490563124fb35c232
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
 
-PODFILE CHECKSUM: dfd2578c6247742f0932ec37bc153783ca2e862d
+PODFILE CHECKSUM: ba1e0b8abee93e3ae73d1b5cd7b2813dfb9708ca
 
 COCOAPODS: 1.9.3

@@ -73,6 +73,7 @@
 		DA95B65C25AE0CBA003CF907 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95B65B25AE0CBA003CF907 /* HomeBuilder.swift */; };
 		DA95B66625AE12DF003CF907 /* MovieDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95B66525AE12DF003CF907 /* MovieDetailBuilder.swift */; };
 		DA95B66C25AE1425003CF907 /* MovieSearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95B66B25AE1425003CF907 /* MovieSearchBuilder.swift */; };
+		DA9D9CD925B179C0000B9B51 /* HomeSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D9CD825B179C0000B9B51 /* HomeSnapshotTest.swift */; };
 		DA9DE3CE258FD84D008CA980 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3CD258FD84C008CA980 /* ApiClient.swift */; };
 		DA9DE3D3258FD8B2008CA980 /* ApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */; };
 		DA9DE3D8258FD8DD008CA980 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */; };
@@ -200,6 +201,7 @@
 		DA95B65B25AE0CBA003CF907 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		DA95B66525AE12DF003CF907 /* MovieDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailBuilder.swift; sourceTree = "<group>"; };
 		DA95B66B25AE1425003CF907 /* MovieSearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchBuilder.swift; sourceTree = "<group>"; };
+		DA9D9CD825B179C0000B9B51 /* HomeSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSnapshotTest.swift; sourceTree = "<group>"; };
 		DA9DE3CD258FD84C008CA980 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		DA9DE3D2258FD8B2008CA980 /* ApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientProtocol.swift; sourceTree = "<group>"; };
 		DA9DE3D7258FD8DD008CA980 /* ApiErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
@@ -547,6 +549,38 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		DA9D9CD125B17990000B9B51 /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA9D9CD425B179A0000B9B51 /* MovieDetail */,
+				DA9D9CD325B1799B000B9B51 /* MovieSearch */,
+				DA9D9CD225B17997000B9B51 /* Home */,
+			);
+			path = SnapshotTests;
+			sourceTree = "<group>";
+		};
+		DA9D9CD225B17997000B9B51 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA9D9CD825B179C0000B9B51 /* HomeSnapshotTest.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DA9D9CD325B1799B000B9B51 /* MovieSearch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieSearch;
+			sourceTree = "<group>";
+		};
+		DA9D9CD425B179A0000B9B51 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
 		DA9DE3F2258FE4C5008CA980 /* TabbarViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +682,7 @@
 		DAE70C8B258F5E9A00DF31FA /* VIP_demoTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA9D9CD125B17990000B9B51 /* SnapshotTests */,
 				DA62580F25B01AD000445F02 /* ServiceMocks */,
 				DA183D9825AF6CEA00DE6F96 /* mocks */,
 				DA183DAE25AF7ADA00DE6F96 /* MovieSearch */,
@@ -809,6 +844,7 @@
 				DAE70C84258F5E9A00DF31FA /* Sources */,
 				DAE70C85258F5E9A00DF31FA /* Frameworks */,
 				DAE70C86258F5E9A00DF31FA /* Resources */,
+				85E7B8662ACA75D6C2E69DBA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1002,6 +1038,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VIP_demo/Pods-VIP_demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		85E7B8662ACA75D6C2E69DBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VIP_demoTests/Pods-VIP_demoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VIP_demoTests/Pods-VIP_demoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VIP_demoTests/Pods-VIP_demoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E62FFE34778E30D2B6D65EC5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1107,6 +1160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9D9CD925B179C0000B9B51 /* HomeSnapshotTest.swift in Sources */,
 				DA183D8825AF520A00DE6F96 /* MovieDetailPresenterTests.swift in Sources */,
 				DA6258C325B0A82500445F02 /* CastingServiceMock.swift in Sources */,
 				DA183D8525AF520A00DE6F96 /* MovieDetailViewControllerTests.swift in Sources */,
@@ -1342,8 +1396,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				"OTHER_SWIFT_FLAGS[arch=*]" = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.borjasaez.VIP-demoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIP_demo.app/VIP_demo";
@@ -1365,8 +1421,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.borjasaez.VIP-demoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIP_demo.app/VIP_demo";
