@@ -23,6 +23,11 @@ internal final class CrewMemberDrawer: CollectionDrawerProtocol {
         
         cell.setMemberName(name: cellVM.memberName)
         cell.setMemberRole(role: cellVM.roleInMovie)
-        cell.setMemberImage(url: cellVM.imageUrl, placeHolderImage: UIImage.init(named: "userNotFound")?.withTintColor(Constants.Styles.mainColor))
+        
+        if let castImage = cellVM.imageUrl {
+            cell.setMemberImage(url: castImage, placeHolderImage: UIImage.init(named: "userNotFound")?.withTintColor(Constants.Styles.mainColor))
+        }else{
+            cell.setPlaceholderImage(image: UIImage.init(named: "userNotFound")?.withTintColor(Constants.Styles.mainColor))
+        }
     }
 }

@@ -19,6 +19,7 @@
 		DA183DB425AF7AF700DE6F96 /* MovieSearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183DB025AF7AF700DE6F96 /* MovieSearchInteractorTests.swift */; };
 		DA183DB625AF7AF700DE6F96 /* MovieSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA183DB225AF7AF700DE6F96 /* MovieSearchPresenterTests.swift */; };
 		DA196FAF25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */; };
+		DA26FE4F25B48C010022A488 /* MovieDetailSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA26FE4E25B48C010022A488 /* MovieDetailSnapshotTest.swift */; };
 		DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */; };
 		DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */; };
 		DA27627525A4716B006D9AA7 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27627125A4716B006D9AA7 /* HomePresenterTests.swift */; };
@@ -148,6 +149,7 @@
 		DA183DB025AF7AF700DE6F96 /* MovieSearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchInteractorTests.swift; sourceTree = "<group>"; };
 		DA183DB225AF7AF700DE6F96 /* MovieSearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchPresenterTests.swift; sourceTree = "<group>"; };
 		DA196FAE25A6F56F0012EE75 /* MovieCategoryTapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryTapProtocol.swift; sourceTree = "<group>"; };
+		DA26FE4E25B48C010022A488 /* MovieDetailSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailSnapshotTest.swift; sourceTree = "<group>"; };
 		DA27626E25A4716B006D9AA7 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		DA27626F25A4716B006D9AA7 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 		DA27627125A4716B006D9AA7 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 		DA9D9CD425B179A0000B9B51 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				DA26FE4E25B48C010022A488 /* MovieDetailSnapshotTest.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				DA183DB325AF7AF700DE6F96 /* MovieSearchViewControllerTests.swift in Sources */,
 				DA27627225A4716B006D9AA7 /* HomeViewControllerTests.swift in Sources */,
 				DA183DB425AF7AF700DE6F96 /* MovieSearchInteractorTests.swift in Sources */,
+				DA26FE4F25B48C010022A488 /* MovieDetailSnapshotTest.swift in Sources */,
 				DA27627325A4716B006D9AA7 /* HomeInteractorTests.swift in Sources */,
 				DA183D8625AF520A00DE6F96 /* MovieDetailInteractorTests.swift in Sources */,
 				DA62586F25B02DC600445F02 /* JsonMockDecoder.swift in Sources */,

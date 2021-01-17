@@ -95,8 +95,14 @@ class CrewMemberCell: UICollectionViewCell, GetCollectionIdentifierProtocol {
         self.crewMemberRoleLabel.text = role
     }
     
-    func setMemberImage(url: String?, placeHolderImage: UIImage?){
-        self.crewMemberImageView.loadImageUsingUrlString(urlString: url ?? "", placeHolderImage: placeHolderImage ?? UIImage())
+    func setMemberImage(url: String, placeHolderImage: UIImage?){
+        self.crewMemberImageView.contentMode = .scaleAspectFill
+        self.crewMemberImageView.loadImageUsingUrlString(urlString: url, placeHolderImage: placeHolderImage)
+    }
+    
+    func setPlaceholderImage(image: UIImage?){
+        self.crewMemberImageView.contentMode = .scaleAspectFit
+        self.crewMemberImageView.image = image
     }
 
 }

@@ -11,7 +11,7 @@ import SnapshotTesting
 
 class MovieSearchSnapshotTest: XCTestCase {
 
-    func testHomeViewController() {
+    func testMovieSearchViewController() {
       let vc = MovieSearchViewController()
         let presenter = MovieSearchPresenter()
         presenter.viewController = vc
