@@ -51,6 +51,6 @@ Clicking on any of the movies displayed here will redirect the user to the movie
 
 ## Unit Testing & Snapshot Testing
 
-Unit testing and snapshot testing was implemented to test the three main scenes on the app (movie search, movie detail and home).
+Unit testing and snapshot testing were implemented to test the three main scenes on the app (movie search, movie detail and home).
 
 
