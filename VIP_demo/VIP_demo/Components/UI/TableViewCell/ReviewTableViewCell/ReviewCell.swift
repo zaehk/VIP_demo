@@ -66,7 +66,6 @@ class ReviewCell: UITableViewCell, GetCellIdentifierProtocol {
     
     // MARK: - Variables
     
-    private var collectionElements: [CollectionDrawerItemProtocol] = []
     private weak var delegate: MovieCategoryTapProtocol?
     private var categoryIdentifier: Any?
     
